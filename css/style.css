@@ -1,0 +1,533 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+:root {
+    --black: #000;
+    --white: #fff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+h5 {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+h6 {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+p {
+    font-size: 1rem;
+}
+
+/* navbar  */
+.navbar {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    margin: 0 auto;
+    z-index: 100;
+    gap: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+}
+
+.navbarlogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbarlogo h5 {
+    font-weight: 700;
+}
+
+/* barre de recherche */
+
+.navbar {
+    font-weight: 500;
+}
+
+.navbar .searchbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    width: 400px;
+    padding: 10px 20px;
+    margin: 0 auto;
+    background-color: var(--white);
+    border-radius: 50px;
+    border: 1px solid var(--black);
+}
+
+.navbar .searchbar input {
+    border: none;
+    width: 100%;
+    font-weight: 100;
+}
+
+.navbar .searchbar svg {}
+
+
+
+
+/* home header */
+
+.homeheader {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    gap: 3rem;
+    width: 90%;
+    height: calc(100vh - 150px);
+    min-height: 100%;
+    margin: 80px auto 0;
+}
+
+/* header de gauche */
+
+.homeheader .leftheader {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* header de droite */
+
+.homeheader .rightheader {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.chiffres {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    width: 100%;
+    /* margin-top: 2rem; */
+}
+
+.chiffres .chiffre {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.chiffres .chiffre h3 {
+    display: flex;
+    align-items: flex-end;
+    font-weight: 800;
+}
+
+.chiffres .chiffre h3 span {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+/* largebox */
+.largebox {
+    /* grid-area: 1 / 1 / 3 / 3; */
+    display: flex;
+    border: 1px solid;
+    /* width: fit-content; */
+    height: 100%;
+    border-radius: 25px;
+    margin: 0 auto;
+    padding: 20px 25px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.largebox .button,
+.smallbox .button {
+    display: flex;
+    justify-content: center;
+    border: 1px solid;
+    width: fit-content;
+    border-radius: 60px;
+    padding: 15px 20px;
+    gap: 1rem;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+
+}
+
+.largebox .button svg,
+.smallbox .button svg {
+    rotate: 45deg;
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.largebox .button:hover svg,
+.smallbox .button:hover svg {
+    transition: all 0.3s ease-in-out;
+    transform: rotate(45deg);
+}
+
+.thinbox {
+    /* grid-area: 3 / 1 / 4 / 3; */
+    display: flex;
+    /* height: fit-content; */
+    border: 1px solid;
+    border-radius: 50px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    gap: 20px;
+    color: var(--white);
+    background-color: var(--black);
+    fill: var(--white);
+    transition: all 0.3s ease-in-out;
+
+}
+
+.thinbox svg {
+    rotate: 90deg;
+    width: 50px;
+    height: 30px;
+    transition: all 0.3s ease-in-out;
+}
+
+.thinbox:hover {
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
+}
+
+.thinbox:hover svg {
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-10px);
+}
+
+
+.flexrow {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.flexrow .smallbox {
+    /* height: 100%; */
+    border-radius: 25px;
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    padding: 15px 20px;
+    /* elipsis */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* slider avis */
+
+#slider-wrapper {
+    width: 100%;
+    height: 100%;
+    max-height: 200px;
+    margin: 0 auto;
+    position: relative;
+    background: rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* boutons radio */
+
+#slider-wrapper label {
+    padding: 4px;
+    background: #000000;
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    border-radius: 20px;
+    opacity: 0.3;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#slider-wrapper .control {
+    display: none;
+}
+
+#slider-wrapper label:hover {
+    opacity: 0.5;
+}
+
+#s1 {
+    margin-left: -30px;
+}
+
+#s2 {
+    margin-left: -10px;
+}
+
+#s3 {
+    margin-left: 10px;
+}
+
+#s4 {
+    margin-left: 30px;
+}
+
+
+
+/* decalage par la gauche du slider en fonction du input radio validé */
+
+#Slide1:checked~.overflow-wrapper {
+    margin-left: 0%;
+}
+
+#Slide2:checked~.overflow-wrapper {
+    margin-left: -100%;
+}
+
+#Slide3:checked~.overflow-wrapper {
+    margin-left: -200%;
+}
+
+#Slide4:checked~.overflow-wrapper {
+    margin-left: -300%;
+}
+
+/* quand un bouton est cliqué, son opacité augmente */
+
+#Slide1:checked+#s1 {
+    opacity: 1;
+}
+
+#Slide2:checked+#s2 {
+    opacity: 1;
+}
+
+#Slide3:checked+#s3 {
+    opacity: 1;
+}
+
+#Slide4:checked+#s4 {
+    opacity: 1;
+}
+
+/* slider */
+
+.overflow-wrapper {
+    display: flex;
+    width: 400%;
+    height: 100%;
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    overflow-y: hidden;
+    z-index: 1;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.overflow-wrapper .slide {
+    padding: 20px 20px 25px;
+    width: 100%;
+}
+
+.overflow-wrapper .slide h5 {
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+}
+
+
+
+/* about */
+
+.about-home {
+    margin: 8rem auto;
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: fit-content;
+}
+
+.about-left {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.about-right {
+    width: 50%;
+    min-height: 500px;
+    height: 100%;
+    background-color: aqua;
+}
+
+.about-head h3 {
+    margin-bottom: 10px;
+}
+
+.step {
+    padding-left: 5rem;
+}
+
+.step h5 {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+
+
+
+.footer {
+    width: 100%;
+    height: 150px;
+    background-color: var(--black);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+}
+
+.footerpages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+}
+
+
+/* responsive */
+
+
+/* pour un écran dont la largeur est en dessous de 1024px (tablet) */
+
+@media screen and (max-width:1024px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+
+    h5 {
+        font-size: 1rem;
+    }
+
+    h6 {
+        font-size: 0.8rem;
+    }
+
+
+}
+
+/* pour un écran dont la largeur est en dessous de 768px (mobile) */
+@media screen and (max-width: 768px) {
+
+    /* passer le homeheader en colonne */
+    .homeheader {
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .homeheader .rightheader,
+    .homeheader .leftheader {
+        width: 100%;
+    }
+
+    /* about */
+    .about-home {
+        flex-direction: column;
+    }
+
+    .about-left,
+    .about-right {
+        width: 100%;
+    }
+}
