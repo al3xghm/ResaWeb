@@ -10,28 +10,13 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <a class="navbarlogo" href="index.html">
-            <img src="img/logo.webp" height="25px" alt="">
-            <h5>WeRent</h5>
-        </a>
-        <div class="searchbar">
-            <!-- searchbar input -->
-            <input type="text" id="searchInput" placeholder="Recherchez une villa, une destination...">
-            <!-- loupe svg -->
-            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512">
-                <path
-                    d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
-            </svg>
-        </div>
-        <a href="#">À propos</a>
-    </nav>
 
-    <header class="homeheader">
+<?php include ('includes/navigation.html'); ?>
+
+    <header id="homeheader" class="homeheader">
         <div class="leftheader">
             <h1>Trouvez la villa idéale !</h1>
-            <h5>Des villas exceptionnelles pour des vacances exceptionnelles. Des villas exceptionnelles pour des
-                vacances exceptionnelles. Des villas exceptionnelles pour des vacances exceptionnelles. </h5>
+            <h5>Offrez-vous une escapade luxueuse dans l'une de nos villas exclusives, offrant un mélange parfait entre confort moderne et charme authentique. Réservez dès aujourd'hui pour vivre une expérience de voyage inoubliable. </h5>
 
             <!-- chiffres -->
             <div class="chiffres">
@@ -93,8 +78,8 @@
         </div>
         <div class="rightheader">
             <div class="largebox">
-                <h3>Des villas exceptionnelles pour des vacances exceptionnelles</h3>
-                <a class="button" href="destinations.html" title="Découvrir les villas">
+                <h3>Des villas extraordinaires à des prix exceptionnels</h3>
+                <a class="button" href="destinations.php" title="Découvrir les villas">
                     <p>Les villas les mieux notées</p>
                     <svg xmlns="http://www.w3.org/2000/svg" height="16" width="12"
                         viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -103,9 +88,9 @@
                     </svg>
                 </a>
             </div>
-            <a class="thinbox" href="destinations.html" title="Explorer les destinations">
+            <a class="thinbox" href="destinations.php" title="Explorer les destinations">
                 <h4>Voir toutes les destinations</h4>
-                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="12"
+                <svg xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                     <path
                         d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" />
@@ -114,7 +99,7 @@
             <div class="flexrow">
                 <div class="smallbox smallboxone">
                     <h3>Villas au bord de mer</h3>
-                    <a class="button" href="destinations.html" title="Découvrir les villas">
+                    <a class="button" href="destinations.php" title="Découvrir les villas">
                         <svg xmlns="http://www.w3.org/2000/svg" height="16" width="12"
                             viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                             <path
@@ -125,7 +110,7 @@
                 </div>
                 <div class="smallbox smallboxtwo">
                     <h3>Châlets en montagne</h3>
-                    <a class="button" href="destinations.html" title="Découvrir les villas">
+                    <a class="button" href="destinations.php" title="Découvrir les villas">
                         <svg xmlns="http://www.w3.org/2000/svg" height="16" width="12"
                             viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                             <path
@@ -140,19 +125,19 @@
     </header>
 
     <!-- chiffres -->
-    <div class="about-home">
+    <section id="about-home" class="about-home">
         <div class="about-left">
             <div class="about-head">
                 <h3>Spécialiste villas et maisons de vacances</h3>
                 <h7>Pour vos prochaines vacances, profitez de votre indépendance !
-                    <br>Moomin propose de nombreuses locations de vacances indépendantes : villas privées, maisons et
+                    <br>WeRent propose de nombreuses locations de vacances indépendantes : villas privées, maisons et
                     penthouse
                     pour des séjours uniques.
                 </h7>
             </div>
             <div class="step">
                 <h5>Fiabilité et confiance</h5>
-                <p>Moomin propose exclusivement des hébergements de vacances gérées par des agences. Toutes les offres
+                <p>WeRent propose exclusivement des hébergements de vacances gérées par des agences. Toutes les offres
                     proposées sur notre site sont totalement fiables et sûres.</p>
             </div>
             <div class="step">
@@ -162,17 +147,16 @@
                     Croatie, Portugal, Grèce ...</p>
             </div>
             <div class="step">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
                 <h5>Recherchez, comparez et réservez !</h5>
-                <p>Trouvez en quelques secondes les locations qui correspondent à vos envies de vacances. Réservez en
-                    ligne
-                    en toute confiance et en toute sécurité.</p>
+                <p>Trouvez en quelques secondes les locations qui correspondent à vos envies de vacances. Réservez en ligne en toute confiance et en toute sécurité.</p>
             </div>
         </div>
 
         <div class="about-right">
 
         </div>
-    </div>
+</section>
 
 
     <footer class="footer">
