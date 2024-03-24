@@ -1,13 +1,13 @@
 <?php
+
     //connexion a la bdd
-    include("connexion.php");
+    include("includes/connexion.php");
 
     //demande des destinations
     $requete = "SELECT * FROM destinations";
     $stmt = $db->query($requete);
     $resultat = $stmt->fetchall(PDO::FETCH_ASSOC);
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,13 +17,16 @@
     <title>Document</title>
 </head>
 <body>
-<?php require ('navigation.html'); ?>
-    <p>Les destinations sont :</p>
+<?php include('includes/navigation.php'); ?>
+
+    <p>Les destinations sont ici :</p>
     <?php 
     foreach($resultat as $destination){
         echo "<p>".$destination['nom']."</p>";
         echo "<p>" . $destination['pays'] . "</p>";
     }
     ?>
+
+<?php include ('includes/footer.php'); ?>
 </body>
 </html>

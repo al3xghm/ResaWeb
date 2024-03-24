@@ -22,7 +22,7 @@ function checkRadio() {
     }
 }
 
-setInterval(checkRadio, 5000);
+setInterval(checkRadio, 4000);
 
 
 
