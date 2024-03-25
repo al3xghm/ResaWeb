@@ -1,6 +1,6 @@
 
     <nav class="navbar">
-        <a class="navbarlogo" href="#homeheader">
+        <a class="navbarlogo" href="index.php">
             <img src="img/logo.webp" height="25px" alt="">
             <h5>WeRent</h5>
         </a>

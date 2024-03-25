@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap')
-;
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
 *,
 *::after,
 *::before {
@@ -168,15 +168,22 @@ p {
 
 .chiffres {
     display: flex;
-    align-items: center;
-    gap: 3rem;
+    justify-content: center;
+    gap: 5rem;
     width: 100%;
     /* margin-top: 2rem; */
+}
+
+.chiffres .barre {
+    height: 50px;
+    width: 1px;
+    background-color: #a0a0a0; 
 }
 
 .chiffres .chiffre {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0.2rem;
 }
 
@@ -195,7 +202,7 @@ p {
 /* largebox */
 .largebox {
     /* grid-area: 1 / 1 / 3 / 3; */
-    display: flex;;
+    display: flex;
     /* width: fit-content; */
     height: 100%;
     border-radius: 25px;
@@ -317,11 +324,9 @@ p {
 
 /* slider avis */
 
-#slider-wrapper {
+#slider-wrapper-review {
     width: 100%;
-    /* height: 100%; */
-
-    max-height: 500px;
+    height: 100%;
     margin: 0 auto;
     position: relative;
     background: rgba(0, 0, 0, 0.05);
@@ -329,31 +334,69 @@ p {
     overflow: hidden;
 }
 
-
-.slide {
+#slider-wrapper-review .slide {
     width: 100%;
     background-size: cover;
-    background-image: url("../img/villa2.jpg");   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
 }
 
-#slide1{
-    background-image: url("../img/villa2.jpg");
+#slide1-review {
+    background: linear-gradient(to bottom, transparent, #000000), url("../img/mv-cr.jpg");
 }
 
-#slide2{
-    background-image: url("../img/villa3.jpg");
+#slide2-review {
+    background: linear-gradient(to bottom, transparent, #000000), url("../img/ro-fi.jpg");
 }
 
-#slide3{
-    background-image: url("../img/villa4.jpg");
+#slide3-review {
+    background: linear-gradient(to bottom, transparent, #000000), url("../img/tc-jp.jpg");
+}
+#slide4-review {
+    background: linear-gradient(to bottom, transparent, #000000), url("../img/rr-tn.jpg");
+}
+
+.city{
+    padding: 10px 20px;
+    border-radius: 50px;
+    width: fit-content;
+    background-color: var(--white);
+    opacity: 0.9;
+    backdrop-filter: blur(30px);
+    margin-bottom: auto;
+}
+
+.word{
+    border: 1px solid white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    width: fit-content;
+    color: white;
+}
+
+.review{
+    backdrop-filter: blur(10px);    
+    display: flex;
+    flex-direction: row;
+    padding: 10px 20px;
+    border-radius: 50px;
+    width: fit-content;
+    gap: 5px;
+}
+
+.review img{
+    width: 15px;
+    height: 15px;
 }
 
 
 /* boutons radio */
 
-#slider-wrapper label {
+#slider-wrapper-review label {
     padding: 4px;
-    background: #000000;
+    background: #ffffff;
     position: absolute;
     left: 50%;
     bottom: 20px;
@@ -363,77 +406,73 @@ p {
     z-index: 2;
 }
 
-#slider-wrapper .control {
+#slider-wrapper-review .control {
     display: none;
 }
 
-#slider-wrapper label:hover {
+#slider-wrapper-review label:hover {
     opacity: 0.5;
 }
 
-#s1 {
+#s1-review {
     margin-left: -30px;
 }
 
-#s2 {
+#s2-review {
     margin-left: -10px;
 }
 
-#s3 {
+#s3-review {
     margin-left: 10px;
 }
 
-#s4 {
+#s4-review {
     margin-left: 30px;
 }
 
-
-
 /* decalage par la gauche du slider en fonction du input radio validé */
 
-#Slide1:checked~.overflow-wrapper {
+#Slide1-review:checked~.overflow-wrapper {
     margin-left: 0%;
 }
 
-#Slide2:checked~.overflow-wrapper {
+#Slide2-review:checked~.overflow-wrapper {
     margin-left: -100%;
 }
 
-#Slide3:checked~.overflow-wrapper {
+#Slide3-review:checked~.overflow-wrapper {
     margin-left: -200%;
 }
 
-#Slide4:checked~.overflow-wrapper {
+#Slide4-review:checked~.overflow-wrapper {
     margin-left: -300%;
 }
 
 /* quand un bouton est cliqué, son opacité augmente */
 
-#Slide1:checked+#s1 {
+#Slide1-review:checked+#s1-review {
     opacity: 1;
 }
 
-#Slide2:checked+#s2 {
+#Slide2-review:checked+#s2-review {
     opacity: 1;
 }
 
-#Slide3:checked+#s3 {
+#Slide3-review:checked+#s3-review {
     opacity: 1;
 }
 
-#Slide4:checked+#s4 {
+#Slide4-review:checked+#s4-review {
     opacity: 1;
 }
+
 
 /* slider */
 
-.overflow-wrapper {
+#slider-wrapper-about .overflow-wrapper {
     display: flex;
     width: 400%;
     min-height: 500px;
-    /* position: absolute;
-    top: 0;
-    left: 0; */
     overflow-y: hidden;
     z-index: 1;
     -webkit-transition: all 0.3s ease-in-out;
@@ -442,16 +481,17 @@ p {
     transition: all 0.3s ease-in-out;
 }
 
-.overflow-wrapper .slide {
+#slider-wrapper-about .overflow-wrapper .slide {
     padding: 20px 20px 25px;
     width: 100%;
     min-height: 500px;
 }
 
-.overflow-wrapper .slide h5 {
+#slider-wrapper-about .overflow-wrapper .slide h5 {
     font-weight: 600;
     margin-bottom: 0.7rem;
 }
+
 
 
 
@@ -463,8 +503,8 @@ p {
     display: flex;
     gap: 5rem;
     justify-content: center;
+    align-items: center;
     width: 80%;
-    height: 100%;
 }
 
 .about-left {
@@ -505,6 +545,134 @@ p {
 }
 
 
+/* slider about */
+
+#slider-wrapper-about {
+    width: 100%;
+    max-height: 500px;
+    margin: 0 auto;
+    position: relative;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.slide {
+    width: 100%;
+    background-size: cover;
+}
+
+#slide1-about {
+    background-image: url("../img/villa2.jpg");
+}
+
+#slide2-about {
+    background-image: url("../img/villa3.jpg");
+}
+
+#slide3-about {
+    background-image: url("../img/villa4.jpg");
+}
+
+/* boutons radio */
+
+#slider-wrapper-about label {
+    padding: 4px;
+    background: #ffffff;
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    border-radius: 20px;
+    opacity: 0.3;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#slider-wrapper-about .control {
+    display: none;
+}
+
+#slider-wrapper-about label:hover {
+    opacity: 0.5;
+}
+
+#s1-about {
+    margin-left: -30px;
+}
+
+#s2-about {
+    margin-left: -10px;
+}
+
+#s3-about {
+    margin-left: 10px;
+}
+
+#s4-about {
+    margin-left: 30px;
+}
+
+/* decalage par la gauche du slider en fonction du input radio validé */
+
+#Slide1-about:checked~.overflow-wrapper {
+    margin-left: 0%;
+}
+
+#Slide2-about:checked~.overflow-wrapper {
+    margin-left: -100%;
+}
+
+#Slide3-about:checked~.overflow-wrapper {
+    margin-left: -200%;
+}
+
+#Slide4-about:checked~.overflow-wrapper {
+    margin-left: -300%;
+}
+
+/* quand un bouton est cliqué, son opacité augmente */
+
+#Slide1-about:checked+#s1-about {
+    opacity: 1;
+}
+
+#Slide2-about:checked+#s2-about {
+    opacity: 1;
+}
+
+#Slide3-about:checked+#s3-about {
+    opacity: 1;
+}
+
+#Slide4-about:checked+#s4-about {
+    opacity: 1;
+}
+
+/* slider */
+#slider-wrapper-review .overflow-wrapper {
+    display: flex;
+    width: 400%;
+    /* min-height: 100%; */
+    overflow-y: hidden;
+    height: 100%;
+    z-index: 1;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+#slider-wrapper-review .overflow-wrapper .slide {
+    padding: 20px 20px 25px;
+    width: 100%;
+    /* min-height: 100%; */
+}
+
+#slider-wrapper-review .overflow-wrapper .slide h5 {
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+}
+
 
 
 .footer {
@@ -528,6 +696,99 @@ p {
     gap: 2rem;
 
 }
+
+
+.destinations {
+    padding-top: 80px;
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    min-height: 100%;
+    gap: 2rem;
+}
+
+.des-left {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 70vh;
+    position: sticky;
+    top: 80px;
+}
+
+.des-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 80%;
+}
+
+.des-right-top {
+    background-color: aqua;
+height: 400px;
+border-radius: 25px;
+}
+
+.des-right-bottom {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 100%;
+    margin-bottom: 5rem;
+}
+
+.des-right-bottom .container-des{
+    height: 300px;
+    width: 100%;
+    margin: 0 auto;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+}
+
+.des-right-bottom .img{
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    background-image: url("../img/villa1.jpg");
+    background-size: cover;
+}
+
+.des-right-bottom .text{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.des-right-bottom .text h5{
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.des-right-bottom h2{
+    font-weight: 700;
+    font-size: 2rem;
+
+}
+.des-right-bottom .location{
+    display: flex;
+    gap: 10px;
+    margin-left: 5px;
+}
+
+.des-right-bottom svg{
+    width: 20px;
+    height: 20px;
+}
+
+.des-right-bottom span{
+font-size: 1rem;
+font-weight: 500;
+}
+
+
+
+
 
 /* responsive */
 
@@ -578,13 +839,42 @@ p {
         width: 100%;
     }
 
+    .chiffres {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .chiffres .barre {
+        background-color: #a0a0a0; 
+        height: 1px;
+        width: 50px;
+    }
+    
     /* about */
     .about-home {
         flex-direction: column;
     }
 
+    .des-right-bottom {
+display: flex;
+flex-direction: column;
+   }
+
     .about-left,
     .about-right {
         width: 100%;
+    }
+
+    .footerpages {
+        flex-direction: column;
+    }
+
+}
+
+/* pour un écran dont la largeur est supérieure ou égale à 1200px */
+@media screen and (min-width: 1200px) {
+    .des-right-bottom {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
