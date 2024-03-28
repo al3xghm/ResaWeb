@@ -1,3 +1,6 @@
+document.addEventListener('DOMContentLoaded', function() {
+
+
 // dans #slider-wrapper, checker les inputs radio s1, s2, s3, s4 toutes les 5 secondes et revenir a s1 après s4
 
 var s1a = document.getElementById("Slide1-about");
@@ -48,5 +51,18 @@ function checkRadioReview() {
 
 setInterval(checkRadioReview, 3500);
 
+document.getElementById('increase').addEventListener('click', function () {
+    var guestNumber = document.getElementById('guest-number');
+    guestNumber.textContent = parseInt(guestNumber.textContent) + 1;
+    console.log(guestNumber.textContent);
+});
 
+document.getElementById('decrease').addEventListener('click', function () {
+    var guestNumber = document.getElementById('guest-number');
+    if (parseInt(guestNumber.textContent) > 1) {
+        guestNumber.textContent = parseInt(guestNumber.textContent) - 1;
+    }
+    console.log(guestNumber.textContent);
+});
 
+});
