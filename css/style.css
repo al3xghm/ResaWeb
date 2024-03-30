@@ -1018,6 +1018,41 @@ gap: 20px;
 /* responsive */
 
 
+@media screen and (max-width:1440px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+
+    h5 {
+        font-size: 1rem;
+    }
+
+    .loca-img1, .loca-img2, .loca-img3, .loca-img4, .loca-img5{
+        height: 10rem;
+    }
+
+
+    .homeheader .leftheader{
+        gap: 1.5rem;
+    }
+}
+
+
+
+
+
 /* pour un écran dont la largeur est en dessous de 1024px (tablet) */
 
 @media screen and (max-width:1280px) {
