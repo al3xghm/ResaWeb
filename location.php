@@ -30,53 +30,58 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
     <div class="locationpage">
 
-    <?php foreach ($resultat as $row) {
+        <?php foreach ($resultat as $row) {
             $images = explode('+', $row["image"]);
             ?>
             <div class='loca-left'>
-                <a href='destinations.php' class='color-blue' title='Retour aux destinations'>Retour à la page précedente</a>
-                <h2><?php echo $row["nom_logement"]; ?></h2>
+                <a href='destinations.php' class='color-blue' title='Retour aux destinations'>Retour à la page
+                    précedente</a>
+                <h2>
+                    <?php echo $row["nom_logement"]; ?>
+                </h2>
                 <div class='location-loca'>
-                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'>
-                        <path d='M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z' />
-                    </svg>
-                    <h5><?php echo $row["nom_destination"] . ", " . $row["pays"]; ?></h5>
+                    <img src='img/location.svg' alt='location'>
+                    <h5>
+                        <?php echo $row["nom_destination"] . ", " . $row["pays"]; ?>
+                    </h5>
                 </div>
                 <div class='loca-price'>
-                    <h3><?php echo $row["prix_par_nuit"]; ?>€<span>/nuit</span></h3>
+                    <h3>
+                        <?php echo $row["prix_par_nuit"]; ?>€<span>/nuit</span>
+                    </h3>
                 </div>
                 <div class='loca-options'>
-                    <?php if ($row["animaux"]) : ?>
+                    <?php if ($row["animaux"]): ?>
                         <div class='loca-options-info'>
                             <img src='img/paw.svg' alt=''>
                             <h5>Animaux</h5>
                         </div>
                     <?php endif; ?>
-                    <?php if ($row["vue"]) : ?>
+                    <?php if ($row["vue"]): ?>
                         <div class='loca-options-info'>
                             <img src='img/eye.svg' alt=''>
                             <h5>Vue</h5>
                         </div>
                     <?php endif; ?>
-                    <?php if ($row["cuisine"]) : ?>
+                    <?php if ($row["cuisine"]): ?>
                         <div class='loca-options-info'>
                             <img src='img/kitchen.svg' alt=''>
                             <h5>Cuisine</h5>
                         </div>
                     <?php endif; ?>
-                    <?php if ($row["wifi"]) : ?>
+                    <?php if ($row["wifi"]): ?>
                         <div class='loca-options-info'>
                             <img src='img/wifi.svg' alt=''>
                             <h5>Wifi</h5>
                         </div>
                     <?php endif; ?>
-                    <?php if ($row["baignoire"]) : ?>
+                    <?php if ($row["baignoire"]): ?>
                         <div class='loca-options-info'>
                             <img src='img/bath.svg' alt=''>
                             <h5>Baignoire</h5>
                         </div>
                     <?php endif; ?>
-                    <?php if ($row["lacs"]) : ?>
+                    <?php if ($row["lacs"]): ?>
                         <div class='loca-options-info'>
                             <img src='img/water.svg' alt=''>
                             <h5>Lacs et rivières</h5>
@@ -84,9 +89,12 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                     <?php endif; ?>
                 </div>
                 <div class='loca-desc'>
-                    <p><?php echo $row["description"]; ?></p>
+                    <p>
+                        <?php echo $row["description"]; ?>
+                    </p>
                 </div>
-                <a href='reservation.php?id=<?php echo $_GET['id']; ?>' class='loca-btn'>Réserver une date <img src='img/calendar.svg' alt=''></a>
+                <a href='reservation.php?id=<?php echo $_GET['id']; ?>' class='loca-btn'>Réserver une date <img
+                        src='img/calendar.svg' alt=''></a>
             </div>
         <?php } ?>
         <div class='loca-right'>

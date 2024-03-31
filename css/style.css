@@ -121,11 +121,19 @@ p {
 .navbar .searchbar input {
     width: 100%;
     font-weight: 100;
-background-color: var(--white);
+    background-color: var(--white);
 }
 
-.navbar .searchbar svg {}
+.navbar .navlink {
+    display: flex;
+    gap: 2rem;
+}
 
+.navbar img {
+    width: 20px;
+    height: 20px;
+
+}
 
 
 
@@ -237,19 +245,20 @@ background-color: var(--white);
     backdrop-filter: blur(30px);
 }
 
-.largebox .button svg,
-.smallbox .button svg {
-    rotate: 45deg;
+
+
+.largebox .button img,
+.smallbox .button img {
     width: 20px;
     height: 20px;
     transition: all 0.3s ease-in-out;
 }
 
 
-.largebox .button:hover svg,
-.smallbox .button:hover svg {
+.largebox .button:hover img,
+.smallbox .button:hover img {
     transition: all 0.3s ease-in-out;
-    transform: rotate(45deg);
+    transform: rotate(-45deg);
 }
 
 .smallboxtwo {
@@ -282,8 +291,7 @@ background-color: var(--white);
 
 }
 
-.thinbox svg {
-    rotate: 90deg;
+.thinbox img {
     width: 50px;
     height: 30px;
     transition: all 0.3s ease-in-out;
@@ -294,9 +302,9 @@ background-color: var(--white);
     transition: all 0.3s ease-in-out;
 }
 
-.thinbox:hover svg {
+.thinbox:hover img {
     transition: all 0.3s ease-in-out;
-    transform: translateY(-10px);
+    transform: translateX(10px);
 }
 
 
@@ -468,12 +476,12 @@ background-color: var(--white);
 
 
 /* slider */
-
-#slider-wrapper-about .overflow-wrapper {
+#slider-wrapper-review .overflow-wrapper {
     display: flex;
     width: 400%;
-    min-height: 500px;
+    /* min-height: 100%; */
     overflow-y: hidden;
+    height: 100%;
     z-index: 1;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
@@ -481,17 +489,16 @@ background-color: var(--white);
     transition: all 0.3s ease-in-out;
 }
 
-#slider-wrapper-about .overflow-wrapper .slide {
+#slider-wrapper-review .overflow-wrapper .slide {
     padding: 20px 20px 25px;
     width: 100%;
-    min-height: 500px;
+    /* min-height: 100%; */
 }
 
-#slider-wrapper-about .overflow-wrapper .slide h5 {
+#slider-wrapper-review .overflow-wrapper .slide h5 {
     font-weight: 600;
     margin-bottom: 0.7rem;
 }
-
 
 
 
@@ -523,6 +530,7 @@ background-color: var(--white);
     background-position: center;
     border-radius: 25px;
     height: fit-content;
+    background-image: url("../img/villa5.jpg");
 }
 
 .about-head h3 {
@@ -539,141 +547,91 @@ background-color: var(--white);
     margin-bottom: 10px;
 }
 
-.step svg {
+.step img {
     width: 30px;
     height: 30px;
 }
 
 
-/* slider about */
-
-#slider-wrapper-about {
-    width: 100%;
-    max-height: 500px;
-    margin: 0 auto;
-    position: relative;
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.slide {
-    width: 100%;
-    background-size: cover;
-}
-
-#slide1-about {
-    background-image: url("../img/villa2.jpg");
-}
-
-#slide2-about {
-    background-image: url("../img/villa3.jpg");
-}
-
-#slide3-about {
-    background-image: url("../img/villa4.jpg");
-}
-
-/* boutons radio */
-
-#slider-wrapper-about label {
-    padding: 4px;
-    background: #ffffff;
-    position: absolute;
-    left: 50%;
-    bottom: 20px;
-    border-radius: 20px;
-    opacity: 0.3;
-    cursor: pointer;
-    z-index: 2;
-}
-
-#slider-wrapper-about .control {
-    display: none;
-}
-
-#slider-wrapper-about label:hover {
-    opacity: 0.5;
-}
-
-#s1-about {
-    margin-left: -30px;
-}
-
-#s2-about {
-    margin-left: -10px;
-}
-
-#s3-about {
-    margin-left: 10px;
-}
-
-#s4-about {
-    margin-left: 30px;
-}
-
-/* decalage par la gauche du slider en fonction du input radio validé */
-
-#Slide1-about:checked~.overflow-wrapper {
-    margin-left: 0%;
-}
-
-#Slide2-about:checked~.overflow-wrapper {
-    margin-left: -100%;
-}
-
-#Slide3-about:checked~.overflow-wrapper {
-    margin-left: -200%;
-}
-
-#Slide4-about:checked~.overflow-wrapper {
-    margin-left: -300%;
-}
-
-/* quand un bouton est cliqué, son opacité augmente */
-
-#Slide1-about:checked+#s1-about {
-    opacity: 1;
-}
-
-#Slide2-about:checked+#s2-about {
-    opacity: 1;
-}
-
-#Slide3-about:checked+#s3-about {
-    opacity: 1;
-}
-
-#Slide4-about:checked+#s4-about {
-    opacity: 1;
-}
-
-/* slider */
-#slider-wrapper-review .overflow-wrapper {
+.faq {
     display: flex;
-    width: 400%;
-    /* min-height: 100%; */
-    overflow-y: hidden;
-    height: 100%;
-    z-index: 1;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
+    flex-direction: column;
+    justify-content: center;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 8rem;
+
 }
 
-#slider-wrapper-review .overflow-wrapper .slide {
-    padding: 20px 20px 25px;
+.faq h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.faq-item {
+    margin-top: 16px;
+    border: 1px solid #fcfcfc;
+    border-radius: 6px;
+    background: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+
+.faq-item .faq-item-title {
+    position: relative;
+    margin: 0;
+    display: flex;
     width: 100%;
-    /* min-height: 100%; */
+    font-size: 1, 2rem;
+    font-weight: 500;
+    cursor: pointer;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    padding: 14px 20px;
+    box-sizing: border-box;
+    align-items: center;
 }
 
-#slider-wrapper-review .overflow-wrapper .slide h5 {
-    font-weight: 600;
-    margin-bottom: 0.7rem;
+.faq-item .faq-item-desc {
+    display: none;
+    font-size: 1rem;
+    line-height: 22px;
+    font-weight: 300;
+    border-top: 1px dashed #ddd;
+    padding: 10px 20px 20px;
+    box-sizing: border-box;
+    animation: dropdown 0.5s ease;
 }
 
+.faq-item input[type="checkbox"] {
+    position: absolute;
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
 
+.faq-item input[type="checkbox"]:checked~.faq-item-desc {
+    display: block;
+}
+
+.faq-item input[type="checkbox"]:checked~.faq-item-title .icon:after {
+    content: "-";
+    font-size: 20px;
+    animation: dropdown 0.5s ease;
+}
+
+.faq-item input[type="checkbox"]~.faq-item-title .icon:after {
+    content: "+";
+    font-size: 20px;
+}
+
+.faq-item:first-child {
+    margin-top: 0;
+}
+
+.faq-item .icon {
+    margin-left: 14px;
+}
 
 .footer {
     width: 100%;
@@ -726,9 +684,23 @@ background-color: var(--white);
 }
 
 .des-right-top {
-    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.des-right-top .sort {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#map {
     height: 400px;
     border-radius: 25px;
+    z-index: 0;
 }
 
 .des-right-bottom {
@@ -780,7 +752,7 @@ background-color: var(--white);
     margin-left: 5px;
 }
 
-.des-right-bottom svg {
+.des-right-bottom img {
     width: 20px;
     height: 20px;
 }
@@ -806,6 +778,12 @@ background-color: var(--white);
     gap: 2rem;
 }
 
+.section-filters form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
 
 .twoinputprice {
     display: flex;
@@ -814,6 +792,7 @@ background-color: var(--white);
 
 .filters-price input {
     width: 50%;
+    color: var(--black);
 }
 
 
@@ -882,7 +861,8 @@ ul.ks-cboxtags li input[type="checkbox"]:checked+label {
     margin: 0 10px;
 }
 
-input[type="submit"] {
+input,
+button[type="submit"] {
     color: var(--white);
     background-color: var(--black);
     padding: 12px;
@@ -935,7 +915,7 @@ textarea {
     font-weight: normal;
 }
 
-.location-loca svg {
+.location-loca img {
     height: 25px;
     width: 25px;
 }
@@ -1148,6 +1128,8 @@ textarea {
 /* pour un écran dont la largeur est en dessous de 768px (mobile) */
 @media screen and (max-width: 768px) {
 
+
+
     /* passer le homeheader en colonne */
     .homeheader {
         flex-direction: column;
@@ -1210,6 +1192,15 @@ textarea {
         margin-bottom: 15px;
     }
 
+
+    .des-right-top {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+    }
+
     .des-right {
         width: 100%;
     }
@@ -1243,5 +1234,23 @@ textarea {
 @media screen and (min-width: 1200px) {
     .des-right-bottom {
         grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+
+
+
+
+
+@keyframes dropdown {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+
+    to {
+        max-height: 500px;
+        /* ou une valeur suffisamment grande pour afficher tout le contenu */
+        opacity: 1;
     }
 }
