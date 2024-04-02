@@ -1,3 +1,11 @@
+<?php
+include ('includes/connexion.php');
+$sql = "SELECT * FROM logements INNER JOIN destinations ON logements.destinationextID = destinations.destinationID ORDER BY logements.logementID DESC LIMIT 4";
+$result = $db->query($sql);
+$last = $result->fetchall(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -59,7 +67,8 @@
                 <label for="Slide4-review" id="s4-review"></label>
 
                 <div class="overflow-wrapper">
-                    <div class="slide" id="slide1-review">
+
+                    <!-- <div class="slide" id="slide1-review">
                         <div class="city">
                             <h6>Monteverde, Costa Rica</h6>
                         </div>
@@ -99,7 +108,40 @@
                         </div>
                         <div class="review"><img src="img/star.svg" alt=""><img src="img/star.svg" alt=""><img
                                 src="img/star.svg" alt=""><img src="img/star.svg" alt=""></div>
-                    </div>
+                    </div> -->
+
+
+                    <?php
+                    $index = 0;
+                    foreach ($last as $row) {
+                        $images = explode('+', $row['image']);
+                        $image_url = $images[0];
+    
+                        $index++;
+                        ?>
+                        <a href="location.php?id=<?php echo $row['logementID']; ?>" class="slide" id="slide<?php echo $index; ?>-review" style="background: linear-gradient(to bottom, transparent, #000000), url('img/<?php echo $image_url; ?>');">
+                            <div class="city">
+                                <h6>
+                                    <?php echo "{$row['nom_destination']}, {$row['pays']}"; ?>
+                                </h6>
+                            </div>
+                            <div class="word">
+                                <h6>
+                                    <?php echo $row['nom_logement']; ?>
+                                </h6>
+                            </div>
+                            <div class="review">
+                                <img src="img/star.svg" alt="star">
+                                <img src="img/star.svg" alt="star">
+                                <img src="img/star.svg" alt="star">
+                                <img src="img/star.svg" alt="star">
+                                <img src="img/star.svg" alt="star">
+
+                            </div>
+                        </a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
 

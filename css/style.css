@@ -343,28 +343,13 @@ p {
 
 #slider-wrapper-review .slide {
     width: 100%;
-    background-size: cover;
+    background-size: cover !important;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
 }
 
-#slide1-review {
-    background: linear-gradient(to bottom, transparent, #000000), url("../img/mv-cr.jpg");
-}
-
-#slide2-review {
-    background: linear-gradient(to bottom, transparent, #000000), url("../img/ro-fi.jpg");
-}
-
-#slide3-review {
-    background: linear-gradient(to bottom, transparent, #000000), url("../img/tc-jp.jpg");
-}
-
-#slide4-review {
-    background: linear-gradient(to bottom, transparent, #000000), url("../img/rr-tn.jpg");
-}
 
 .city {
     padding: 10px 20px;
@@ -687,7 +672,7 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
+    margin-top: 90px;
 }
 
 .des-right-top .sort {
@@ -891,6 +876,7 @@ textarea {
     gap: 4rem;
     padding: 8rem 0;
     max-width: 1440px;
+    align-items: flex-start;
 }
 
 .loca-left {
@@ -899,6 +885,8 @@ textarea {
     width: 50%;
     height: 100%;
     gap: 1.5rem;
+    position: sticky;
+    top: 80px;
 }
 
 .loca-right {

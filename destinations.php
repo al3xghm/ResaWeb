@@ -7,9 +7,11 @@ include ("includes/connexion.php");
 $requete = "SELECT * FROM logements INNER JOIN destinations ON logements.destinationextID = destinations.destinationID";
 $stmt = $db->query($requete);
 $resultat = $stmt->fetchall(PDO::FETCH_ASSOC);
-$requetecontinent = "SELECT continent FROM destinations";
+
+/* $requetecontinent = "SELECT continent FROM destinations";
 $stmtcontinent = $db->query($requetecontinent);
-$resultatcontinent = $stmtcontinent->fetchall(PDO::FETCH_ASSOC);
+$resultatcontinent = $stmtcontinent->fetchall(PDO::FETCH_ASSOC); */
+
 
 ?>
 
