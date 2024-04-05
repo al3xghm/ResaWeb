@@ -63,18 +63,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Filtrer le nombre
 
-    document.getElementById('increase').addEventListener('click', function () {
+    document.getElementById('increase').addEventListener('click', function (event) {
+        event.preventDefault();
+
         var guestNumber = document.getElementById('guest-number');
-        guestNumber.textContent = parseInt(guestNumber.textContent) + 1;
-        console.log(guestNumber.textContent);
+        // guest-number is an input type number, so we can directly increment the value
+        guestNumber.value = parseInt(guestNumber.value) + 1;
     });
 
-    document.getElementById('decrease').addEventListener('click', function () {
+    document.getElementById('decrease').addEventListener('click', function (event) {
+        event.preventDefault();
         var guestNumber = document.getElementById('guest-number');
-        if (parseInt(guestNumber.textContent) > 1) {
-            guestNumber.textContent = parseInt(guestNumber.textContent) - 1;
+        if (parseInt(guestNumber.value) > 1) {
+            guestNumber.value = parseInt(guestNumber.value) - 1;
+
         }
-        console.log(guestNumber.textContent);
     });
 
 

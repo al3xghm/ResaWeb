@@ -24,7 +24,7 @@ function checkRadioReview() {
     }
 }
 
-setInterval(checkRadioReview, 4000);
+setInterval(checkRadioReview, 3500);
 
 
 });
