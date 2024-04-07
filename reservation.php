@@ -22,13 +22,18 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Reservation</title>
+    <title>Réservation</title>
+    <link rel="shortcut icon" href="img/icon.webp">
 </head>
 
 <body>
+    
     <?php include ('includes/navigation.php'); ?>
 
     <div class="reservation-container">
+    <div class="title-filters">
+    <a class="color-blue" href="index.php">Index</a><span>/</span><a class="color-blue" href="destinations.php">Destinations</a><span>/</span><?php foreach ($resultat as $logement) { echo "<a class='color-blue' href='location.php?id={$_GET['id']}'>{$logement['nom_logement']} </a> ";}?><span>/</span><span>Réservation</span>
+            </div>
 <?php foreach ($resultat as $logement) { echo "<h1>Réservez <b>{$logement['nom_logement']}</b></h1>"; } ?>
         <form action="" method="post">
         <input type="hidden" name="logementID" id="logementID" value="<?php echo $_GET['id']; ?>">

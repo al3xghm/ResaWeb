@@ -6,9 +6,11 @@
         </a>
         <div class="searchbar">
             <!-- searchbar input -->
-            <input type="text" id="searchInput" placeholder="Recherchez une villa, une destination...">
+            <form action="destinations.php" method="GET">
+            <input type="text" id="searchInput" name="search_combined" placeholder="Recherchez une villa, une destination...">
             <!-- loupe svg -->
-            <img src="./img/loupe.svg" alt="">
+            <button type="submit"><img src="./img/loupe.svg" alt=""></button>
+            </form>
         </div>
     </nav>
     

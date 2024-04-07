@@ -1,84 +1,91 @@
 <?php
-//connexion a la bdd
+// Connexion à la base de données
 include ("includes/connexion.php");
 
-// Requête SQL pour récupérer les logements en fonction des filtres
+// Requête SQL pour récupérer les logements en fonction des filtres et de la recherche combinée
 $requete = "SELECT * FROM logements INNER JOIN destinations ON logements.destinationextID = destinations.destinationID";
 
+// Tableau des conditions à ajouter à la requête
+$conditions = [];
+
+// Tableau des valeurs à lier aux paramètres nommés
+$valeurs = [];
+
+// Vérification de la recherche combinée
+if (isset($_GET['search_combined']) && !empty($_GET['search_combined'])) {
+    // Ajouter une condition pour rechercher dans le nom de logement ou la destination
+    $search_combined = $_GET['search_combined'];
+    $conditions[] = "(nom_logement LIKE :search OR nom_destination LIKE :search)";
+    $valeurs[':search'] = "%$search_combined%";
+}
+
+// Définition des valeurs par défaut pour min_price et max_price
+$default_min_price = '0';
+$default_max_price = '1000';
+
+// Utilisation des valeurs par défaut si les champs ne sont pas remplis
+$min_price = isset($_GET['min_price']) ? $_GET['min_price'] : $default_min_price;
+$max_price = isset($_GET['max_price']) ? $_GET['max_price'] : $default_max_price;
+
+// Convertir min_price et max_price en 0 et 1000 respectivement si vides
+if ($min_price === '') {
+    $min_price = '0';
+}
+if ($max_price === '') {
+    $max_price = '1000';
+}
+
 // Si des valeurs de prix sont définies, on ajoute une clause WHERE pour filtrer par prix
-if (isset($_GET['min_price']) && isset($_GET['max_price']) && $_GET['min_price'] !== '' && $_GET['max_price'] !== '') {
-    $requete .= " WHERE prix_par_nuit BETWEEN :min_price AND :max_price";
-    // On prépare la requête avec des paramètres pour éviter les injections SQL
-    $stmt = $db->prepare($requete);
-    $stmt->execute(array(':min_price' => $_GET['min_price'], ':max_price' => $_GET['max_price']));
-} else {
-    // Si aucune valeur de prix n'est définie, exécuter la requête sans filtre de prix
-    $stmt = $db->query($requete);
+if ($min_price !== '' && $max_price !== '') {
+    $conditions[] = "prix_par_nuit BETWEEN :min_price AND :max_price";
+    $valeurs[':min_price'] = $min_price;
+    $valeurs[':max_price'] = $max_price;
 }
 
 // Vérification des options
 $options = array('wifi', 'vue', 'lacs', 'animaux', 'baignoire', 'cuisine');
 foreach ($options as $option) {
     if (isset($_GET[$option]) && $_GET[$option] === 'on') {
-        // Si l'option est cochée, ajoutez-la à la requête
-        if (strpos($requete, 'WHERE') === false) {
-            // Si la clause WHERE n'existe pas encore, ajoutez-la
-            $requete .= " WHERE {$option} = 1";
-        } else {
-            // Sinon, ajoutez la condition avec AND
-            $requete .= " AND {$option} = 1";
-        }
+        $conditions[] = "{$option} = 1";
     }
 }
 
 // Vérification du type de propriété
-$types = array('maison', 'appartement', 'maison_hotes');
-$selectedTypes = [];
-foreach ($types as $type) {
-    if (isset($_GET[$type]) && $_GET[$type] === 'on') {
-        $selectedTypes[] = $type;
-    }
+if (isset($_GET['type']) && !empty($_GET['type'])) {
+    $conditions[] = "type = :type";
+    $valeurs[':type'] = $_GET['type'];
 }
-
-if (!empty($selectedTypes)) {
-    $requete .= " WHERE type IN ('" . implode("', '", $selectedTypes) . "')";
-}
-
 
 // Vérification du nombre d'invités
 if (isset($_GET['capacite']) && $_GET['capacite'] !== '') {
-    if (strpos($requete, 'WHERE') === false) {
-        // Si la clause WHERE n'existe pas encore, ajoutez-la
-        $requete .= " WHERE capacite >= {$_GET['capacite']}";
-    } else {
-        // Sinon, ajoutez la condition avec AND
-        $requete .= " AND capacite >= {$_GET['capacite']}";
-    }
+    $conditions[] = "capacite >= :capacite";
+    $valeurs[':capacite'] = $_GET['capacite'];
 }
 
 // Vérification du continent
 if (isset($_GET['continent']) && $_GET['continent'] !== '') {
-    if (strpos($requete, 'WHERE') === false) {
-        // Si la clause WHERE n'existe pas encore, ajoutez-la
-        $requete .= " WHERE continent = '{$_GET['continent']}'";
-    } else {
-        // Sinon, ajoutez la condition avec AND
-        $requete .= " AND continent = '{$_GET['continent']}'";
-    }
+    $conditions[] = "continent = :continent";
+    $valeurs[':continent'] = $_GET['continent'];
 }
 
-// Exécuter la requête après avoir ajouté toutes les conditions
-$stmt = $db->query($requete);
+// Si des conditions sont définies, les ajouter à la requête
+if (!empty($conditions)) {
+    $requete .= " WHERE " . implode(" AND ", $conditions);
+}
+
+// Exécuter la requête avec les valeurs liées aux paramètres nommés
+$stmt = $db->prepare($requete);
+$stmt->execute($valeurs);
 
 // Récupération des résultats
 $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
 // Requête région
 $requetecontinent = "SELECT continent FROM destinations";
 $stmtcontinent = $db->query($requetecontinent);
-$resultatcontinent = $stmtcontinent->fetchall(PDO::FETCH_ASSOC);
+$resultatcontinent = $stmtcontinent->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
 
 
 <!DOCTYPE html>
@@ -92,7 +99,8 @@ $resultatcontinent = $stmtcontinent->fetchall(PDO::FETCH_ASSOC);
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <title>Document</title>
+    <title>Destinations</title>
+    <link rel="shortcut icon" href="img/icon.webp">
 </head>
 
 <body>
@@ -102,7 +110,7 @@ $resultatcontinent = $stmtcontinent->fetchall(PDO::FETCH_ASSOC);
 
         <div class="des-left">
             <div class="title-filters">
-                <a class="color-blue" href="index.php">Retour à la page précedente</a>
+                <a class="color-blue" href="index.php">Index</a><span>/</span><span>Destinations</span>
             </div>
             <div class="section-filters">
                 <form method="get" action="destinations.php">
@@ -125,28 +133,23 @@ $resultatcontinent = $stmtcontinent->fetchall(PDO::FETCH_ASSOC);
                     </div>
                     <div class="type-property">
                         <h6>Type de propriété</h6>
-                        
-
-                            <ul class="cboxtags">
-
+                        <ul class="cboxtags">
                             <?php
-$tableauLogement[] = ['icon' => 'img/house.svg', 'name' => 'maison', 'label' => 'Maison'];
-$tableauLogement[] = ['icon' => 'img/apartment.svg', 'name' => 'appartement', 'label' => 'Appartement'];
-$tableauLogement[] = ['icon' => 'img/guest-house.svg', 'name' => 'maison_hotes', 'label' => "Maison d'hôtes"];
+                            $tableauLogement[] = ['icon' => 'img/house.svg', 'name' => 'villa', 'label' => 'Villa'];
+                            $tableauLogement[] = ['icon' => 'img/apartment.svg', 'name' => 'appartement', 'label' => 'Appartement'];
+                            $tableauLogement[] = ['icon' => 'img/guest-house.svg', 'name' => 'chalet', 'label' => "Chalet"];
 
-// Définir le nom unique pour tous les boutons radio
-$radio_name = 'type_logement';
+                            // Définir le nom unique pour tous les boutons radio
+                            $radio_name = 'type';
 
-foreach ($tableauLogement as $logement) {
-    echo "<li><input type=\"radio\" id=\"" . $logement['name'] . "\" name=\"{$radio_name}\" value=\"{$logement['name']}\" " . (isset($_GET[$radio_name]) && $_GET[$radio_name] === $logement['name'] ? " checked" : "") . "><label for=\"" . $logement['name'] . "\"><img src=\"" . $logement['icon'] . "\" alt=\"\">" . $logement['label'] . "</label></li>";
-}
-?>
-
-
-
-                            </ul>
-
+                            foreach ($tableauLogement as $logement) {
+                                echo "<li><input type=\"checkbox\" id=\"" . $logement['name'] . "\" name=\"{$radio_name}\" value=\"{$logement['name']}\" onclick=\"allowOnlyOneCheckbox(this)\" " . (isset($_GET[$radio_name]) && $_GET[$radio_name] === $logement['name'] ? " checked" : "") . "><label for=\"" . $logement['name'] . "\"><img src=\"" . $logement['icon'] . "\" alt=\"\">" . $logement['label'] . "</label></li>";
+                            }
+                            ?>
+                        </ul>
                     </div>
+
+
                     <div class="options-property">
                         <h6>Options</h6>
                         <ul class="cboxtags">
@@ -182,14 +185,24 @@ foreach ($tableauLogement as $logement) {
                                 </svg></button>
                         </div>
                     </div>
-                    <button type="submit">Appliquer les filtres</button>
+                    <div class="btn-filters">
+                        <button type="submit">Appliquer les filtres</button>
+                        <button type="reset" id="resetButton">Réinitialiser les filtres</button>
+                    </div>
+
                 </form>
             </div>
         </div>
         <div class="des-right">
             <div class="des-right-top">
                 <h4>
-                    <?php echo count($resultat); ?> Résultats
+                    <!-- if echo count=1 Résultat au singulier et si count > 1 écrire Résultat au pluriel -->
+                    <?php if (count($resultat) <= 1) {
+                        echo count($resultat) . " résultat";
+                    } else {
+                        echo count($resultat) . " résultats";
+                    }
+                    ?>
                 </h4>
                 <div class="sort">
                     <h6>Trier par</h6>

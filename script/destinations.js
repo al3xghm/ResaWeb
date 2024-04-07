@@ -58,9 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById("sort").addEventListener("change", trierPrix);
 
-
-
-
     // Filtrer le nombre
 
     document.getElementById('increase').addEventListener('click', function (event) {
@@ -80,6 +77,27 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+         // Sélectionnez le bouton de réinitialisation
+         const resetButton = document.getElementById('resetButton');
 
+         // Ajoutez un écouteur d'événements pour le clic sur le bouton de réinitialisation
+         resetButton.addEventListener('click', function (event) {
+             // Empêchez le comportement par défaut du bouton de réinitialisation
+             event.preventDefault();
+    
+             // Redirigez l'utilisateur vers la même page sans aucun paramètre d'URL
+             window.location.href = window.location.origin + window.location.pathname;
+            });
 
 });
+
+// checkbox
+function allowOnlyOneCheckbox(checkbox) {
+    var checkboxes = document.querySelectorAll('.type-property input[type="checkbox"]');
+    checkboxes.forEach(function(cb) {
+        if (cb !== checkbox) {
+            cb.checked = false;
+        }
+    });
+}
+

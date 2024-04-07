@@ -1,6 +1,6 @@
 <?php
 
-//connexion a la bdd
+// Connexion à la base de données
 include ("includes/connexion.php");
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $requete = "SELECT * FROM logements INNER JOIN destinations ON logements.destinationextID = destinations.destinationID WHERE logementID = " . $_GET['id'];
@@ -22,7 +22,12 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Location</title>
+    <title>
+        <?php foreach ($resultat as $logement) {
+            echo $logement['nom_logement'];
+        } ?>
+    </title>
+    <link rel="shortcut icon" href="img/icon.webp">
 </head>
 
 <body>
@@ -34,8 +39,12 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             $images = explode('+', $row["image"]);
             ?>
             <div class='loca-left'>
-                <a href='destinations.php' class='color-blue' title='Retour aux destinations'>Retour à la page
-                    précedente</a>
+                <div class="title-filters">
+                    <a class="color-blue" href="index.php">Index</a><span>/</span><a class="color-blue"
+                        href="destinations.php">Destinations</a><span>/</span><span>
+                        <?php echo $row["nom_logement"] ?>
+                    </span>
+                </div>
                 <h2>
                     <?php echo $row["nom_logement"]; ?>
                 </h2>
@@ -101,32 +110,24 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <?php
             $counter = 1; // Initialisation du compteur
             foreach ($images as $image) {
-                echo "<div class='loca-img" . $counter . "' style='background-image: url(\"./img/" . $image . "\");'></div>";
+                echo "<div class='loca-img" . $counter . "' style='background-image: url(\"./img/" . $image . "\");' onclick='openModal(\"./img/" . $image . "\")'></div>";
                 $counter++; // Incrémenter le compteur pour la prochaine classe
                 if ($counter > 5)
                     break; // Sortir de la boucle après avoir affiché 5 images
             }
             ?>
 
-
         </div>
 
-
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-img" src="" alt="Image">
+        </div>
+    </div>
 
     </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
     <?php include ('includes/footer.php'); ?>
     <script src="script/script.js"></script>
