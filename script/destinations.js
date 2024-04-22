@@ -89,6 +89,43 @@ document.addEventListener('DOMContentLoaded', function () {
              window.location.href = window.location.origin + window.location.pathname;
             });
 
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const form = document.querySelector('form');
+                const inputs = form.querySelectorAll('input, select, textarea');
+            
+                // Charger les valeurs sauvegardées
+                inputs.forEach(input => {
+                    const savedValue = localStorage.getItem(input.name);
+                    if (savedValue) {
+                        if (input.type === 'checkbox') {
+                            input.checked = savedValue === 'true';
+                        } else {
+                            input.value = savedValue;
+                        }
+                    }
+                });
+            
+                // Sauvegarder les valeurs dans localStorage lors de leur modification
+                inputs.forEach(input => {
+                    input.addEventListener('change', () => {
+                        if (input.type === 'checkbox') {
+                            localStorage.setItem(input.name, input.checked);
+                        } else {
+                            localStorage.setItem(input.name, input.value);
+                        }
+                    });
+                });
+            
+                // Réinitialiser le localStorage lors du clic sur le bouton Réinitialiser
+                document.getElementById('resetButton').addEventListener('click', () => {
+                    inputs.forEach(input => {
+                        localStorage.removeItem(input.name);
+                    });
+                });
+            });
+            
+
 });
 
 // checkbox

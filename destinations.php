@@ -118,9 +118,11 @@ $resultatcontinent = $stmtcontinent->fetchAll(PDO::FETCH_ASSOC);
                         <h6>Région</h6>
                         <select name="continent" id="continent">
                             <option value="">Choisir une région</option>
-                            <?php foreach ($resultatcontinent as $row) {
-                                echo "<option value='{$row['continent']}'>{$row['continent']}</option>";
-                            }
+                            <?php  foreach ($resultatcontinent as $row) {
+            // Vérifier si l'option actuelle est celle qui a été sélectionnée auparavant
+            $selected = (isset($_GET['continent']) && $_GET['continent'] == $row['continent']) ? 'selected' : '';
+            echo "<option value='{$row['continent']}' {$selected}>{$row['continent']}</option>";
+        }
                             ?>
                         </select>
                     </div>

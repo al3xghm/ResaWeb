@@ -671,7 +671,32 @@ p {
     width: 25rem;
     position: sticky !important;
     top: 80px;
+    overflow: hidden scroll;
+    height: calc(100vh - 100px);
     gap: 2rem;
+}
+
+/* total width */
+.des-left::-webkit-scrollbar {
+    background-color: #fff;
+    width: 12px;
+}
+
+/* background of the scrollbar except button or resizer */
+.des-left::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
+/* scrollbar itself */
+.des-left::-webkit-scrollbar-thumb {
+    background-color: #babac0;
+    border-radius: 16px;
+    border: 4px solid #fff;
+}
+
+/* set button(top and bottom of the scrollbar) */
+.des-left::-webkit-scrollbar-button {
+    display:none;
 }
 
 .des-right {
@@ -1039,8 +1064,9 @@ button {
 }
 
 .modal.show {
-    opacity: 1; /* Lorsque la classe 'show' est ajoutée, définissez l'opacité à 1 */
-  }
+    opacity: 1;
+    /* Lorsque la classe 'show' est ajoutée, définissez l'opacité à 1 */
+}
 
 .modal-content {
     margin: auto;
@@ -1132,6 +1158,72 @@ button {
 }
 
 
+.contact-header {
+    max-width: 1440px;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    margin: 0 auto;
+    margin-bottom: 5rem;
+    width: 90%;
+}
+
+.title-filters {
+    align-self: flex-start;
+}
+
+.contact-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    flex: 1;
+}
+
+
+.contact-body {
+    border-radius: 10px;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%; 
+}
+
+.form-group {
+    padding-bottom: 8rem;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.contact-body #message {
+    height: 100px;
+    resize: none;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    gap: 1rem;
+}
+
+.contact-name {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.contact-name input {
+    width: 50%;
+}
+
+input[type="submit"] {
+    width: 30%;
+    margin: 0 auto;
+}
 
 /* responsive */
 
