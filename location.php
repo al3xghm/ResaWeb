@@ -39,7 +39,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             $images = explode('+', $row["image"]);
             ?>
             <div class='loca-left'>
-                <div class="title-filters">
+                <div class="fil-ariane">
                     <a class="color-blue" href="index.php">Index</a><span>/</span><a class="color-blue"
                         href="destinations.php">Destinations</a><span>/</span><span>
                         <?php echo $row["nom_logement"] ?>

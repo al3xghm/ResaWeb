@@ -31,7 +31,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     <?php include ('includes/navigation.php'); ?>
 
     <div class="reservation-container">
-    <div class="title-filters">
+    <div class="fil-ariane">
     <a class="color-blue" href="index.php">Index</a><span>/</span><a class="color-blue" href="destinations.php">Destinations</a><span>/</span><?php foreach ($resultat as $logement) { echo "<a class='color-blue' href='location.php?id={$_GET['id']}'>{$logement['nom_logement']} </a> ";}?><span>/</span><span>Réservation</span>
             </div>
 <?php foreach ($resultat as $logement) { echo "<h1>Réservez <b>{$logement['nom_logement']}</b></h1>"; } ?>

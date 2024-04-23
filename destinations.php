@@ -107,22 +107,22 @@ $resultatcontinent = $stmtcontinent->fetchAll(PDO::FETCH_ASSOC);
     <?php include ('includes/navigation.php'); ?>
 
     <div class="destinations">
-
-        <div class="des-left">
-            <div class="title-filters">
+    <div class="des-left-column">
+    <div class="fil-ariane">
                 <a class="color-blue" href="index.php">Index</a><span>/</span><span>Destinations</span>
             </div>
+        <div class="des-left">
             <div class="section-filters">
                 <form method="get" action="destinations.php">
                     <div class="filters-regions">
                         <h6>Région</h6>
                         <select name="continent" id="continent">
                             <option value="">Choisir une région</option>
-                            <?php  foreach ($resultatcontinent as $row) {
-            // Vérifier si l'option actuelle est celle qui a été sélectionnée auparavant
-            $selected = (isset($_GET['continent']) && $_GET['continent'] == $row['continent']) ? 'selected' : '';
-            echo "<option value='{$row['continent']}' {$selected}>{$row['continent']}</option>";
-        }
+                            <?php foreach ($resultatcontinent as $row) {
+                                // Vérifier si l'option actuelle est celle qui a été sélectionnée auparavant
+                                $selected = (isset($_GET['continent']) && $_GET['continent'] == $row['continent']) ? 'selected' : '';
+                                echo "<option value='{$row['continent']}' {$selected}>{$row['continent']}</option>";
+                            }
                             ?>
                         </select>
                     </div>
@@ -193,6 +193,7 @@ $resultatcontinent = $stmtcontinent->fetchAll(PDO::FETCH_ASSOC);
                     </div>
 
                 </form>
+                </div>
             </div>
         </div>
         <div class="des-right">

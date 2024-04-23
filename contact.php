@@ -19,14 +19,66 @@
     <?php
     include ('includes/navigation.php');
     ?>
+
+    <div class="contact" id="faq">
+
+        <h1 class="contact-title">👋 Besoin d'aide ?</h1>
 <div class="contact-header">
-    <div class="title-filters">
-        <a class="color-blue" href="index.php">Index</a><span>/</span><span>Support client</span>
+        <div class="contact-left">
+        <div class="faq" >
+        <h3>Questions fréquentes</h3>
+        <div class="faq-item">
+            <input type="checkbox" id="faq1">
+            <label for="faq1" class="faq-item-title"><span class="icon"></span>Quels types de logements puis-je réserver
+                sur votre site ?</label>
+            <div class="faq-item-desc"> Sur notre site, vous pouvez réserver une variété de logements, y compris des
+                villas de luxe, des maisons traditionnelles, des appartements modernes, des chalets de montagne et bien
+                plus encore.</div>
+        </div>
+
+        <div class="faq-item">
+            <input type="checkbox" id="faq2">
+            <label for="faq2" class="faq-item-title"><span class="icon"></span>Comment puis-je trouver des logements
+                adaptés à mes besoins spécifiques ?</label>
+            <div class="faq-item-desc">Utilisez nos filtres de recherche avancée pour affiner vos résultats en fonction
+                de critères tels que le nombre de chambres, la présence d'équipements spécifiques (comme une cuisine,
+                une baignoire, wi-fi, etc.), l'emplacement et bien d'autres encore.</div>
+        </div>
+
+        <div class="faq-item">
+            <input type="checkbox" id="faq3">
+            <label for="faq3" class="faq-item-title"><span class="icon"></span>Y a-t-il des frais cachés associés à la
+                réservation d'un logement ?</label>
+            <div class="faq-item-desc">Non, nous croyons en la transparence. Les frais supplémentaires, tels que les
+                frais de nettoyage ou de service, sont clairement indiqués sur la page de chaque logement avant que vous
+                ne procédiez à la réservation.</div>
+        </div>
+
+        <div class="faq-item">
+            <input type="checkbox" id="faq4">
+            <label for="faq4" class="faq-item-title"><span class="icon"></span>Que dois-je faire si j'ai des problèmes
+                pendant mon séjour ?</label>
+            <div class="faq-item-desc">Si vous rencontrez des problèmes pendant votre séjour, veuillez contacter notre
+                équipe d'assistance clientèle disponible 24h/24 et 7j/7. Nous ferons de notre mieux pour résoudre
+                rapidement tous les problèmes que vous pourriez rencontrer.</div>
+        </div>
+
+        <div class="faq-item">
+            <input type="checkbox" id="faq5">
+            <label for="faq5" class="faq-item-title"><span class="icon"></span>Puis-je amener mon animal de compagnie
+                avec moi ?</label>
+            <div class="faq-item-desc">Certains logements autorisent les animaux de compagnie, tandis que d'autres
+                peuvent avoir des restrictions à ce sujet. Utilisez nos filtres de recherche pour trouver des logements
+                qui acceptent les animaux de compagnie, et assurez-vous de lire les règles spécifiques du logement avant
+                de réserver.</div>
+        </div>
     </div>
+</div>
+        <div class="contact-right">
     <div class="contact-center"> 
         <form action="process_contact.php" method="POST">
             <div class="contact-body">
-                <h1>Contactez-nous</h1>
+                <h3>Rien trouvé ? Contactez-nous 📩</h3>
                 <div class="contact-form">
                     <div class="contact-name">
                         <input type="text" name="nom" id="nom" placeholder="Nom">
@@ -40,6 +92,9 @@
             </div>
         </form>
     </div>
+    </div>
+    </div>
+
 </div>
 
 
