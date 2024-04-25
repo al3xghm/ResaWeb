@@ -558,7 +558,6 @@ p {
     width: 70%;
     margin: 0 auto;
     padding-bottom: 8rem;
-
 }
 
 .faq h1 {
@@ -1174,18 +1173,17 @@ button {
 
 
 
-
 /* contact */
 
 .contact {
     max-width: 1200px;
-    padding-top: 120px;
+    padding-top: 80px;
     margin: 0 auto;
     width: 90%;
 }
 
 .contact .contact-title {
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 
 
@@ -1195,6 +1193,7 @@ button {
     justify-content: center;
     margin: 0 auto;
     gap: 4rem;
+    padding-bottom: 5rem;
 }
 
 .contact-left{
@@ -1240,7 +1239,6 @@ text-align: start;
 }
 
 .form-group {
-    padding-bottom: 8rem;
     text-align: center;
     border-radius: 10px;
 }
@@ -1258,14 +1256,13 @@ text-align: start;
     gap: 1rem;
 }
 
+.contact-left .faq{
+    padding-bottom: 0;
+}
 .contact-name {
     display: flex;
     flex-direction: row;
     gap: 1rem;
-}
-
-.contact-name input {
-    width: 50%;
 }
 
 input[type="submit"] {
@@ -1278,6 +1275,21 @@ input[type="submit"] {
 input[type="submit"]:hover {
     opacity: 0.8;
     transition: all 0.3s ease-in-out;
+}
+
+.input-form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.contact-name .input-form {
+    width: calc(50% - 0.5rem);
+}
+
+.input-form label{
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 
