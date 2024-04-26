@@ -12,5 +12,8 @@
             <button type="submit"><img src="./img/loupe.svg" alt=""></button>
             </form>
         </div>
+        <a href="destinations.php">
+            <h5>Destinations</h5>
+        </a>
     </nav>
     

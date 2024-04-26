@@ -96,7 +96,7 @@
                         <div class="contact-body">
                             <h3>Rien trouvé ? Contactez-nous 📩</h3>
                             <div class="contact-form">
-                                <div class="contact-name">
+                                <div class="twoinput">
                                     <div class="input-form">
                                         <label>Nom <span style="color:red">*</span></label>
                                         <input type="text" name="nom" id="nom" placeholder="Ghmir">

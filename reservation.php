@@ -27,25 +27,89 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 </head>
 
 <body>
-    
+
     <?php include ('includes/navigation.php'); ?>
 
     <div class="reservation-container">
-    <div class="fil-ariane">
-    <a class="color-blue" href="index.php">Index</a><span>/</span><a class="color-blue" href="destinations.php">Destinations</a><span>/</span><?php foreach ($resultat as $logement) { echo "<a class='color-blue' href='location.php?id={$_GET['id']}'>{$logement['nom_logement']} </a> ";}?><span>/</span><span>Réservation</span>
+        <div class="fil-ariane">
+            <a class="color-blue" href="index.php">Index</a><span>/</span><a class="color-blue"
+                href="destinations.php">Destinations</a><span>/</span><?php foreach ($resultat as $logement) {
+                    echo "<a class='color-blue' href='location.php?id={$_GET['id']}'>{$logement['nom_logement']} </a> ";
+                } ?><span>/</span><span>Réservation</span>
+        </div>
+
+        <div class="reservation-wrapper">
+
+
+            <form action="" method="post">
+                <?php foreach ($resultat as $logement) {
+                    echo "<h3>Réservez <b>{$logement['nom_logement']}</b></h3>";
+                } ?>
+                <input type="hidden" name="logementID" id="logementID" value="<?php echo $_GET['id']; ?>">
+                <div class="twoinput">
+                    <div class="input-form">
+                        <label>Nom <span style="color:red">*</span></label>
+                        <input type="text" name="nom" id="nom" placeholder="Nom">
+                    </div>
+                    <div class="input-form">
+                        <label>Prénom <span style="color:red">*</span></label>
+                        <input type="text" name="prenom" id="prenom" placeholder="Prénom">
+                    </div>
+                </div>
+                <div class="input-form">
+                    <label>Email <span style="color:red">*</span></label>
+                    <input type="email" name="email" id="email" placeholder="Email">
+                </div>
+                <div class="input-form">
+                    <label>Téléphone <span style="color:red">*</span></label>
+                    <input type="tel" maxlength="10" name="tel" id="tel" placeholder="Téléphone">
+                </div>
+                <div class="twoinput">
+                    <div class="input-form">
+                        <label>Date d'arrivée <span style="color:red">*</span></label>
+                        <input type="date" name="date_debut" id="date_debut" placeholder="Date d'arrivée">
+                    </div>
+                    <div class="input-form">
+                        <label>Date de départ <span style="color:red">*</span></label>
+                        <input type="date" name="date_fin" id="date_fin" placeholder="Date de départ">
+                    </div>
+                </div>
+                <div class="input-form">
+                    <label>Nombre de personnes <span style="color:red">*</span></label>
+                    <input type="number" max="6" name="nb_personnes" id="nb_personnes"
+                        placeholder="Nombre de personnes">
+                </div>
+                <input type="submit" value="Réserver">
+            </form>
+            <div>
+
+                <div class="apercu">
+                    <div class="apercu-header">
+                        <div class="apercu-reservation">
+                            <h3>🧾 Aperçu de votre réservation</h3>
+                            <br>
+                            <?php foreach ($resultat as $logement) {
+                                echo "<h4>{$logement['nom_logement']}</h4>";
+                                echo "<h5>{$logement['nom_destination']}, {$logement['pays']}</h5><br>";
+                                echo "<h2>{$logement['prix_par_nuit']}€<span>/nuit</span></h2>";
+                            } ?>
+                        </div>
+                        <?php foreach ($resultat as $row) {
+                            $images = explode('+', $row['image']);
+                            $image_url = $images[0];
+                            echo "<div class='apercu-img' style='background-image: url(\"./img/{$image_url}\");'></div>";
+                        } ?>
+                    </div>
+                </div>
+
+                <div class="warning">
+                    <p>🚨 Attention, votre réservation ne sera pas confirmée tant que vous n'aurez pas reçu un email
+                        de confirmation de notre part.</p>
+                </div>
+
             </div>
-<?php foreach ($resultat as $logement) { echo "<h1>Réservez <b>{$logement['nom_logement']}</b></h1>"; } ?>
-        <form action="" method="post">
-        <input type="hidden" name="logementID" id="logementID" value="<?php echo $_GET['id']; ?>">
-            <input type="text" name="nom" id="nom" placeholder="Nom">
-            <input type="text" name="prenom" id="prenom" placeholder="Prénom">
-            <input type="email" name="email" id="email" placeholder="Email">
-            <input type="tel" maxlength="10" name="tel" id="tel" placeholder="Téléphone">
-            <input type="date" name="date_debut" id="date_debut" placeholder="Date d'arrivée">
-            <input type="date" name="date_fin" id="date_fin" placeholder="Date de départ">
-            <input type="number" max="6" name="nb_personnes" id="nb_personnes" placeholder="Nombre de personnes">
-            <input type="submit" value="Réserver">
-        </form>
+        </div>
+
     </div>
 
     <?php include ('includes/footer.php'); ?>
@@ -75,4 +139,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->execute();
 }
 ?>
+
 </html>

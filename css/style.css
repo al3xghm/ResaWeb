@@ -5,7 +5,7 @@
 *::before {
     margin: 0;
     padding: 0;
-    box-sizing: inherit;
+    box-sizing: border-box;
 }
 
 :root {
@@ -83,6 +83,7 @@ p {
     z-index: 100;
     gap: 1rem;
     position: fixed;
+    font-weight: 500;
     top: 0;
     left: 0;
     right: 0;
@@ -114,9 +115,6 @@ p {
 
 /* barre de recherche */
 
-.navbar {
-    font-weight: 500;
-}
 
 .navbar .searchbar {
     display: flex;
@@ -144,7 +142,10 @@ p {
 .navbar img {
     width: 20px;
     height: 20px;
+}
 
+.navbar a h5 {
+    font-weight: 700;
 }
 
 
@@ -157,7 +158,7 @@ p {
     justify-content: center;
     gap: 3rem;
     width: 90%;
-    height: calc(100vh - 150px);
+    height: calc(100vh - 80px);
     min-height: 100%;
     margin: 0 auto;
     padding-top: 80px;
@@ -677,6 +678,8 @@ p {
     flex-direction: column;
     gap: 1rem;
     width: 25rem;
+    position: sticky;
+    top: 80px;
 }
 
 /* total width */
@@ -733,7 +736,18 @@ p {
     gap: 2rem;
     grid-template-columns: 1fr 1fr 1fr;
     height: 100%;
-    margin-bottom: 5rem;
+}
+
+@media screen and (max-width: 1080px) {
+    .des-right-bottom {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .des-right-bottom {
+        grid-template-columns: 1fr;
+    }
 }
 
 .des-right-bottom .container-des {
@@ -743,6 +757,8 @@ p {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .des-right-bottom .img {
@@ -763,6 +779,8 @@ p {
 .des-right-bottom .text h5 {
     font-weight: 700;
     font-size: 1.3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .des-right-bottom h2 {
@@ -814,6 +832,9 @@ p {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    width: 95%;
+    padding-bottom: 1rem;
+
 }
 
 
@@ -1017,7 +1038,7 @@ button {
     background-color: black;
     color: white;
     padding: 20px 25px;
-    width: 50%;
+    max-width: 400px;
     font-size: 1.4rem;
     border-radius: 50px;
     font-weight: 600;
@@ -1147,19 +1168,16 @@ button {
 }
 
 .reservation-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
     padding-top: 80px;
     padding-bottom: 8rem;
-    text-align: center;
     width: 90%;
     margin: 0 auto;
+    max-width: 1440px;
+
 }
 
-.reservation-container h1 {
+
+.reservation-container h3 {
     font-weight: 500;
 }
 
@@ -1170,13 +1188,55 @@ button {
     width: 50%;
 }
 
+.reservation-wrapper {
+    display: flex;
+    gap: 4rem;
+    margin-top: 2rem;
+}
+
+.apercu{
+    border: 1px solid rgb(240, 240, 240);
+    padding: 2rem;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
 
 
+.apercu-header{
+    display: flex;
+    gap: 1.5rem;
+    justify-content: space-between;
+}
+
+.apercu-reservation{
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+}
+
+.apercu h3 {
+    font-weight: 700;
+}
+
+.apercu-img{
+    width: 50%;
+    border-radius: 25px;
+    background-size: cover;
+    background-position: center;
+}
+
+.apercu-reservation h2 span {
+    font-weight: 500;
+}
 
 /* contact */
 
 .contact {
-    max-width: 1200px;
+    max-width: 1440px;
     padding-top: 80px;
     margin: 0 auto;
     width: 90%;
@@ -1259,10 +1319,14 @@ text-align: start;
 .contact-left .faq{
     padding-bottom: 0;
 }
-.contact-name {
+.twoinput {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+}
+
+.twoinput .input-form {
+    width: calc(50% - 0.5rem);
 }
 
 input[type="submit"] {
@@ -1408,8 +1472,19 @@ h1 {
         width: 100%;
     }
 
+    .footer {
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 1.5rem 1rem;
+    }
+
     .footerpages {
         flex-direction: column;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 1rem;
+        width: 90%;
     }
 
     .type-property select {
@@ -1422,8 +1497,8 @@ h1 {
     }
 
     .des-left-column {
-        margin-top: 100px;
         width: 100%;
+        position: relative;
     }
 
     .des-left {
@@ -1487,6 +1562,15 @@ h1 {
 
     .faq {
         width: 90%;
+    }
+
+    .reservation-wrapper {
+        flex-direction: column-reverse;
+        gap: 4rem;
+    }
+
+    .reservation-wrapper form {
+        width: 100%;
     }
 }
 
