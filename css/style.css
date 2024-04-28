@@ -159,7 +159,6 @@ p {
     gap: 3rem;
     width: 90%;
     height: calc(100vh - 80px);
-    min-height: 100%;
     margin: 0 auto;
     padding-top: 80px;
 }
@@ -221,9 +220,8 @@ p {
 
 /* largebox */
 .largebox {
-    /* grid-area: 1 / 1 / 3 / 3; */
+    width: 100%;
     display: flex;
-    /* width: fit-content; */
     height: 100%;
     border-radius: 25px;
     margin: 0 auto;
@@ -653,6 +651,68 @@ p {
 }
 
 
+.popup-container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+}
+
+.popup-image-link {
+    width: 100%;
+    height: 200px;
+    display: block;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.popup-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.popup-title {
+    margin: 0;
+}
+
+.popup-link {
+    background-color: var(--black);
+    color: var(--white) !important;
+    padding: 5px 10px;
+    text-align: center;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.popup-link:hover {
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
+}
+
+.marker-cluster-small,
+    .marker-cluster-small div, 
+    .marker-cluster-medium, 
+    .marker-cluster-medium div, 
+    .marker-cluster-large,
+    .marker-cluster-large div {
+    background-color: rgba(0, 0, 0, 0.6)   !important;
+    }
+
+    .marker-cluster-small{
+        color: var(--white);
+    }
+
+    .leaflet-pane .leaflet-overlay-pane svg {
+    visibility: hidden;
+}
+
 .destinations {
     max-width: 1440px;
     padding-top: 80px;
@@ -702,7 +762,7 @@ p {
 
 /* set button(top and bottom of the scrollbar) */
 .section-filters::-webkit-scrollbar-button {
-    display:none;
+    display: none;
 }
 
 .des-right {
@@ -814,10 +874,7 @@ p {
     align-items: center;
     font-size: 1rem;
     gap: 0.5rem;
-}
-
-.color-blue {
-    color: rgb(77, 77, 255);
+    text-align: center;
 }
 
 .section-filters {
@@ -967,6 +1024,7 @@ button {
     margin-bottom: 5rem;
     max-width: 1440px;
     align-items: flex-start;
+    height: 100vh;
 }
 
 .loca-left {
@@ -985,11 +1043,6 @@ button {
     height: 100%;
     gap: 20px;
     margin-bottom: 1rem;
-}
-
-.fil-ariane {
-    display: flex;
-    gap: 0.5rem;
 }
 
 .location-loca {
@@ -1042,6 +1095,12 @@ button {
     font-size: 1.4rem;
     border-radius: 50px;
     font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.loca-btn:hover {
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
 }
 
 
@@ -1154,8 +1213,8 @@ button {
 
 
 .error-container img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
 }
 
 .error-container p {
@@ -1173,7 +1232,7 @@ button {
     width: 90%;
     margin: 0 auto;
     max-width: 1440px;
-
+    min-height: 100vh;
 }
 
 
@@ -1194,27 +1253,24 @@ button {
     margin-top: 2rem;
 }
 
-.apercu{
+
+
+.apercu {
     border: 1px solid rgb(240, 240, 240);
     padding: 2rem;
-    width: 100%;
+    width: 50%;
     border-radius: 10px;
     display: flex;
-    flex-direction: column;
     gap: 1rem;
     margin-bottom: 2rem;
+    flex-direction: column;
 }
 
 
-.apercu-header{
-    display: flex;
-    gap: 1.5rem;
-    justify-content: space-between;
-}
 
-.apercu-reservation{
+
+.apercu-reservation {
     display: flex;
-    gap: 0.5rem;
     flex-direction: column;
 }
 
@@ -1222,15 +1278,47 @@ button {
     font-weight: 700;
 }
 
-.apercu-img{
-    width: 50%;
+.apercu-img {
+    width: 100%;
     border-radius: 25px;
     background-size: cover;
     background-position: center;
+    height: 200px;
 }
 
 .apercu-reservation h2 span {
     font-weight: 500;
+}
+
+.btn-reservation {
+    display: flex;
+    gap: 1rem;
+    margin: 10px 0;
+}
+
+.logement-res {
+    margin: 10px 0;
+}
+
+#recapTotal {
+    font-weight: 700;
+}
+
+.apercu-reservation h2 {
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+#recapitulatif .apercu {
+    width: 100%;
+}
+
+#recapitulatif .apercu .apercu-reservation {
+    width: 50%;
+}
+
+#recapitulatif .apercu .apercu-img {
+    width: 50%;
 }
 
 /* contact */
@@ -1240,40 +1328,36 @@ button {
     padding-top: 80px;
     margin: 0 auto;
     width: 90%;
+    min-height: 100vh;
 }
 
 .contact .contact-title {
-  margin-bottom: 2rem;
+    margin-bottom: 2rem;
 }
 
 
 .contact-header {
     display: flex;
-    align-items: flex-start; 
+    align-items: flex-start;
     justify-content: center;
     margin: 0 auto;
     gap: 4rem;
     padding-bottom: 5rem;
 }
 
-.contact-left{
+.contact-left {
     width: 50%;
 }
 
-.contact-right{
+.contact-right {
     width: 50%;
-}
-
-
-.fil-ariane {
-    align-self: flex-start;
 }
 
 .contact-center {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%; 
+    width: 100%;
     flex: 1;
 }
 
@@ -1281,12 +1365,12 @@ button {
     width: 100%;
 }
 
-.contact-left .faq{
-width: 100%;
+.contact-left .faq {
+    width: 100%;
 }
 
-.contact-left .faq h1{
-text-align: start;
+.contact-left .faq h1 {
+    text-align: start;
 }
 
 
@@ -1316,9 +1400,10 @@ text-align: start;
     gap: 1rem;
 }
 
-.contact-left .faq{
+.contact-left .faq {
     padding-bottom: 0;
 }
+
 .twoinput {
     display: flex;
     flex-direction: row;
@@ -1341,7 +1426,16 @@ input[type="submit"]:hover {
     transition: all 0.3s ease-in-out;
 }
 
-.input-form{
+button[type="submit"] {
+    transition: all 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
+}
+
+.input-form {
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
@@ -1351,7 +1445,7 @@ input[type="submit"]:hover {
     width: calc(50% - 0.5rem);
 }
 
-.input-form label{
+.input-form label {
     font-size: 0.9rem;
     font-weight: 500;
 }
@@ -1422,6 +1516,15 @@ input[type="submit"]:hover {
     .chiffres {
         gap: 2rem;
     }
+
+    .apercu {
+        width: 100%;
+    }
+
+    .apercu-img {
+        height: 200px;
+        width: 100%;
+    }
 }
 
 
@@ -1431,9 +1534,9 @@ input[type="submit"]:hover {
 /* pour un écran dont la largeur est en dessous de 768px (mobile) */
 @media screen and (max-width: 768px) {
 
-h1 {
-    font-size: 2rem;
-}
+    h1 {
+        font-size: 2rem;
+    }
 
     /* passer le homeheader en colonne */
     .homeheader {
@@ -1507,7 +1610,7 @@ h1 {
         margin-bottom: 15px;
     }
 
-    .section-filters{
+    .section-filters {
         height: 100%;
         padding: 0;
 
@@ -1523,6 +1626,7 @@ h1 {
     .des-right {
         width: 100%;
     }
+
     .section-filters::-webkit-scrollbar {
         display: none;
     }
@@ -1531,6 +1635,7 @@ h1 {
         height: 100%;
         flex-direction: column;
         margin: 0 auto;
+        margin-bottom: 5rem;
     }
 
     .loca-options {
@@ -1552,6 +1657,11 @@ h1 {
         width: calc(100% - 50px);
     }
 
+    .modal-content img {
+        width: 100%;
+        height: fit-content;
+    }
+
     .contact-form {
         width: 100%;
     }
@@ -1567,11 +1677,53 @@ h1 {
     .reservation-wrapper {
         flex-direction: column-reverse;
         gap: 4rem;
+        margin-bottom: 5rem;
     }
 
     .reservation-wrapper form {
         width: 100%;
     }
+
+    .apercu {
+        margin-bottom: 0;
+    }
+
+    .apercu-reservation {
+        gap: 0;
+    }
+
+    .apercu-img {
+        height: 200px;
+        width: 100%;
+    }
+
+    .reservation-container {
+        padding-bottom: 0;
+        min-height: 0;
+    }
+
+    .fil-ariane {
+        flex-wrap: wrap;
+    }
+
+    #recapitulatif {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #recapitulatif .apercu .apercu-img {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    #recapitulatif .apercu .apercu-reservation {
+        width: 100%;
+    }
+
+    .reservation-warning {
+        margin: 30px 0;
+    }
+
 }
 
 /* pour un écran dont la largeur est supérieure ou égale à 1200px */
@@ -1580,10 +1732,6 @@ h1 {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
-
-
-
-
 
 
 @keyframes dropdown {

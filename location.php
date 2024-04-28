@@ -40,9 +40,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             ?>
             <div class='loca-left'>
                 <div class="fil-ariane">
-                    <a class="color-blue" href="index.php">Index</a><span>/</span><a class="color-blue"
-                        href="destinations.php">Destinations</a><span>/</span><span>
-                        <?php echo $row["nom_logement"] ?>
+                    <a href="index.php">Index</a><span>/</span><a href="destinations.php">Destinations</a><span>/</span><span><b><?php echo $row["nom_logement"] ?> </b>
                     </span>
                 </div>
                 <h2>
@@ -84,6 +82,12 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                             <h5>Wifi</h5>
                         </div>
                     <?php endif; ?>
+                    <?php if ($row["montagne"]): ?>
+                        <div class='loca-options-info'>
+                            <img src='img/mountain.svg' alt=''>
+                            <h5>Montagne</h5>
+                        </div>
+                    <?php endif; ?>
                     <?php if ($row["baignoire"]): ?>
                         <div class='loca-options-info'>
                             <img src='img/bath.svg' alt=''>
@@ -94,6 +98,12 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                         <div class='loca-options-info'>
                             <img src='img/water.svg' alt=''>
                             <h5>Lacs et rivières</h5>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($row["mer"]): ?>
+                        <div class='loca-options-info'>
+                            <img src='img/mer.svg' alt=''>
+                            <h5>Au bord de la mer</h5>
                         </div>
                     <?php endif; ?>
                 </div>

@@ -1,19 +1,49 @@
 document.addEventListener('DOMContentLoaded', function () {
-
-
-    // Initialiser la et ajoute la carte
-
-    var map = L.map('map', {
-        attributionControl: false
-    }).setView([51.505, -0.09], 2);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    var map = L.map('map').setView([51.505, -0.09], 2);
+    map.attributionControl.remove();
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        minZoom: 2,
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    var popupContent = 'Hello, this is a popup!';
+    var blackIcon = L.icon({
+        iconUrl: './img/location.svg',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34]
+    });
 
-    L.marker([50.5, 30.5]).addTo(map).bindPopup(popupContent);;
+    var markers = L.markerClusterGroup({
+        chunkedLoading: true
+    });
+
+    fetch('logements.json')
+    .then(response => response.json())
+    .then(geojson => {
+        L.geoJSON(geojson, {
+            pointToLayer: function(feature, latlng) {
+                return L.marker(latlng, {icon: blackIcon});
+            },
+            onEachFeature: function(feature, layer) {
+                if (feature.properties && feature.properties.nom_logement) {
+                    var popupContent = `
+                    <div class="popup-container">
+                        <a href="location.php?id=${feature.properties.logementID}" class="popup-image-link" style="background-image: url('./img/${feature.properties.image}');"></a>
+                        <div class="popup-content">
+                            <h5 class="popup-title">${feature.properties.nom_logement}</h5>
+                            <a href="location.php?id=${feature.properties.logementID}" class="popup-link">Plus d'infos</a>
+                        </div>
+                    </div>
+                    `;
+                    layer.bindPopup(popupContent);
+                }
+            }
+        }).addTo(markers);
+    })
+    .catch(err => console.error('Erreur lors du chargement du GeoJSON: ', err));
+
+    map.addLayer(markers);
 
 
 
@@ -27,11 +57,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
+    // Trier les éléments en fonction du prix
     function trierPrix() {
         var selectElement = document.getElementById("sort");
         var selectedValue = selectElement.value;
         var productList = document.querySelectorAll(".product");
-
         var sortedList;
 
         if (selectedValue === "0") {
@@ -68,76 +98,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('increase').addEventListener('click', function (event) {
         event.preventDefault();
-
         var guestNumber = document.getElementById('guest-number');
-        // guest-number is an input type number, so we can directly increment the value
-        guestNumber.value = parseInt(guestNumber.value) + 1;
+        var currentValue = parseInt(guestNumber.value);
+        if (currentValue < 12) { // Vérifiez si la valeur est inférieure à 12 avant d'incrémenter
+            guestNumber.value = currentValue + 1;
+        }
     });
-
+    
     document.getElementById('decrease').addEventListener('click', function (event) {
         event.preventDefault();
         var guestNumber = document.getElementById('guest-number');
-        if (parseInt(guestNumber.value) > 1) {
-            guestNumber.value = parseInt(guestNumber.value) - 1;
-
+        var currentValue = parseInt(guestNumber.value);
+        if (currentValue > 1) { // Vérifiez si la valeur est supérieure à 1 avant de décrémenter
+            guestNumber.value = currentValue - 1;
         }
     });
 
-         // Sélectionnez le bouton de réinitialisation
-         const resetButton = document.getElementById('resetButton');
+    // Sélectionnez le bouton de réinitialisation
+    const resetButton = document.getElementById('resetButton');
 
-         // Ajoutez un écouteur d'événements pour le clic sur le bouton de réinitialisation
-         resetButton.addEventListener('click', function (event) {
-             // Empêchez le comportement par défaut du bouton de réinitialisation
-             event.preventDefault();
-    
-             // Redirigez l'utilisateur vers la même page sans aucun paramètre d'URL
-             window.location.href = window.location.origin + window.location.pathname;
-            });
+    // Ajoutez un écouteur d'événements pour le clic sur le bouton de réinitialisation
+    resetButton.addEventListener('click', function (event) {
+        // Empêchez le comportement par défaut du bouton de réinitialisation
+        event.preventDefault();
 
-
-            document.addEventListener('DOMContentLoaded', function() {
-                const form = document.querySelector('form');
-                const inputs = form.querySelectorAll('input, select, textarea');
-            
-                // Charger les valeurs sauvegardées
-                inputs.forEach(input => {
-                    const savedValue = localStorage.getItem(input.name);
-                    if (savedValue) {
-                        if (input.type === 'checkbox') {
-                            input.checked = savedValue === 'true';
-                        } else {
-                            input.value = savedValue;
-                        }
-                    }
-                });
-            
-                // Sauvegarder les valeurs dans localStorage lors de leur modification
-                inputs.forEach(input => {
-                    input.addEventListener('change', () => {
-                        if (input.type === 'checkbox') {
-                            localStorage.setItem(input.name, input.checked);
-                        } else {
-                            localStorage.setItem(input.name, input.value);
-                        }
-                    });
-                });
-            
-                // Réinitialiser le localStorage lors du clic sur le bouton Réinitialiser
-                document.getElementById('resetButton').addEventListener('click', () => {
-                    inputs.forEach(input => {
-                        localStorage.removeItem(input.name);
-                    });
-                });
-            });
-            
+        // Redirigez l'utilisateur vers la même page sans aucun paramètre d'URL
+        window.location.href = window.location.origin + window.location.pathname;
+    });
 
 });
 
 // checkbox
 function allowOnlyOneCheckbox(checkbox) {
     var checkboxes = document.querySelectorAll('.type-property input[type="checkbox"]');
-    checkboxes.forEach(function(cb) {
+    checkboxes.forEach(function (cb) {
         if (cb !== checkbox) {
             cb.checked = false;
         }

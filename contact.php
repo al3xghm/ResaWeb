@@ -8,8 +8,6 @@
         content="WeRent propose des locations de vacances indépendantes : villas privées, maisons et penthouse pour des séjours uniques.">
     <meta name="keywords" content="location, vacances, villa, maison, penthouse, séjour, indépendance, WeRent">
     <meta name="author" content="Alexandre Ghmir">
-
-
     <link rel="stylesheet" href="css/style.css">
     <title>Contactez-nous</title>
     <link rel="shortcut icon" href="img/icon.webp">
@@ -118,6 +116,7 @@
                                     <label>Message <span style="color:red">*</span></label>
                                     <textarea name="message" id="message" placeholder="Comment pouvons-nous vous aider ?"></textarea>
                                 </div>
+                                <p><span style="color:red">*</span> Champs obligatoires</p>
                                 <input type="submit" value="Envoyer">
                             </div>
                         </div>

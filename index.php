@@ -68,49 +68,6 @@ $last = $result->fetchall(PDO::FETCH_ASSOC);
 
                 <div class="overflow-wrapper">
 
-                    <!-- <div class="slide" id="slide1-review">
-                        <div class="city">
-                            <h6>Monteverde, Costa Rica</h6>
-                        </div>
-                        <div class="word">
-                            <h6>Cabane perchée</h6>
-                        </div>
-                        <div class="review"><img src="img/star.svg" alt=""><img src="img/star.svg" alt=""><img
-                                src="img/star.svg" alt=""><img src="img/star.svg" alt=""></div>
-                    </div>
-                    <div class="slide" id="slide2-review">
-                        <div class="city">
-                            <h6>Rovaniemi, Finlande</h1>
-                        </div>
-                        <div class="word">
-                            <h6>Dôme de glace</h1>
-                        </div>
-                        <div class="review"><img src="img/star.svg" alt=""><img src="img/star.svg" alt=""><img
-                                src="img/star.svg" alt=""><img src="img/star.svg" alt=""><img src="img/star.svg" alt="">
-                        </div>
-                    </div>
-                    <div class="slide" id="slide3-review">
-                        <div class="city">
-                            <h6>Tonoshō-chō, Japon</h1>
-                        </div>
-                        <div class="word">
-                            <h6>Chambre privée</h1>
-                        </div>
-                        <div class="review"><img src="img/star.svg" alt=""><img src="img/star.svg" alt=""><img
-                                src="img/star.svg" alt=""><img src="img/star.svg" alt=""></div>
-                    </div>
-                    <div class="slide" id="slide4-review">
-                        <div class="city">
-                            <h6>Raf-Raf, Tunisie</h1>
-                        </div>
-                        <div class="word">
-                            <h6>Villa</h1>
-                        </div>
-                        <div class="review"><img src="img/star.svg" alt=""><img src="img/star.svg" alt=""><img
-                                src="img/star.svg" alt=""><img src="img/star.svg" alt=""></div>
-                    </div> -->
-
-
                     <?php
                     $index = 0;
                     foreach ($last as $row) {
@@ -151,8 +108,8 @@ $last = $result->fetchall(PDO::FETCH_ASSOC);
         <div class="rightheader">
             <div class="largebox">
                 <h3>Des résidences extraordinaires à des prix exceptionnels</h3>
-                <a class="button" href="destinations.php" title="Découvrir les résidences">
-                    <p>Les résidences les mieux notées</p>
+                <a class="button" href="destinations.php?vue=on" title="Découvrir les résidences">
+                    <p>Les résidences avec les plus belles vues</p>
                     <img src="./img/fleche.svg" alt="">
                 </a>
             </div>
@@ -163,14 +120,14 @@ $last = $result->fetchall(PDO::FETCH_ASSOC);
             <div class="flexrow">
                 <div class="smallbox smallboxone">
                     <h3>Villas au bord de mer</h3>
-                    <a class="button" href="destinations.php" title="Découvrir les villas">
+                    <a class="button" href="destinations.php?type=villa&mer=on" title="Découvrir les villas">
                         <img src="./img/fleche.svg" alt="">
                     </a>
 
                 </div>
                 <div class="smallbox smallboxtwo">
                     <h3>Châlets en montagne</h3>
-                    <a class="button" href="destinations.php" title="Découvrir les villas">
+                    <a class="button" href="destinations.php?type=chalet&montagne=on" title="Découvrir les villas">
                         <img src="./img/fleche.svg" alt="">
                     </a>
 
