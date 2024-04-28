@@ -11,33 +11,6 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 } else {
     header('Location: 404.php');
 }
-
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $email = $_POST['email'];
-    $tel = $_POST['tel'];
-    $date_debut = $_POST['date_debut'];
-    $date_fin = $_POST['date_fin'];
-    $nb_personnes = $_POST['nb_personnes'];
-    $logementID = $_POST['logementID'];
-
-    $requete = "INSERT INTO reservations (nom, prenom, email, tel, date_debut, date_fin, nb_personnes, logementID) VALUES (:nom, :prenom, :email, :tel, :date_debut, :date_fin, :nb_personnes, :logementID)";
-    $stmt = $db->prepare($requete);
-    $stmt->bindParam(':nom', $nom);
-    $stmt->bindParam(':prenom', $prenom);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':tel', $tel);
-    $stmt->bindParam(':date_debut', $date_debut);
-    $stmt->bindParam(':date_fin', $date_fin);
-    $stmt->bindParam(':nb_personnes', $nb_personnes);
-    $stmt->bindParam(':logementID', $logementID);
-    $stmt->execute();
-
-    // header('Location: confirmation.php');
-    // exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -65,12 +38,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 } ?><span>/</span><span><b>Réservation</b></span>
         </div>
 
-        <h1 class="res-title">Réservez votre séjour</h1>
+        <h1 class="res-title">🌍 Trouvez votre prochaine aventure</h1>
 
         <div class="reservation-wrapper">
 
-            <form id="reservationForm" action="" method="post">
+            <form id="reservationForm" action="confirmation.php" method="post">
                 <div id="stepone">
+                    <div class="formulaire">
                     <?php foreach ($resultat as $logement) {
                         echo "<h3>Réservez <b>{$logement['nom_logement']}</b></h3>";
                     } ?>
@@ -113,23 +87,81 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="warning">
                         <p>Les champs suivis d'un <span style="color:red">*</span> sont obligatoires.</p>
                     </div>
-                    <button id="submitBtn">Réserver</button>
+                    <input type="button" id="submitBtn" value="Réserver">
+                    </div>
                     <div class="apercu">
                         <div class="apercu-reservation">
                             <h3>🧾 Aperçu de votre réservation</h3>
                             <br>
+                            
                             <?php foreach ($resultat as $logement) {
                                 echo "<h4>{$logement['nom_logement']}</h4>";
                                 echo "<h5>{$logement['nom_destination']}, {$logement['pays']}</h5>";
                                 echo "<h2><strong>{$logement['prix_par_nuit']}€</strong><span>/nuit</span></h2>";
+                                
                             } ?>
+                           
                         </div>
+                        <div class="imgoptions">
                         <?php foreach ($resultat as $row) {
                             $images = explode('+', $row['image']);
                             $image_url = $images[0];
                             echo "<div class='apercu-img' style='background-image: url(\"./img/{$image_url}\");'></div>";
                         } ?>
+                          
+                          <div class='loca-options'>
+                    <?php if ($row["animaux"]): ?>
+                        <div class='loca-options-info'>
+                            <img src='img/paw.svg' alt=''>
+                            <h5>Animaux</h5>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($row["vue"]): ?>
+                        <div class='loca-options-info'>
+                            <img src='img/eye.svg' alt=''>
+                            <h5>Vue</h5>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($row["cuisine"]): ?>
+                        <div class='loca-options-info'>
+                            <img src='img/kitchen.svg' alt=''>
+                            <h5>Cuisine</h5>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($row["wifi"]): ?>
+                        <div class='loca-options-info'>
+                            <img src='img/wifi.svg' alt=''>
+                            <h5>Wifi</h5>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($row["montagne"]): ?>
+                        <div class='loca-options-info'>
+                            <img src='img/mountain.svg' alt=''>
+                            <h5>Montagne</h5>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($row["baignoire"]): ?>
+                        <div class='loca-options-info'>
+                            <img src='img/bath.svg' alt=''>
+                            <h5>Baignoire</h5>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($row["lacs"]): ?>
+                        <div class='loca-options-info'>
+                            <img src='img/water.svg' alt=''>
+                            <h5>Lacs et rivières</h5>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($row["mer"]): ?>
+                        <div class='loca-options-info'>
+                            <img src='img/mer.svg' alt=''>
+                            <h5>Au bord de la mer</h5>
+                        </div>
+                    <?php endif; ?>
+                </div>
                     </div>
+                    </div>
+                    
                 </div>
 
                 <div id="recapitulatif" style="display:none; margin-top: 2rem;">
@@ -149,11 +181,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <p><strong>Téléphone:</strong> <span id="recapTel"></span></p>
                             <p><strong>Date d'arrivée:</strong> <span id="recapDateDebut"></span></p>
                             <p><strong>Date de départ:</strong> <span id="recapDateFin"></span></p>
-                            <p><strong>Nombre de personnes:</strong> <span id="recapNbPersonnes"></span></p>
+                            <p><strong>Pour <span id="recapNbPersonnes"></span> personne(s)</strong></p>
                             <h2>Prix total: <span id="recapTotal"></span></h2>
                             <div class="btn-reservation">
-                                <input type="button" onclick="editReservation()">Retour à la réservation</input>
-                                <button type="submit" onclick="confirmReservation()">Confirmer la réservation</button>
+                                <input type="button" onclick="editReservation()" value="Retour à la réservation">
+                                <input type="submit" value="Confirmer la réservation">
                             </div>
                         </div>
                         <?php foreach ($resultat as $row) {
@@ -162,10 +194,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             echo "<div class='apercu-img' style='background-image: url(\"./img/{$image_url}\");'></div>";
                         } ?>
                     </div>
-                    <p class="reservation-warning">🚨 Attention, votre réservation ne sera pas confirmée tant que vous
-                        n'aurez
-                        pas reçu un email de
-                        confirmation de notre part.</p>
                 </div>
             </form>
         </div>

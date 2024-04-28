@@ -1,6 +1,6 @@
 <?php 
 // Établir la connexion à la base de données avec PDO
-$db = new PDO('mysql:host=localhost;dbname=resaweb;charset=utf8', 'root', 'root');
+$db = new PDO('mysql:host=localhost;dbname=resaweb;charset=utf8', 'root', '');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // Vérifier si les données sont postées

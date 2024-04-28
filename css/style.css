@@ -154,7 +154,6 @@ p {
 
 .homeheader {
     display: flex;
-    /* align-items: center; */
     justify-content: center;
     gap: 3rem;
     width: 90%;
@@ -190,7 +189,6 @@ p {
     justify-content: center;
     gap: 5rem;
     width: 100%;
-    /* margin-top: 2rem; */
 }
 
 .chiffres .barre {
@@ -287,9 +285,7 @@ p {
 }
 
 .thinbox {
-    /* grid-area: 3 / 1 / 4 / 3; */
     display: flex;
-    /* height: fit-content; */
     border-radius: 50px;
     justify-content: space-between;
     align-items: center;
@@ -327,14 +323,12 @@ p {
 }
 
 .flexrow .smallbox {
-    /* height: 100%; */
     border-radius: 25px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 50%;
     padding: 15px 20px;
-    /* elipsis */
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -697,20 +691,24 @@ p {
 }
 
 .marker-cluster-small,
-    .marker-cluster-small div, 
-    .marker-cluster-medium, 
-    .marker-cluster-medium div, 
-    .marker-cluster-large,
-    .marker-cluster-large div {
-    background-color: rgba(0, 0, 0, 0.6)   !important;
-    }
+.marker-cluster-small div,
+.marker-cluster-medium,
+.marker-cluster-medium div,
+.marker-cluster-large,
+.marker-cluster-large div {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+}
 
-    .marker-cluster-small{
-        color: var(--white);
-    }
+.marker-cluster-small {
+    color: var(--white);
+}
 
-    .leaflet-pane .leaflet-overlay-pane svg {
+.leaflet-pane .leaflet-overlay-pane svg {
     visibility: hidden;
+}
+
+.leaflet-container{
+    font: 12px / 1.5 "Plus Jakarta Sans" !important;
 }
 
 .destinations {
@@ -977,11 +975,16 @@ ul.cboxtags li input[type="radio"]:checked+label {
 }
 
 input[type="submit"],
-button[type="submit"] {
+button[type="submit"],
+#submitBtn {
     color: var(--white);
     background-color: var(--black);
     padding: 12px;
     font-size: 0.9rem;
+}
+
+input[type="button"] {
+    cursor: pointer;
 }
 
 input,
@@ -1080,8 +1083,6 @@ button {
     height: 30px;
     width: 30px;
 }
-
-
 
 .loca-btn {
     display: flex;
@@ -1226,7 +1227,7 @@ button {
 }
 
 
-.res-title{
+.res-title {
     margin-top: 1.5rem;
 }
 
@@ -1245,10 +1246,7 @@ button {
 }
 
 .reservation-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    width: 50%;
+    width: 100%;
 }
 
 .reservation-wrapper {
@@ -1257,7 +1255,26 @@ button {
     margin-top: 1.5rem;
 }
 
+#stepone {
+    display: flex;
+    gap: 1rem;
+}
 
+.formulaire {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#submitBtn {
+    width: 20%;
+    margin: 0 auto;
+}
+
+.btn-reservation input[type="submit"] {
+    margin: 0;
+}
 
 .apercu {
     border: 1px solid rgb(240, 240, 240);
@@ -1290,6 +1307,12 @@ button {
     height: 200px;
 }
 
+.imgoptions{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1rem;
+}
+
 .apercu-reservation h2 span {
     font-weight: 500;
 }
@@ -1316,14 +1339,18 @@ button {
 #recapitulatif .apercu {
     width: 100%;
     flex-direction: row;
+    align-items: center;
 }
 
 #recapitulatif .apercu .apercu-reservation {
     width: 50%;
+    gap: 0.5rem;
+
 }
 
 #recapitulatif .apercu .apercu-img {
     width: 50%;
+    height: 500px;
 }
 
 /* contact */
@@ -1420,7 +1447,8 @@ button {
 }
 
 input[type="submit"] {
-    width: 30%;
+    /*     width: 30%;
+ */
     margin: 0 auto;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -1689,6 +1717,20 @@ button[type="submit"]:hover {
         width: 100%;
     }
 
+    #stepone {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .formulaire {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    #submitBtn {
+        width: 50%;
+    }
+
     .apercu {
         margin-bottom: 0;
     }
@@ -1707,6 +1749,7 @@ button[type="submit"]:hover {
         min-height: 0;
     }
 
+
     .fil-ariane {
         flex-wrap: wrap;
     }
@@ -1716,17 +1759,26 @@ button[type="submit"]:hover {
         margin: 0 auto;
     }
 
+    #recapitulatif .apercu {
+        flex-direction: column;
+    }
+
+    .btn-reservation{
+        flex-direction: column;
+    }
+
+    .reservation-wrapper {
+    margin-top: 0;
+    }
+
     #recapitulatif .apercu .apercu-img {
         margin: 0 auto;
         width: 100%;
+        height: 150px;
     }
 
     #recapitulatif .apercu .apercu-reservation {
         width: 100%;
-    }
-
-    .reservation-warning {
-        margin: 30px 0;
     }
 
 }

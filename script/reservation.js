@@ -46,6 +46,28 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+function capitaliser(texte) {
+    return texte.toLowerCase().split(' ').map(function(mot) {
+        return mot.charAt(0).toUpperCase() + mot.slice(1);
+    }).join(' ');
+}
+
+function formaterNumeroTel(numero) {
+    // Supprime tout ce qui n'est pas un chiffre
+    numero = numero.replace(/\D/g, '');
+    // Insère un espace tous les deux chiffres
+    return numero.replace(/(\d{2})(?=\d)/g, '$1 ');
+}
+
+function formaterDate(dateIso) {
+    const mois = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+    let date = new Date(dateIso);
+    let jour = date.getDate();
+    let moisIndex = date.getMonth();
+    let annee = date.getFullYear();
+    return `${jour} ${mois[moisIndex]} ${annee}`;
+}
+
 function validerFormulaire() {
     var nom = document.getElementById('nom').value;
     var prenom = document.getElementById('prenom').value;
@@ -74,19 +96,19 @@ function calculerTotal() {
 }
 
 function mettreAJourEtAfficherResume(totalAPayer) {
-    document.getElementById('recapNom').textContent = document.getElementById('nom').value;
-    document.getElementById('recapPrenom').textContent = document.getElementById('prenom').value;
+    document.getElementById('recapNom').textContent = capitaliser(document.getElementById('nom').value);
+    document.getElementById('recapPrenom').textContent = capitaliser(document.getElementById('prenom').value);
     document.getElementById('recapEmail').textContent = document.getElementById('email').value;
-    document.getElementById('recapTel').textContent = document.getElementById('tel').value;
-    document.getElementById('recapDateDebut').textContent = document.getElementById('date_debut').value;
-    document.getElementById('recapDateFin').textContent = document.getElementById('date_fin').value;
+    document.getElementById('recapTel').textContent = formaterNumeroTel(document.getElementById('tel').value);
+    document.getElementById('recapDateDebut').textContent = formaterDate(document.getElementById('date_debut').value);
+    document.getElementById('recapDateFin').textContent = formaterDate(document.getElementById('date_fin').value);
     document.getElementById('recapNbPersonnes').textContent = document.getElementById('nb_personnes').value;
     document.getElementById('recapTotal').textContent = totalAPayer + ' €';
 }
 
 function editReservation() {
     // Afficher le formulaire de réservation
-    document.getElementById('stepone').style.display = 'block';
+    document.getElementById('stepone').style.display = 'flex';
 
     // Masquer le résumé
     document.getElementById('recapitulatif').style.display = 'none';
@@ -95,9 +117,4 @@ function editReservation() {
     document.querySelectorAll('.res-title').forEach(function (title) {
         title.style.display = 'block'; // Assurez-vous que cela correspond à votre CSS d'origine pour .res-title
     });
-}
-
-function confirmReservation() {
-    // document.getElementById('reservationForm').submit();
-    window.location.href = 'confirmation.php';
 }
