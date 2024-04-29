@@ -12,6 +12,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nb_personnes = $_POST['nb_personnes'];
     $logementID = $_POST['logementID'];
 
+    $sql = "SELECT nom_logement FROM logements WHERE logementID = :logementID";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':logementID', $logementID);
+    $stmt->execute();
+    $nom_logement = $stmt->fetchColumn();
+    
     $requete = "INSERT INTO reservations (nom, prenom, email, tel, date_debut, date_fin, nb_personnes, logementID) VALUES (:nom, :prenom, :email, :tel, :date_debut, :date_fin, :nb_personnes, :logementID)";
     $stmt = $db->prepare($requete);
     $stmt->bindParam(':nom', $nom);
@@ -40,7 +46,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'X-Mailer: PHP/' . phpversion();
 
     // message HTML
-    $message = '<div><h1>test</h1></div>';
+        // message HTML
+    $message = 
+    "<html>
+    <head>
+      <title>Votre réservation est confirmée</title>
+    </head>
+    <body>
+      <div style='text-align: center;'>
+        <img src='https://ghmir.butmmi.o2switch.site/resaweb/img/logoconfirm.png' alt='WeRent Logo' style='width: 100px;'>
+        <h1>Merci pour votre réservation, " . htmlspecialchars($prenom) . "!</h1>
+                <p>Votre réservation pour le logement <strong>" . htmlspecialchars($nom_logement) . "</strong>, du <strong>" . htmlspecialchars($date_debut) . "</strong> au <strong>" . htmlspecialchars($date_fin) . "</strong> pour <strong>" . intval($nb_personnes) . " personne(s)</strong> a été confirmée.</p>
+        <p>Nous attendons votre arrivée avec impatience!</p>
+        <hr>
+        <p>Pour toute question, n'hésitez pas à nous contacter: " . htmlspecialchars($from) . "</p>
+      </div>
+    </body>
+    </html>";
 
     mail($mailTo, $subject, $message, $headers);
     header("Location: confirmation.php");

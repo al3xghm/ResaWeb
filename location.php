@@ -55,7 +55,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                 <div class='location-loca'>
                     <img src='img/person.svg' alt='person'>
                 <h5>
-                <?php echo "{$row['capacite']} personnes"; ?>
+                <?php echo "Jusqu'à {$row['capacite']} personnes"; ?>
                             </h5>
                             </div>
                 <div class='loca-price'>

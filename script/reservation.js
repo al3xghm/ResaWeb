@@ -15,6 +15,14 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('date_fin').setAttribute('min', this.value);
     });
 
+    // Empêcher l'envoi du formulaire en appuyant sur la touche "Entrée"
+    form.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            return false;
+        }
+    });
+
     document.getElementById('submitBtn').addEventListener('click', function (event) {
         event.preventDefault();  // Empêcher l'envoi du formulaire au serveur
 

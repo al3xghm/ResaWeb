@@ -168,7 +168,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                 <div id="recapitulatif" style="display:none; margin-top: 2rem;">
                     <div class="apercu">
                         <div class="apercu-reservation">
-                            <h3>🧾 Aperçu de votre réservation</h3>
+                            <h2>🧾 Aperçu de votre réservation</h2>
                             <div class="logement-res">
                                 <?php foreach ($resultat as $logement) {
                                     echo "<h4>{$logement['nom_logement']}</h4>";
