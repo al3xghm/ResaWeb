@@ -31,7 +31,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 <body>
     <?php include ('includes/navigation.php'); ?>
 
-    <div class="location">
+    <div class="locationpage">
 
         <?php foreach ($resultat as $row) {
             $images = explode('+', $row["image"]);
