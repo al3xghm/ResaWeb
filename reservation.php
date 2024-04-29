@@ -1,5 +1,5 @@
 <?php
-//connexion a la bdd
+// Connexion à la base de données
 include ("includes/connexion.php");
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $requete = "SELECT * FROM logements INNER JOIN destinations ON logements.destinationextID = destinations.destinationID WHERE logementID = " . $_GET['id'];

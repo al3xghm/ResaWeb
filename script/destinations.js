@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (selectedValue === "0") {
             // Réinsérer les éléments dans l'ordre initial
-            sortedList = defaultOrder;
+            sortedList = defaultOrder; 
         } else {
             sortedList = Array.from(productList).sort(function (a, b) {
                 var priceA = parseFloat(a.dataset.price);

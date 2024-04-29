@@ -1017,7 +1017,7 @@ button {
     margin: 0 1rem;
 }
 
-.locationpage {
+.location {
     display: flex;
     width: 90%;
     margin: 0 auto;
@@ -1047,14 +1047,14 @@ button {
     margin-bottom: 1rem;
 }
 
-.location-loca {
+.loca-location {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     font-weight: normal;
 }
 
-.location-loca img {
+.loca-location img {
     height: 25px;
     width: 25px;
 }
@@ -1252,7 +1252,7 @@ button {
 .reservation-wrapper {
     display: flex;
     gap: 4rem;
-    margin-top: 1.5rem;
+    margin-top: 1.2rem;
 }
 
 #stepone {

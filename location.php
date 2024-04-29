@@ -1,5 +1,4 @@
 <?php
-
 // Connexion à la base de données
 include ("includes/connexion.php");
 if (isset($_GET['id']) && !empty($_GET['id'])) {
@@ -13,7 +12,6 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     header('Location: 404.php');
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -33,7 +31,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 <body>
     <?php include ('includes/navigation.php'); ?>
 
-    <div class="locationpage">
+    <div class="location">
 
         <?php foreach ($resultat as $row) {
             $images = explode('+', $row["image"]);
@@ -46,13 +44,13 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                 <h2>
                     <?php echo $row["nom_logement"]; ?>
                 </h2>
-                <div class='location-loca'>
+                <div class='loca-location'>
                     <img src='img/location.svg' alt='location'>
                     <h5>
                         <?php echo $row["nom_destination"] . ", " . $row["pays"]; ?>
                     </h5>
                 </div>
-                <div class='location-loca'>
+                <div class='loca-location'>
                     <img src='img/person.svg' alt='person'>
                 <h5>
                 <?php echo "Jusqu'à {$row['capacite']} personnes"; ?>
