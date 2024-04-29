@@ -86,13 +86,16 @@ function calculerTotal() {
     var dateDebut = new Date(dateDebutValue);
     var dateFin = new Date(dateFinValue);
     var prixParNuit = parseFloat(document.getElementById('prixParNuit').textContent);
+    var nbPersonnes = parseInt(document.getElementById('nb_personnes').value);
 
     if (isNaN(prixParNuit) || dateFin <= dateDebut) {
         return null;
     }
 
     var differenceJours = Math.ceil((dateFin - dateDebut) / (1000 * 3600 * 24));
-    return (differenceJours * prixParNuit).toFixed(2);
+    var total = differenceJours * prixParNuit * nbPersonnes;
+    return total.toFixed(2);
+
 }
 
 function mettreAJourEtAfficherResume(totalAPayer) {

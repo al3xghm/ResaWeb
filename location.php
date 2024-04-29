@@ -52,6 +52,12 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                         <?php echo $row["nom_destination"] . ", " . $row["pays"]; ?>
                     </h5>
                 </div>
+                <div class='location-loca'>
+                    <img src='img/person.svg' alt='person'>
+                <h5>
+                <?php echo "{$row['capacite']} personnes"; ?>
+                            </h5>
+                            </div>
                 <div class='loca-price'>
                     <h3>
                         <?php echo $row["prix_par_nuit"]; ?>€<span>/nuit</span>

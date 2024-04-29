@@ -80,7 +80,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                     </div>
                     <div class="input-form">
                         <label>Nombre de personnes <span style="color:red">*</span></label>
-                        <input required type="number" min="1" max="12" name="nb_personnes" id="nb_personnes"
+                        <input required type="number" min="1" max="<?php echo htmlspecialchars($logement['capacite']); ?>" name="nb_personnes" id="nb_personnes"
                             placeholder="Nombre de personnes">
                     </div>
 
@@ -95,9 +95,10 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                             <br>
                             
                             <?php foreach ($resultat as $logement) {
-                                echo "<h4>{$logement['nom_logement']}</h4>";
+                                echo "<div class='wrapperinfo'><div><h4>{$logement['nom_logement']}</h4>";
                                 echo "<h5>{$logement['nom_destination']}, {$logement['pays']}</h5>";
-                                echo "<h2><strong>{$logement['prix_par_nuit']}€</strong><span>/nuit</span></h2>";
+                                echo "<h5>Capacité : {$logement['capacite']}</h5></div>";
+                                echo "<h2><strong>{$logement['prix_par_nuit']}€</strong><span>/nuit</span></h2></div>";
                                 
                             } ?>
                            

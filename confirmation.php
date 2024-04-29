@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include ("includes/connexion.php");
 
@@ -24,8 +24,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bindParam(':logementID', $logementID);
     $stmt->execute();
 
-    header('Location: confirmation.php');
-    exit;
+
+    $mailTo = "$email";
+    $subject = "Votre réservation a bien été confirmée !";
+    $from = 'alexandre.ghmir@edu.univ-eiffel.fr';
+
+    // type de contenu (HTML)
+
+    $headers = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+    // Create email headers
+    $headers .= 'From: ' . $from . "\r\n" .
+        'Reply-To: ' . $from . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+
+    // message HTML
+    $message = '<div><h1>test</h1></div>';
+
+    mail($mailTo, $subject, $message, $headers);
+    header("Location: confirmation.php");
 }
 ?>
 
@@ -50,7 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <img src="img/confirmation.png" alt="">
             <h1>Merci d'avoir passé commande !</h1>
             <p>
-Votre réservation est confirmée et un e-mail avec tous les détails a été envoyé à votre adresse ; <br>veuillez vérifier également votre dossier spam et conserver cet e-mail pour vos dossiers.</p>
+                Votre réservation est confirmée et un e-mail avec tous les détails a été envoyé à votre adresse ;
+                <br>veuillez vérifier également votre dossier spam et conserver cet e-mail pour vos dossiers.</p>
             <a href="index.php">Retour à la page d'accueil</a>
         </div>
     </div>

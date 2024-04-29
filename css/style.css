@@ -1228,7 +1228,7 @@ button {
 
 
 .res-title {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 .reservation-container {
@@ -1257,7 +1257,7 @@ button {
 
 #stepone {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .formulaire {
@@ -1278,7 +1278,7 @@ button {
 
 .apercu {
     border: 1px solid rgb(240, 240, 240);
-    padding: 2rem;
+    padding: 1rem;
     width: 50%;
     border-radius: 10px;
     display: flex;
@@ -1287,8 +1287,13 @@ button {
     flex-direction: column;
 }
 
-
-
+.wrapperinfo {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
 
 .apercu-reservation {
     display: flex;
