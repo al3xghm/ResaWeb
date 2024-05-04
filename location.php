@@ -38,7 +38,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             ?>
             <div class='loca-left'>
                 <div class="fil-ariane">
-                    <a href="index.php">Index</a><span>/</span><a href="destinations.php">Destinations</a><span>/</span><span><b><?php echo $row["nom_logement"] ?> </b>
+                    <a href="index.php">Accueil</a><span>/</span><a href="destinations.php">Destinations</a><span>/</span><span><b><?php echo $row["nom_logement"] ?> </b>
                     </span>
                 </div>
                 <h2>

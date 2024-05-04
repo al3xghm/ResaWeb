@@ -54,9 +54,23 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     }
 }
 
-// Créer le GeoJSON
 $geojson = [
     'type' => 'FeatureCollection',
     'features' => $features
 ];
+
+// Chemin du fichier JSON où les données seront stockées
+$filePath = 'logements.json';
+
+// Convertir le tableau PHP en chaîne JSON
+$jsonData = json_encode($geojson, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+// Écrire les données JSON dans le fichier
+file_put_contents($filePath, $jsonData);
+
+if (file_exists($filePath)) {
+    echo "Le fichier JSON a été créé avec succès.";
+} else {
+    echo "Erreur lors de la création du fichier JSON.";
+}
 ?>

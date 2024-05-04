@@ -82,9 +82,15 @@ $stmt->execute($valeurs);
 $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Requête région
-$requetecontinent = "SELECT continent FROM destinations";
+/* $requetecontinent = "SELECT continent FROM destinations"; */
+$requetecontinent = "SHOW COLUMNS FROM destinations WHERE Field = 'continent'";
 $stmtcontinent = $db->query($requetecontinent);
 $resultatcontinent = $stmtcontinent->fetchAll(PDO::FETCH_ASSOC);
+
+$enumLine = $resultatcontinent[0]['Type'];
+$regex = "/'([^']+)'/";  // Utilise une expression régulière pour extraire les valeurs entre apostrophes
+preg_match_all($regex, $enumLine, $matches);
+$enumValues = $matches[1];
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -107,7 +113,7 @@ $resultatcontinent = $stmtcontinent->fetchAll(PDO::FETCH_ASSOC);
     <div class="destinations">
         <div class="des-left-column">
             <div class="fil-ariane">
-                <a href="index.php">Index</a><span>/</span><span><b>Destinations</b></span>
+                <a href="index.php">Accueil</a><span>/</span><span><b>Destinations</b></span>
             </div>
             <div class="des-left">
                 <div class="section-filters">
@@ -116,12 +122,13 @@ $resultatcontinent = $stmtcontinent->fetchAll(PDO::FETCH_ASSOC);
                             <h6>Région</h6>
                             <select name="continent" id="continent">
                                 <option value="">Choisir une région</option>
-                                <?php foreach ($resultatcontinent as $row) {
-                                    // Vérifier si l'option actuelle est celle qui a été sélectionnée auparavant
-                                    $selected = (isset($_GET['continent']) && $_GET['continent'] == $row['continent']) ? 'selected' : '';
-                                    echo "<option value='{$row['continent']}' {$selected}>{$row['continent']}</option>";
-                                }
-                                ?>
+                                <?php foreach ($enumValues as $value): ?>
+                <?php
+                // Vérifier si l'option actuelle est celle qui a été sélectionnée auparavant
+                $selected = (isset($_GET['continent']) && $_GET['continent'] === $value) ? 'selected' : '';
+                ?>
+                <option value="<?= htmlspecialchars($value) ?>" <?= $selected ?>><?= htmlspecialchars($value) ?></option>
+            <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="filters-price">
@@ -236,7 +243,7 @@ $resultatcontinent = $stmtcontinent->fetchAll(PDO::FETCH_ASSOC);
                 <?php
             } else {
                 echo "<div class='errorDes'>
-            <h3 class='msgErreur'>Aucune destination ne correspond à votre recherche.</h3>
+            <h3 class='msgErreur'>Aucune destination ne correspond à votre recherche. 😥</h3>
         </div>";
             }
             ?>

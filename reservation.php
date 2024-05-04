@@ -32,7 +32,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
     <div class="reservation-container">
         <div class="fil-ariane">
-            <a href="index.php">Index</a><span>/</span><a class="color-blue"
+            <a href="index.php">Accueil</a><span>/</span><a class="color-blue"
                 href="destinations.php">Destinations</a><span>/</span><?php foreach ($resultat as $logement) {
                     echo "<a class='color-blue' href='location.php?id={$_GET['id']}'>{$logement['nom_logement']} </a> ";
                 } ?><span>/</span><span><b>Réservation</b></span>

@@ -1,1 +1,245 @@
-{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"logementID":1,"nom_logement":"Villa Phenicia","image":"villa4.jpg"},"geometry":{"type":"Point","coordinates":[2.5921,48.8629]}},{"type":"Feature","properties":{"logementID":2,"nom_logement":"Villa Belle Vue","image":"villa4.jpg"},"geometry":{"type":"Point","coordinates":[2.4438,49.1182]}},{"type":"Feature","properties":{"logementID":7,"nom_logement":"Maison de Charme","image":"villa4.jpg"},"geometry":{"type":"Point","coordinates":[9.294,54.75]}},{"type":"Feature","properties":{"logementID":10,"nom_logement":"Chalet en Bord de Lac","image":"villa4.jpg"},"geometry":{"type":"Point","coordinates":[2.4438,49.1182]}}]}
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "logementID": "1",
+                "nom_logement": "Villa Phenicia",
+                "image": "villaphenicia1.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.229082613401786,
+                    37.17762817726299
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "logementID": "2",
+                "nom_logement": "Chalet Inari",
+                "image": "inari1.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    27.449117303893974,
+                    68.42495721070142
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "logementID": "3",
+                "nom_logement": "Chalet Front Palafito",
+                "image": "palafito1.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.32868384039567,
+                    18.746651359346988
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "logementID": "4",
+                "nom_logement": "Appartement Sea Esta",
+                "image": "seaesta1.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    25.441200736885026,
+                    36.45034016840436
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "logementID": "5",
+                "nom_logement": "Appartement Le Donatien",
+                "image": "t2haussmanien1.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.2995941082786504,
+                    48.83405916215754
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "logementID": "6",
+                "nom_logement": "Villa Flow House",
+                "image": "flowhouse1.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    115.03633144641701,
+                    -8.373655293880645
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "logementID": "7",
+                "nom_logement": "Appartement Dynasty",
+                "image": "dynasty1.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.98640715582036,
+                    40.72367498103114
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "logementID": "8",
+                "nom_logement": "Chalet Luciano",
+                "image": "stalden1.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.884056640054834,
+                    46.20718199051467
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "logementID": "9",
+                "nom_logement": "Appartement Asakusa",
+                "image": "asakusa1.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    139.80082327732168,
+                    35.716101988894955
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "logementID": "10",
+                "nom_logement": "Chalet Valley View",
+                "image": "valleyview1.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.874963915775276,
+                    51.790888612646874
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "logementID": "11",
+                "nom_logement": "Appartement Dymos",
+                "image": "dymos1.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    151.20635068348147,
+                    -33.86947386367206
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "logementID": "12",
+                "nom_logement": "Villa Hassan II",
+                "image": "hassan1.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -7.935945961567355,
+                    31.609686377355
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "logementID": "13",
+                "nom_logement": "Villa Il Sogno",
+                "image": "sogno1.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.711200627641363,
+                    40.74312664434893
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "logementID": "14",
+                "nom_logement": "Villa Revo",
+                "image": "revo1.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    3.1556598865985763,
+                    42.37086371424838
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "logementID": "15",
+                "nom_logement": "Chalet Les Houches",
+                "image": "leshouches1.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    6.944652753333853,
+                    45.92252092605268
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "logementID": "16",
+                "nom_logement": "Villa Laranjas",
+                "image": "laranjas1.jpg"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.76179237844169,
+                    38.32360554553502
+                ]
+            }
+        }
+    ]
+}

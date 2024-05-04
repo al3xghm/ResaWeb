@@ -82,9 +82,7 @@
                             d'autres
                             peuvent avoir des restrictions à ce sujet. Utilisez nos filtres de recherche pour trouver
                             des logements
-                            qui acceptent les animaux de compagnie, et assurez-vous de lire les règles spécifiques du
-                            logement avant
-                            de réserver.</div>
+                            qui acceptent les animaux de compagnie.</div>
                     </div>
                 </div>
             </div>

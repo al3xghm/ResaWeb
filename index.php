@@ -30,7 +30,7 @@ $last = $result->fetchall(PDO::FETCH_ASSOC);
     <header id="homeheader" class="homeheader">
         <div class="leftheader">
             <h1>Votre escapade de rêve commence ici !</h1>
-            <h5>Avec notre sélection exclusive de villas et de maisons de vacances, trouvez l'endroit parfait pour des
+            <h5>Avec notre sélection exclusive de logements de vacances, trouvez l'endroit parfait pour des
                 moments de détente en famille ou entre amis. Parcourez notre catalogue diversifié, des retraites
                 paisibles en bord de mer aux demeures élégantes au cœur des villes emblématiques.</h5>
 
@@ -76,7 +76,7 @@ $last = $result->fetchall(PDO::FETCH_ASSOC);
     
                         $index++;
                         ?>
-                        <a href="location.php?id=<?php echo $row['logementID']; ?>" class="slide" id="slide<?php echo $index; ?>-review" style="background: linear-gradient(to bottom, transparent, #000000), url('img/<?php echo $image_url; ?>');">
+                        <a href="location.php?id=<?php echo $row['logementID']; ?>" class="slide" id="slide<?php echo $index; ?>-review" style="background: linear-gradient(to bottom, transparent, #000000), url('img/<?php echo $image_url; ?>'); background-position: center">
                             <div class="city">
                                 <h6>
                                     <?php echo "{$row['nom_destination']}, {$row['pays']}"; ?>
@@ -168,8 +168,7 @@ $last = $result->fetchall(PDO::FETCH_ASSOC);
                 <div>
                     <h5>Plus de 26000 propriétés</h5>
                     <p>Un grand choix de maisons de vacances à louer, situées principalement en Europe: France, Espagne,
-                        Italie,
-                        Croatie, Portugal, Grèce ...</p>
+                        Italie, Portugal, Grèce ...</p>
                 </div>
             </div>
             <div class="step">
@@ -235,8 +234,7 @@ $last = $result->fetchall(PDO::FETCH_ASSOC);
                 avec moi ?</label>
             <div class="faq-item-desc">Certains logements autorisent les animaux de compagnie, tandis que d'autres
                 peuvent avoir des restrictions à ce sujet. Utilisez nos filtres de recherche pour trouver des logements
-                qui acceptent les animaux de compagnie, et assurez-vous de lire les règles spécifiques du logement avant
-                de réserver.</div>
+                qui acceptent les animaux de compagnie.</div>
         </div>
     </div>
     <?php require ('includes/footer.php'); ?>
