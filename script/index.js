@@ -1,3 +1,4 @@
+AOS.init();
 document.addEventListener('DOMContentLoaded', function() {
 
 // dans #slider-wrapper, checker les inputs radio s1, s2, s3, s4 toutes les 5 secondes et revenir a s1 après s4

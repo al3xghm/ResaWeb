@@ -9,7 +9,7 @@
             <form action="destinations.php" method="GET">
             <input type="text" id="searchInput" name="search_combined" placeholder="Recherchez une villa, une destination...">
             <!-- loupe svg -->
-            <button type="submit"><img src="./img/loupe.svg" alt=""></button>
+            <button type="submit"><img src="./img/loupe.svg" alt="Bouton recherche"></button>
             </form>
         </div>
         <a href="destinations.php">

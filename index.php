@@ -3,7 +3,6 @@ include ('includes/connexion.php');
 $sql = "SELECT * FROM logements INNER JOIN destinations ON logements.destinationextID = destinations.destinationID ORDER BY logements.logementID DESC LIMIT 4";
 $result = $db->query($sql);
 $last = $result->fetchall(PDO::FETCH_ASSOC);
-
 ?>
 
 <!DOCTYPE html>
@@ -16,9 +15,9 @@ $last = $result->fetchall(PDO::FETCH_ASSOC);
         content="WeRent propose des locations de vacances indépendantes : villas privées, maisons et penthouse pour des séjours uniques.">
     <meta name="keywords" content="location, vacances, villa, maison, penthouse, séjour, indépendance, WeRent">
     <meta name="author" content="Alexandre Ghmir">
-
-
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <title>WeRent : Réservez l'extraordinaire, vivez l'inoubliable.</title>
     <link rel="shortcut icon" href="img/icon.webp">
 </head>
@@ -27,29 +26,29 @@ $last = $result->fetchall(PDO::FETCH_ASSOC);
 
     <?php include ('includes/navigation.php'); ?>
 
-    <header id="homeheader" class="homeheader">
+    <header id="homeheader" class="homeheader" data-aos="fade-in">
         <div class="leftheader">
             <h1>Votre escapade de rêve commence ici !</h1>
-            <h5>Avec notre sélection exclusive de logements de vacances, trouvez l'endroit parfait pour des
+            <p>Avec notre sélection exclusive de logements de vacances, trouvez l'endroit parfait pour des
                 moments de détente en famille ou entre amis. Parcourez notre catalogue diversifié, des retraites
-                paisibles en bord de mer aux demeures élégantes au cœur des villes emblématiques.</h5>
+                paisibles en bord de mer aux demeures élégantes au cœur des villes emblématiques.</p>
 
             <!-- chiffres -->
             <div class="chiffres">
                 <div class="chiffre">
-                    <h3>+40k</h3>
-                    <h6>réservations</h6>
+                    <p><b>+40k</b></p>
+                    <p>réservations</p>
                 </div>
                 <div class="barre"></div>
                 <div class="chiffre">
-                    <h3>+75</h3>
-                    <h6>destinations</h6>
+                    <p><b>+75</b></p>
+                    <p>destinations</p>
                 </div>
                 <div class="barre"></div>
                 <div class="chiffre">
-                    <h3>4.5 <span>/5</span>
-                    </h3>
-                    <h6>note moyenne</h6>
+                    <p><b>4.5 <span>/5</span></b>
+                    </p>
+                    <p>note moyenne</p>
                 </div>
             </div>
 
@@ -73,10 +72,12 @@ $last = $result->fetchall(PDO::FETCH_ASSOC);
                     foreach ($last as $row) {
                         $images = explode('+', $row['image']);
                         $image_url = $images[0];
-    
+
                         $index++;
                         ?>
-                        <a href="location.php?id=<?php echo $row['logementID']; ?>" class="slide" id="slide<?php echo $index; ?>-review" style="background: linear-gradient(to bottom, transparent, #000000), url('img/<?php echo $image_url; ?>'); background-position: center">
+                        <a href="location.php?id=<?php echo $row['logementID']; ?>" class="slide"
+                            id="slide<?php echo $index; ?>-review"
+                            style="background: linear-gradient(to bottom, transparent, #000000), url('img/logements/<?php echo $image_url; ?>'); background-position: center">
                             <div class="city">
                                 <h6>
                                     <?php echo "{$row['nom_destination']}, {$row['pays']}"; ?>
@@ -101,9 +102,6 @@ $last = $result->fetchall(PDO::FETCH_ASSOC);
                     ?>
                 </div>
             </div>
-
-            <!--  
--->
         </div>
         <div class="rightheader">
             <div class="largebox">
@@ -138,7 +136,7 @@ $last = $result->fetchall(PDO::FETCH_ASSOC);
     </header>
 
     <!-- chiffres -->
-    <div id="about-home" class="about-home">
+    <div id="about-home" class="about-home" data-aos="fade-in">
         <div class="about-left">
             <div class="about-head">
                 <h3>Spécialiste de villas et maisons de vacances</h3>
@@ -190,7 +188,7 @@ $last = $result->fetchall(PDO::FETCH_ASSOC);
         <div class="about-right">
         </div>
     </div>
-    <div class="faq" id="faq">
+    <div class="faq" id="faq" data-aos="fade-in">
         <h1>Questions fréquentes</h1>
         <div class="faq-item">
             <input type="checkbox" id="faq1">

@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
-*,
-*::after,
-*::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 :root {
     --black: #000;
     --white: #fff;
 }
 
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
 
 html {
     scroll-behavior: smooth;
@@ -21,7 +21,6 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 a {
@@ -72,6 +71,7 @@ h6 {
 p {
     font-size: 1rem;
 }
+
 
 /* navbar  */
 .navbar {
@@ -173,6 +173,10 @@ p {
     gap: 2rem;
 }
 
+.leftheader p {
+    font-size: 1.3rem;
+}
+
 /* header de droite */
 
 .homeheader .rightheader {
@@ -204,11 +208,11 @@ p {
     gap: 0.2rem;
 }
 
-.chiffres .chiffre h3 {
+.chiffres .chiffre p {
     display: flex;
     align-items: flex-end;
-    font-weight: 800;
 }
+
 
 .chiffres .chiffre h3 span {
     font-size: 1rem;
@@ -228,7 +232,7 @@ p {
     justify-content: space-between;
     align-items: flex-start;
     gap: 1rem;
-    background-image: url("../img/villa6.jpg");
+    background-image: url("../img/logements/villa6.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -271,14 +275,14 @@ p {
 }
 
 .smallboxtwo {
-    background-image: url("../img/chalet1.jpg");
+    background-image: url("../img/logements/chalet1.jpg");
     background-size: cover;
     background-position: center;
     color: var(--white);
 }
 
 .smallboxone {
-    background-image: url("../img/villa4.jpg");
+    background-image: url("../img/logements/villa4.jpg");
     background-size: cover;
     background-position: center;
     color: var(--white);
@@ -520,7 +524,7 @@ p {
     background-position: center;
     border-radius: 25px;
     height: fit-content;
-    background-image: url("../img/villa5.jpg");
+    background-image: url("../img/logements/villa5.jpg");
 }
 
 .about-head h3 {
@@ -711,7 +715,7 @@ p {
     visibility: hidden;
 }
 
-.leaflet-container{
+.leaflet-container {
     font: 12px / 1.5 "Plus Jakarta Sans" !important;
 }
 
@@ -733,6 +737,10 @@ p {
     position: sticky !important;
     top: 80px;
     gap: 2rem;
+}
+
+.burger {
+    display: none;
 }
 
 .des-left-column {
@@ -836,12 +844,20 @@ p {
     gap: 10px;
 }
 
-.des-right-bottom .text h5 {
+.des-right-bottom .text .name-location {
+    font-weight: 500;
+    font-size: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.des-right-bottom .text p {
     font-weight: 700;
     font-size: 1.3rem;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 
 .des-right-bottom h2 {
     font-weight: 700;
@@ -877,7 +893,7 @@ p {
     text-align: center;
 }
 
-.fil-ariane a:hover{
+.fil-ariane a:hover {
     text-decoration: underline;
 }
 
@@ -1033,6 +1049,7 @@ button {
     margin-bottom: 5rem;
     max-width: 1440px;
     align-items: flex-start;
+    min-height: 100vh;
 }
 
 .loca-left {
@@ -1043,6 +1060,14 @@ button {
     gap: 1.5rem;
     position: sticky;
     top: 80px;
+}
+
+.loca-img1,
+.loca-img2,
+.loca-img3,
+.loca-img4,
+.loca-img5 {
+    cursor: pointer;
 }
 
 .loca-right {
@@ -1317,7 +1342,7 @@ button {
     height: 200px;
 }
 
-.imgoptions{
+.imgoptions {
     display: flex;
     flex-direction: column-reverse;
     gap: 1rem;
@@ -1493,6 +1518,42 @@ button[type="submit"]:hover {
 }
 
 
+.ml-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.ml-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.aboutme {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.aboutme-left,
+.mentionslegales {
+    text-align: start;
+}
+
+.ml-container img {
+    border-radius: 25px;
+}
+
 /* responsive */
 
 
@@ -1556,7 +1617,7 @@ button[type="submit"]:hover {
     }
 
     .chiffres {
-        gap: 2rem;
+        gap: 1rem;
     }
 
     .apercu {
@@ -1565,6 +1626,10 @@ button[type="submit"]:hover {
 
     .apercu-img {
         height: 200px;
+        width: 100%;
+    }
+
+    .ml-container {
         width: 100%;
     }
 }
@@ -1650,6 +1715,32 @@ button[type="submit"]:hover {
         width: 100%;
         position: relative;
         margin-bottom: 15px;
+        display: none;
+    }
+
+    .des-left._active {
+        display: flex;
+        animation: dropdown 0.5s ease-in-out;
+    }
+
+    .burger {
+        display: flex;
+        position: absolute;
+        top: 90px;
+        right: 15px;
+        z-index: 2;
+        width: 40px;
+        height: 40px;
+        transition: all 0.3s ease-in-out;
+        background-color: white;
+        border-radius: 15px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .burger._active {
+        transform: rotate(-180deg);
+        transition: all 0.3s ease-in-out;
     }
 
     .section-filters {
@@ -1663,10 +1754,16 @@ button[type="submit"]:hover {
         align-items: flex-start;
         flex-direction: column;
         gap: 1rem;
+        margin-top: 60px;
     }
 
     .des-right {
         width: 100%;
+    }
+
+    .des-right-bottom .img {
+        background-position: center;
+        background-size: cover;
     }
 
     .section-filters::-webkit-scrollbar {
@@ -1772,12 +1869,12 @@ button[type="submit"]:hover {
         flex-direction: column;
     }
 
-    .btn-reservation{
+    .btn-reservation {
         flex-direction: column;
     }
 
     .reservation-wrapper {
-    margin-top: 0;
+        margin-top: 0;
     }
 
     #recapitulatif .apercu .apercu-img {
@@ -1790,6 +1887,25 @@ button[type="submit"]:hover {
         width: 100%;
     }
 
+    .contact-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-left,
+    .contact-right {
+        width: 100%;
+    }
+
+    .ml-container {
+        gap: 2rem;
+        width: 100%;
+    }
+
+    .aboutme {
+        flex-direction: column;
+        gap: 2rem;
+    }
 }
 
 /* pour un écran dont la largeur est supérieure ou égale à 1200px */

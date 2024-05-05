@@ -19,6 +19,10 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="WeRent propose des locations de vacances indépendantes : villas privées, maisons et penthouse pour des séjours uniques.">
+    <meta name="keywords" content="location, vacances, villa, maison, penthouse, séjour, indépendance, WeRent">
+    <meta name="author" content="Alexandre Ghmir">
     <link rel="stylesheet" href="css/style.css">
     <title>
         <?php foreach ($resultat as $logement) {
@@ -124,7 +128,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <?php
             $counter = 1; // Initialisation du compteur
             foreach ($images as $image) {
-                echo "<div class='loca-img" . $counter . "' style='background-image: url(\"./img/" . $image . "\");' onclick='openModal(\"./img/" . $image . "\")'></div>";
+                echo "<div class='loca-img" . $counter . "' style='background-image: url(\"./img/logements/" . $image . "\");' onclick='openModal(\"./img/logements/" . $image . "\")'></div>";
                 $counter++; // Incrémenter le compteur pour la prochaine classe
                 if ($counter > 5)
                     break; // Sortir de la boucle après avoir affiché 5 images

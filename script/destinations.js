@@ -1,12 +1,29 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var map = L.map('map').setView([51.505, -0.09], 2);
+    // Définir les limites pour restreindre la zone visible de la carte
+    var bounds = L.latLngBounds(
+        L.latLng(-90, -180), // Coin inférieur gauche
+        L.latLng(90, 180)    // Coin supérieur droit
+    );
+
+    // Initialiser la carte avec les limites fixées et une viscosité maximale des limites
+    var map = L.map('map', {
+        maxBounds: bounds,
+        maxBoundsViscosity: 1.0,
+        center: [51.505, -0.09],
+        zoom: 2
+    });
+
+    // Supprimer le contrôle d'attribution par défaut
     map.attributionControl.remove();
+
+    // Ajouter une couche de tuiles à la carte
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         minZoom: 1,
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
+    // Définir une icône personnalisée pour les marqueurs
     var blackIcon = L.icon({
         iconUrl: './img/location.svg',
         iconSize: [25, 41],
@@ -14,10 +31,12 @@ document.addEventListener('DOMContentLoaded', function () {
         popupAnchor: [1, -34]
     });
 
+    // Créer un groupe de clusters de marqueurs
     var markers = L.markerClusterGroup({
         chunkedLoading: true
     });
 
+    // Récupérer les données GeoJSON et les ajouter au groupe de clusters
     fetch('logements.json')
     .then(response => response.json())
     .then(geojson => {
@@ -29,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (feature.properties && feature.properties.nom_logement) {
                     var popupContent = `
                     <div class="popup-container">
-                        <a href="location.php?id=${feature.properties.logementID}" class="popup-image-link" style="background-image: url('./img/${feature.properties.image}');"></a>
+                        <a href="location.php?id=${feature.properties.logementID}" class="popup-image-link" style="background-image: url('./img/logements/${feature.properties.image}');"></a>
                         <div class="popup-content">
                             <h5 class="popup-title">${feature.properties.nom_logement}</h5>
                             <a href="location.php?id=${feature.properties.logementID}" class="popup-link">Plus d'infos</a>
@@ -43,13 +62,31 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     .catch(err => console.error('Erreur lors du chargement du GeoJSON: ', err));
 
+    // Ajouter le groupe de clusters à la carte
     map.addLayer(markers);
 
+    // Gérer l'ouverture des popups
+    map.on('popupopen', function(e) {
+        map.setMaxBounds(null); // Supprimer temporairement les limites maximales
+    });
+    
+    // Gérer la fermeture des popups
+    map.on('popupclose', function(e) {
+        map.setMaxBounds(bounds); // Rétablir les limites maximales
+    });
 
+    // Gestion du menu burger pour les filtres
+    let burger = document.querySelector(".burger");
+    let nav = document.querySelector(".des-left");
 
-    // Stocker l'ordre initial des éléments au chargement de la page
+    burger.addEventListener("click", () => {
+      nav.classList.toggle("_active");
+      burger.classList.toggle("_active");
+    });
+
+    // Stocker l'ordre initial des éléments à la charge de la page
     var defaultOrder = [];
-
+    
     window.onload = function () {
         var productList = document.querySelectorAll(".product");
         productList.forEach(function (item) {
@@ -65,26 +102,15 @@ document.addEventListener('DOMContentLoaded', function () {
         var sortedList;
 
         if (selectedValue === "0") {
-            // Réinsérer les éléments dans l'ordre initial
-            sortedList = defaultOrder; 
+            sortedList = defaultOrder;
         } else {
             sortedList = Array.from(productList).sort(function (a, b) {
                 var priceA = parseFloat(a.dataset.price);
                 var priceB = parseFloat(b.dataset.price);
-
-                if (selectedValue === "1") {
-                    return priceA - priceB;
-                } else if (selectedValue === "2") {
-                    return priceB - priceA;
-                } else {
-                    // Si la valeur sélectionnée est autre que 1 ou 2, revenez à l'ordre par défaut
-                    // Vous pouvez personnaliser cela selon vos besoins
-                    return 0;
-                }
+                return selectedValue === "1" ? priceA - priceB : priceB - priceA;
             });
         }
 
-        // Réordonner les éléments dans le DOM
         var container = document.querySelector(".des-right-bottom");
         container.innerHTML = "";
         sortedList.forEach(function (item) {
@@ -94,41 +120,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById("sort").addEventListener("change", trierPrix);
 
-    // Filtrer le nombre
-
+    // Gérer les boutons d'augmentation et de diminution du nombre d'invités
     document.getElementById('increase').addEventListener('click', function (event) {
         event.preventDefault();
         var guestNumber = document.getElementById('guest-number');
         var currentValue = parseInt(guestNumber.value);
-        if (currentValue < 12) { // Vérifiez si la valeur est inférieure à 12 avant d'incrémenter
+        if (currentValue < 12) {
             guestNumber.value = currentValue + 1;
         }
     });
-    
+
     document.getElementById('decrease').addEventListener('click', function (event) {
         event.preventDefault();
         var guestNumber = document.getElementById('guest-number');
         var currentValue = parseInt(guestNumber.value);
-        if (currentValue > 1) { // Vérifiez si la valeur est supérieure à 1 avant de décrémenter
+        if (currentValue > 1) {
             guestNumber.value = currentValue - 1;
         }
     });
 
-    // Sélectionnez le bouton de réinitialisation
+    // Réinitialiser la page via le bouton de réinitialisation
     const resetButton = document.getElementById('resetButton');
-
-    // Ajoutez un écouteur d'événements pour le clic sur le bouton de réinitialisation
     resetButton.addEventListener('click', function (event) {
-        // Empêchez le comportement par défaut du bouton de réinitialisation
         event.preventDefault();
-
-        // Redirigez l'utilisateur vers la même page sans aucun paramètre d'URL
         window.location.href = window.location.origin + window.location.pathname;
     });
-
 });
 
-// checkbox
+// Fonction pour permettre une seule case à cocher à la fois
 function allowOnlyOneCheckbox(checkbox) {
     var checkboxes = document.querySelectorAll('.type-property input[type="checkbox"]');
     checkboxes.forEach(function (cb) {
@@ -137,4 +156,3 @@ function allowOnlyOneCheckbox(checkbox) {
         }
     });
 }
-

@@ -1,6 +1,6 @@
 <?php 
 // Établir la connexion à la base de données avec PDO
-$db = new PDO('mysql:host=localhost;dbname=resaweb;charset=utf8', 'root', 'root');
+$db = new PDO('mysql:host=localhost;dbname=resaweb;charset=utf8', 'root', '');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // Vérifier si les données sont postées
@@ -67,10 +67,4 @@ $jsonData = json_encode($geojson, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | J
 
 // Écrire les données JSON dans le fichier
 file_put_contents($filePath, $jsonData);
-
-if (file_exists($filePath)) {
-    echo "Le fichier JSON a été créé avec succès.";
-} else {
-    echo "Erreur lors de la création du fichier JSON.";
-}
 ?>

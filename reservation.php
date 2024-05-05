@@ -19,6 +19,10 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="WeRent propose des locations de vacances indépendantes : villas privées, maisons et penthouse pour des séjours uniques.">
+    <meta name="keywords" content="location, vacances, villa, maison, penthouse, séjour, indépendance, WeRent">
+    <meta name="author" content="Alexandre Ghmir">
     <link rel="stylesheet" href="css/style.css">
     <title> <?php foreach ($resultat as $logement) {
         echo "Réservez {$logement['nom_logement']}";
@@ -45,124 +49,126 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <form id="reservationForm" action="confirmation.php" method="post">
                 <div id="stepone">
                     <div class="formulaire">
-                    <?php foreach ($resultat as $logement) {
-                        echo "<h3>Réservez <b>{$logement['nom_logement']}</b></h3>";
-                    } ?>
-                    <input type="hidden" name="logementID" id="logementID" value="<?php echo $_GET['id']; ?>">
-                    <div class="twoinput">
-                        <div class="input-form">
-                            <label>Nom <span style="color:red">*</span></label>
-                            <input required type="text" name="nom" id="nom" placeholder="Ghmir">
+                        <?php foreach ($resultat as $logement) {
+                            echo "<h3>Réservez <b>{$logement['nom_logement']}</b></h3>";
+                        } ?>
+                        <input type="hidden" name="logementID" id="logementID" value="<?php echo $_GET['id']; ?>">
+                        <div class="twoinput">
+                            <div class="input-form">
+                                <label>Nom <span style="color:red">*</span></label>
+                                <input required type="text" name="nom" id="nom" placeholder="Ghmir">
+                            </div>
+                            <div class="input-form">
+                                <label>Prénom <span style="color:red">*</span></label>
+                                <input required type="text" name="prenom" id="prenom" placeholder="Alexandre">
+                            </div>
                         </div>
                         <div class="input-form">
-                            <label>Prénom <span style="color:red">*</span></label>
-                            <input required type="text" name="prenom" id="prenom" placeholder="Alexandre">
-                        </div>
-                    </div>
-                    <div class="input-form">
-                        <label>Email <span style="color:red">*</span></label>
-                        <input required type="email" name="email" id="email" placeholder="exemple@mail.fr">
-                    </div>
-                    <div class="input-form">
-                        <label>Téléphone <span style="color:red">*</span></label>
-                        <input required type="tel" maxlength="10" name="tel" id="tel" placeholder="0011223344"
-                            pattern="[0-9]{10}">
-                    </div>
-                    <div class="twoinput">
-                        <div class="input-form">
-                            <label>Date d'arrivée <span style="color:red">*</span></label>
-                            <input required type="date" name="date_debut" id="date_debut" placeholder="Date d'arrivée">
+                            <label>Email <span style="color:red">*</span></label>
+                            <input required type="email" name="email" id="email" placeholder="exemple@mail.fr">
                         </div>
                         <div class="input-form">
-                            <label>Date de départ <span style="color:red">*</span></label>
-                            <input required type="date" name="date_fin" id="date_fin" placeholder="Date de départ">
+                            <label>Téléphone <span style="color:red">*</span></label>
+                            <input required type="tel" maxlength="10" name="tel" id="tel" placeholder="0011223344"
+                                pattern="[0-9]{10}">
                         </div>
-                    </div>
-                    <div class="input-form">
-                        <label>Nombre de personnes <span style="color:red">*</span></label>
-                        <input required type="number" min="1" max="<?php echo htmlspecialchars($logement['capacite']); ?>" name="nb_personnes" id="nb_personnes"
-                            placeholder="Nombre de personnes">
-                    </div>
+                        <div class="twoinput">
+                            <div class="input-form">
+                                <label>Date d'arrivée <span style="color:red">*</span></label>
+                                <input required type="date" name="date_debut" id="date_debut"
+                                    placeholder="Date d'arrivée">
+                            </div>
+                            <div class="input-form">
+                                <label>Date de départ <span style="color:red">*</span></label>
+                                <input required type="date" name="date_fin" id="date_fin" placeholder="Date de départ">
+                            </div>
+                        </div>
+                        <div class="input-form">
+                            <label>Nombre de personnes <span style="color:red">*</span></label>
+                            <input required type="number" min="1"
+                                max="<?php echo htmlspecialchars($logement['capacite']); ?>" name="nb_personnes"
+                                id="nb_personnes" placeholder="Nombre de personnes">
+                        </div>
 
-                    <div class="warning">
-                        <p>Les champs suivis d'un <span style="color:red">*</span> sont obligatoires.</p>
-                    </div>
-                    <input type="button" id="submitBtn" value="Réserver">
+                        <div class="warning">
+                            <p>Les champs suivis d'un <span style="color:red">*</span> sont obligatoires.</p>
+                        </div>
+                        <input type="button" id="submitBtn" value="Réserver">
                     </div>
                     <div class="apercu">
                         <div class="apercu-reservation">
                             <h3>🧾 Aperçu de votre réservation</h3>
                             <br>
-                            
+
                             <?php foreach ($resultat as $logement) {
                                 echo "<div class='wrapperinfo'><div><h4>{$logement['nom_logement']}</h4>";
                                 echo "<h5>{$logement['nom_destination']}, {$logement['pays']}</h5>";
                                 echo "<h5>Capacité : {$logement['capacite']}</h5></div>";
                                 echo "<h2><strong>{$logement['prix_par_nuit']}€</strong><span>/nuit</span></h2></div>";
-                                
+
                             } ?>
-                           
+
                         </div>
                         <div class="imgoptions">
-                        <?php foreach ($resultat as $row) {
-                            $images = explode('+', $row['image']);
-                            $image_url = $images[0];
-                            echo "<div class='apercu-img' style='background-image: url(\"./img/{$image_url}\");'></div>";
-                        } ?>
-                          
-                          <div class='loca-options'>
-                    <?php if ($row["animaux"]): ?>
-                        <div class='loca-options-info'>
-                            <img src='img/paw.svg' alt=''>
-                            <h5>Animaux</h5>
+                            <?php foreach ($resultat as $row) {
+                                $images = explode('+', $row['image']);
+                                $image_url = $images[0];
+                                echo "<div class='apercu-img' style='background-image: url(\"./img/logements/{$image_url}\");'></div>";
+                            } ?>
+
+                            <div class='loca-options'>
+                                <?php if ($row["animaux"]): ?>
+                                    <div class='loca-options-info'>
+                                        <img src='img/paw.svg' alt=''>
+                                        <h5>Animaux</h5>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if ($row["vue"]): ?>
+                                    <div class='loca-options-info'>
+                                        <img src='img/eye.svg' alt=''>
+                                        <h5>Vue</h5>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if ($row["cuisine"]): ?>
+                                    <div class='loca-options-info'>
+                                        <img src='img/kitchen.svg' alt=''>
+                                        <h5>Cuisine</h5>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if ($row["wifi"]): ?>
+                                    <div class='loca-options-info'>
+                                        <img src='img/wifi.svg' alt=''>
+                                        <h5>Wifi</h5>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if ($row["montagne"]): ?>
+                                    <div class='loca-options-info'>
+                                        <img src='img/mountain.svg' alt=''>
+                                        <h5>Montagne</h5>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if ($row["baignoire"]): ?>
+                                    <div class='loca-options-info'>
+                                        <img src='img/bath.svg' alt=''>
+                                        <h5>Baignoire</h5>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if ($row["lacs"]): ?>
+                                    <div class='loca-options-info'>
+                                        <img src='img/water.svg' alt=''>
+                                        <h5>Lacs et rivières</h5>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if ($row["mer"]): ?>
+                                    <div class='loca-options-info'>
+                                        <img src='img/mer.svg' alt=''>
+                                        <h5>Au bord de la mer</h5>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
                         </div>
-                    <?php endif; ?>
-                    <?php if ($row["vue"]): ?>
-                        <div class='loca-options-info'>
-                            <img src='img/eye.svg' alt=''>
-                            <h5>Vue</h5>
-                        </div>
-                    <?php endif; ?>
-                    <?php if ($row["cuisine"]): ?>
-                        <div class='loca-options-info'>
-                            <img src='img/kitchen.svg' alt=''>
-                            <h5>Cuisine</h5>
-                        </div>
-                    <?php endif; ?>
-                    <?php if ($row["wifi"]): ?>
-                        <div class='loca-options-info'>
-                            <img src='img/wifi.svg' alt=''>
-                            <h5>Wifi</h5>
-                        </div>
-                    <?php endif; ?>
-                    <?php if ($row["montagne"]): ?>
-                        <div class='loca-options-info'>
-                            <img src='img/mountain.svg' alt=''>
-                            <h5>Montagne</h5>
-                        </div>
-                    <?php endif; ?>
-                    <?php if ($row["baignoire"]): ?>
-                        <div class='loca-options-info'>
-                            <img src='img/bath.svg' alt=''>
-                            <h5>Baignoire</h5>
-                        </div>
-                    <?php endif; ?>
-                    <?php if ($row["lacs"]): ?>
-                        <div class='loca-options-info'>
-                            <img src='img/water.svg' alt=''>
-                            <h5>Lacs et rivières</h5>
-                        </div>
-                    <?php endif; ?>
-                    <?php if ($row["mer"]): ?>
-                        <div class='loca-options-info'>
-                            <img src='img/mer.svg' alt=''>
-                            <h5>Au bord de la mer</h5>
-                        </div>
-                    <?php endif; ?>
-                </div>
                     </div>
-                    </div>
-                    
+
                 </div>
 
                 <div id="recapitulatif" style="display:none; margin-top: 2rem;">
@@ -192,7 +198,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                         <?php foreach ($resultat as $row) {
                             $images = explode('+', $row['image']);
                             $image_url = $images[0];
-                            echo "<div class='apercu-img' style='background-image: url(\"./img/{$image_url}\");'></div>";
+                            echo "<div class='apercu-img' style='background-image: url(\"./img/logements/{$image_url}\");'></div>";
                         } ?>
                     </div>
                 </div>

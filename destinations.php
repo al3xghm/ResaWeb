@@ -98,12 +98,16 @@ $enumValues = $matches[1];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="WeRent propose des locations de vacances indépendantes : villas privées, maisons et penthouse pour des séjours uniques.">
+    <meta name="keywords" content="location, vacances, villa, maison, penthouse, séjour, indépendance, WeRent">
+    <meta name="author" content="Alexandre Ghmir">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
     <title>Destinations</title>
     <link rel="shortcut icon" href="img/icon.webp">
 </head>
@@ -119,16 +123,18 @@ $enumValues = $matches[1];
                 <div class="section-filters">
                     <form method="get" action="destinations.php">
                         <div class="filters-regions">
-                            <h6>Région</h6>
-                            <select name="continent" id="continent">
+                            <h6 id="filters-regions">Région</h6>
+                            <select name="continent" aria-labelledby="filters-regions" id="continent"
+                                alt="Séléction de continent">
                                 <option value="">Choisir une région</option>
                                 <?php foreach ($enumValues as $value): ?>
-                <?php
-                // Vérifier si l'option actuelle est celle qui a été sélectionnée auparavant
-                $selected = (isset($_GET['continent']) && $_GET['continent'] === $value) ? 'selected' : '';
-                ?>
-                <option value="<?= htmlspecialchars($value) ?>" <?= $selected ?>><?= htmlspecialchars($value) ?></option>
-            <?php endforeach; ?>
+                                    <?php
+                                    // Vérifier si l'option actuelle est celle qui a été sélectionnée auparavant
+                                    $selected = (isset($_GET['continent']) && $_GET['continent'] === $value) ? 'selected' : '';
+                                    ?>
+                                    <option value="<?= htmlspecialchars($value) ?>" <?= $selected ?>>
+                                        <?= htmlspecialchars($value) ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="filters-price">
@@ -145,7 +151,7 @@ $enumValues = $matches[1];
                                 $tableauLogement[] = ['icon' => 'img/house.svg', 'name' => 'villa', 'label' => 'Villa'];
                                 $tableauLogement[] = ['icon' => 'img/guest-house.svg', 'name' => 'chalet', 'label' => "Châlet"];
                                 $tableauLogement[] = ['icon' => 'img/apartment.svg', 'name' => 'appartement', 'label' => 'Appartement'];
-                               
+
 
                                 // Définir le nom unique pour tous les boutons radio
                                 $radio_name = 'type';
@@ -176,16 +182,19 @@ $enumValues = $matches[1];
                             </ul>
                         </div>
                         <div class="guest-number">
-                            <h6>Nombre d'invités</h6>
+                            <h6 id="guest-counter">Nombre d'invités</h6>
                             <div class="guest-counter">
-                                <button id="decrease"><svg xmlns="http://www.w3.org/2000/svg" height="14" width="12.25"
+                                <button id="decrease" aria-label="Moins d'invités"><svg
+                                        xmlns="http://www.w3.org/2000/svg" height="14" width="12.25"
                                         viewBox="0 0 448 512">
                                         <path
                                             d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z" />
                                     </svg></button>
-                                <input id="guest-number" name="capacite" type="number" min="1" max="12"
+                                <input id="guest-number" aria-labelledby="guest-counter" name="capacite" type="number"
+                                    min="1" max="12"
                                     value="<?php echo (isset($_GET['capacite']) ? $_GET['capacite'] : 1); ?>">
-                                <button id="increase"><svg xmlns="http://www.w3.org/2000/svg" height="14" width="12.25"
+                                <button id="increase" aria-label="Plus d'invités"><svg
+                                        xmlns="http://www.w3.org/2000/svg" height="14" width="12.25"
                                         viewBox="0 0 448 512">
                                         <path
                                             d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
@@ -200,6 +209,12 @@ $enumValues = $matches[1];
                 </div>
             </div>
         </div>
+
+        <div class="burger js-burger">
+            <img src="img/filters.svg" height="20px" width="20px" alt="burger">
+        </div>
+
+
         <div class="des-right">
             <div class="des-right-top">
                 <h4>
@@ -212,8 +227,8 @@ $enumValues = $matches[1];
                     ?>
                 </h4>
                 <div class="sort">
-                    <h6>Trier par</h6>
-                    <select name="sort" id="sort">
+                    <h5 id="trier">Trier par</h5>
+                    <select name="sort" aria-labelledby="trier" id="sort" alt="Filtrer les prix">
                         <option value="0">Défaut</option>
                         <option value="1">Prix croissant</option>
                         <option value="2">Prix décroissant</option>
@@ -227,12 +242,12 @@ $enumValues = $matches[1];
                         $images = explode('+', $row['image']);
                         $image_url = $images[0];
                         echo "<a href='location.php?id=" . $row['logementID'] . "' class='container-des product' data-price='{$row["prix_par_nuit"]}'>
-            <div class='img' style='background-image: url(./img/" . $image_url . ");'></div>
+            <div class='img' style='background-image: url(./img/logements/" . $image_url . ");'></div>
             <div class='text'>
-                <h5>{$row['nom_logement']}</h5>
+                <p>{$row['nom_logement']}</p>
                 <div class='location'>
                   <img src='img/location.svg' alt='location'>
-                    <h6>{$row["nom_destination"]}, {$row["pays"]}</h6>
+                    <p class='name-location'>{$row["nom_destination"]}, {$row["pays"]}</p>
                 </div>
                 <h2>{$row["prix_par_nuit"]}€<span>/nuit</span></h2>
         </div>
