@@ -1203,6 +1203,7 @@ button {
 .modal-content img {
     width: auto;
     height: 90vh;
+    border-radius: 25px;
 }
 
 .close {
