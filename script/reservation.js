@@ -85,6 +85,11 @@ function validerFormulaire() {
     var dateFinValue = document.getElementById('date_fin').value;
     var nbPersonnes = document.getElementById('nb_personnes').value;
 
+    if (tel.length !== 10) {
+        alert("Le numéro de téléphone doit avoir 10 chiffres.");
+        return false; // Arrêter la validation du formulaire
+    }
+
     return nom && prenom && email && tel && dateDebutValue && dateFinValue && nbPersonnes;
 }
 

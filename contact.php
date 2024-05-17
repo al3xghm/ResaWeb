@@ -14,12 +14,9 @@
 </head>
 
 <body>
-    <?php
-    include ('includes/navigation.php');
-    ?>
+    <?php include ('includes/navigation.php'); ?>
 
     <div class="contact" id="faq">
-
         <h1 class="contact-title">👋 Besoin d'aide ?</h1>
         <div class="contact-header">
             <div class="contact-left">
@@ -88,31 +85,33 @@
             </div>
             <div class="contact-right">
                 <div class="contact-center">
-                    <form action="process_contact.php" method="POST">
+                    <form action="confirmation-support.php" method="POST">
                         <div class="contact-body">
                             <h3>Rien trouvé ? Contactez-nous 📩</h3>
                             <div class="contact-form">
                                 <div class="twoinput">
                                     <div class="input-form">
-                                        <label>Nom <span style="color:red">*</span></label>
-                                        <input type="text" name="nom" id="nom" placeholder="Ghmir">
-                                    </div>
-                                    <div class="input-form">
-                                        <label>Prénom <span style="color:red">*</span></label>
-                                        <input type="text" name="prenom" id="prenom" placeholder="Alexandre">
-                                    </div>
+    <label for="nom">Nom <span style="color:red">*</span> (en majuscules)</label>
+    <input required type="text" name="nom" id="nom" placeholder="Entrez votre nom">
+</div>
+<div class="input-form">
+    <label for="prenom">Prénom <span style="color:red">*</span> (en majuscules)</label>
+    <input required type="text" name="prenom" id="prenom" placeholder="Entrez votre prénom">
+</div>
                                 </div>
                                 <div class="input-form">
-                                    <label>Email <span style="color:red">*</span></label>
-                                    <input type="email" name="email" id="email" placeholder="exemple@mail.fr">
+                                    <label for="email">Email <span style="color:red">*</span></label>
+                                    <input type="email" name="email" id="email" placeholder="exemple@mail.fr" required>
+                                    <!-- Ajout d'une indication sur le format de l'email -->
                                 </div>
                                 <div class="input-form">
-                                    <label>Téléphone <span style="color:red">*</span></label>
-                                    <input type="tel" maxlength="10" name="tel" id="tel" placeholder="0011223344">
+                                    <label for="tel">Téléphone <span style="color:red">*</span></label>
+                                    <input type="tel" maxlength="10" name="tel" id="tel" placeholder="0011223344" required>
+                                    <!-- Ajout d'une indication sur le format du téléphone -->
                                 </div>
                                 <div class="input-form">
-                                    <label>Message <span style="color:red">*</span></label>
-                                    <textarea name="message" id="message" placeholder="Comment pouvons-nous vous aider ?"></textarea>
+                                    <label for="message">Message <span style="color:red">*</span></label>
+                                    <textarea name="message" id="message" placeholder="Entrez votre message (max. 500 caractères)" maxlength="500" required></textarea>
                                 </div>
                                 <p><span style="color:red">*</span> Champs obligatoires</p>
                                 <input type="submit" value="Envoyer">
@@ -122,11 +121,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
-
-
 
     <?php include ('includes/footer.php'); ?>
 </body>

@@ -1,7 +1,7 @@
 
     <nav class="navbar">
         <a class="navbarlogo" href="index.php">
-            <img src="img/logo.webp" height="25px" alt="">
+            <img src="img/logo.webp" height="25px" alt="Logo" title="Logo">
             <h5>WeRent</h5>
         </a>
         <div class="searchbar">

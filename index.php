@@ -2,7 +2,7 @@
 include ('includes/connexion.php');
 $sql = "SELECT * FROM logements INNER JOIN destinations ON logements.destinationextID = destinations.destinationID ORDER BY logements.logementID DESC LIMIT 4";
 $result = $db->query($sql);
-$last = $result->fetchall(PDO::FETCH_ASSOC);
+$last = $result->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -108,25 +108,25 @@ $last = $result->fetchall(PDO::FETCH_ASSOC);
                 <h3>Des résidences extraordinaires à des prix exceptionnels</h3>
                 <a class="button" href="destinations.php?vue=on" title="Découvrir les résidences">
                     <p>Les résidences avec les plus belles vues</p>
-                    <img src="./img/fleche.svg" alt="">
+                    <img src="./img/fleche.svg" alt="Découvrir Les résidences avec les plus belles vues">
                 </a>
             </div>
             <a class="thinbox" href="destinations.php" title="Explorer les destinations">
                 <h4>Voir toutes les destinations</h4>
-                <img src="./img/flechew.svg" alt="">
+                <img src="./img/flechew.svg" alt="Voir toutes les destinations">
             </a>
             <div class="flexrow">
                 <div class="smallbox smallboxone">
                     <h3>Villas au bord de mer</h3>
                     <a class="button" href="destinations.php?type=villa&mer=on" title="Découvrir les villas">
-                        <img src="./img/fleche.svg" alt="">
+                        <img src="./img/fleche.svg" alt="Voir les villas au bord de mer">
                     </a>
 
                 </div>
                 <div class="smallbox smallboxtwo">
                     <h3>Châlets en montagne</h3>
                     <a class="button" href="destinations.php?type=chalet&montagne=on" title="Découvrir les villas">
-                        <img src="./img/fleche.svg" alt="">
+                        <img src="./img/fleche.svg" alt="Voir les châlets en montagne">
                     </a>
 
                 </div>
@@ -139,16 +139,16 @@ $last = $result->fetchall(PDO::FETCH_ASSOC);
     <div id="about-home" class="about-home" data-aos="fade-in">
         <div class="about-left">
             <div class="about-head">
-                <h3>Spécialiste de villas et maisons de vacances</h3>
-                <h7>Pour vos prochaines vacances, profitez de votre indépendance !
+                <h2>Spécialiste de villas et maisons de vacances</h2>
+                <h6>Pour vos prochaines vacances, profitez de votre indépendance !
                     <br>WeRent propose de nombreuses locations de vacances indépendantes : villas privées, maisons
                     individuelles et chalets d'exception pour des séjours uniques.
-                </h7>
+                </h6>
             </div>
             <div class="step">
                 <div>
 
-                    <img src="./img/trust.svg" alt="">
+                    <img src="./img/trust.svg" alt="Icone confiance">
                 </div>
 
                 <div>
@@ -161,7 +161,7 @@ $last = $result->fetchall(PDO::FETCH_ASSOC);
             <div class="step">
                 <div>
 
-                    <img src="./img/house.svg" alt="">
+                    <img src="./img/house.svg" alt="Icone maison">
                 </div>
                 <div>
                     <h5>Plus de 26000 propriétés</h5>
@@ -172,7 +172,7 @@ $last = $result->fetchall(PDO::FETCH_ASSOC);
             <div class="step">
                 <div>
 
-                    <img src="./img/loupe.svg" alt="">
+                    <img src="./img/loupe.svg" alt="Icone loupe">
                 </div>
                 <div>
 
@@ -186,10 +186,11 @@ $last = $result->fetchall(PDO::FETCH_ASSOC);
         </div>
 
         <div class="about-right">
+            <span>Image décorative</span>
         </div>
     </div>
     <div class="faq" id="faq" data-aos="fade-in">
-        <h1>Questions fréquentes</h1>
+        <h2>Questions fréquentes</h2>
         <div class="faq-item">
             <input type="checkbox" id="faq1">
             <label for="faq1" class="faq-item-title"><span class="icon"></span>Quels types de logements puis-je réserver

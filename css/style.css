@@ -113,6 +113,7 @@ p {
     font-weight: 700;
 }
 
+
 /* barre de recherche */
 
 
@@ -146,8 +147,12 @@ p {
 
 .navbar a h5 {
     font-weight: 700;
+    cursor: pointer;
 }
 
+.navbar a:last-child h5:hover {
+    text-decoration: underline;
+}
 
 
 /* home header */
@@ -527,6 +532,10 @@ p {
     background-image: url("../img/logements/villa5.jpg");
 }
 
+.about-right span{
+    display: none;
+}
+
 .about-head h3 {
     margin-bottom: 10px;
 }
@@ -557,8 +566,7 @@ p {
     padding-bottom: 8rem;
 }
 
-.faq h1 {
-    font-size: 2rem;
+.faq h2 {
     text-align: center;
 }
 
@@ -575,7 +583,6 @@ p {
     margin: 0;
     display: flex;
     width: 100%;
-    font-size: 1, 2rem;
     font-weight: 500;
     cursor: pointer;
     justify-content: space-between;
@@ -646,6 +653,10 @@ p {
     align-items: center;
     gap: 2rem;
 
+}
+
+.footer a:hover {
+text-decoration: underline;
 }
 
 
@@ -729,6 +740,10 @@ p {
     gap: 2rem;
     align-items: flex-start;
     margin-bottom: 5rem;
+}
+
+.destinations h1 {
+display: none;
 }
 
 .des-left {
@@ -1299,8 +1314,13 @@ button {
 }
 
 #submitBtn {
-    width: 20%;
     margin: 0 auto;
+    transition: all 0.3s ease-in-out;
+}
+
+#submitBtn:hover {
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
 }
 
 .btn-reservation input[type="submit"] {
@@ -1323,7 +1343,6 @@ button {
     gap: 1rem;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1rem;
 }
 
 .apercu-reservation {
@@ -1365,10 +1384,6 @@ button {
 
 #recapTotal {
     font-weight: 700;
-}
-
-.apercu-reservation h2 {
-    margin: 10px 0;
 }
 
 #recapitulatif .apercu {
@@ -1434,10 +1449,6 @@ button {
 
 .contact-left .faq {
     width: 100%;
-}
-
-.contact-left .faq h1 {
-    text-align: start;
 }
 
 
@@ -1707,16 +1718,20 @@ button[type="submit"]:hover {
         padding-top: 0;
     }
 
+    .destinations h1{
+        display: none;
+    }
+
     .des-left-column {
         width: 100%;
         position: relative;
     }
 
     .des-left {
+        display: none;
         width: 100%;
         position: relative;
         margin-bottom: 15px;
-        display: none;
     }
 
     .des-left._active {
@@ -1914,7 +1929,12 @@ button[type="submit"]:hover {
     .des-right-bottom {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
-}
+
+        .leftheader p {
+            font-size: 1rem;
+        }
+    }
+
 
 
 @keyframes dropdown {

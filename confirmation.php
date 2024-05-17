@@ -153,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   ?>
   <div class="error-header">
     <div class="error-container">
-      <img src="img/confirmation.png" alt="">
+      <img src="img/confirmation.png" alt="Logo confirmation">
       <h1>Merci d'avoir passé commande !</h1>
       <p>
         Votre réservation est confirmée et un e-mail avec tous les détails a été envoyé à votre adresse ;

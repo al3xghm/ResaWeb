@@ -18,7 +18,7 @@
     ?>
     <div class="error-header">
         <div class="error-container">
-            <img src="img/404.png" alt="">
+            <img src="img/404.png" alt="Logo erreur">
             <h1>Oupssss, erreur 404</h1>
             <p>Tu t'es perdu ? arrête.</p>
             <a href="index.php">Retour à la page d'accueil</a>

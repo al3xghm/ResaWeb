@@ -115,6 +115,7 @@ $enumValues = $matches[1];
 <body>
     <?php include ('includes/navigation.php'); ?>
     <div class="destinations">
+    <h1>Destinations</h1>
         <div class="des-left-column">
             <div class="fil-ariane">
                 <a href="index.php">Accueil</a><span>/</span><span><b>Destinations</b></span>

@@ -45,9 +45,9 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                     <a href="index.php">Accueil</a><span>/</span><a href="destinations.php">Destinations</a><span>/</span><span><b><?php echo $row["nom_logement"] ?> </b>
                     </span>
                 </div>
-                <h2>
+                <h1>
                     <?php echo $row["nom_logement"]; ?>
-                </h2>
+                </h1>
                 <div class='loca-location'>
                     <img src='img/location.svg' alt='location'>
                     <h5>
