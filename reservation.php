@@ -29,46 +29,45 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     <?php include ('includes/navigation.php'); ?>
     <div class="reservation-container">
         <div class="fil-ariane">
-            <a href="index.php">Accueil</a><span>/</span><a class="color-blue" href="destinations.php">Destinations</a><span>/</span><?php foreach ($resultat as $logement) { echo "<a class='color-blue' href='location.php?id={$_GET['id']}'>{$logement['nom_logement']} </a>"; } ?><span>/</span><span><b>Réservation</b></span>
+            <a href="index.php" title="Retour à l'accueil">Accueil</a><span>/</span><a class="color-blue" href="destinations.php" title="Voir toutes les destinations">Destinations</a><span>/</span><?php foreach ($resultat as $logement) { echo "<a class='color-blue' href='location.php?id={$_GET['id']}' title='Voir le logement {$logement['nom_logement']}'>{$logement['nom_logement']} </a>"; } ?><span>/</span><span><b>Réservation</b></span>
         </div>
-        <h1 class="res-title">🌍 Trouvez votre prochaine aventure</h1>
+        <h1 class="res-title">🌍 <?php foreach ($resultat as $logement) { echo "Réservez <b>{$logement['nom_logement']}</b>"; } ?></h1>
         <div class="reservation-wrapper">
             <form id="reservationForm" action="confirmation.php" method="post">
                 <div id="stepone">
                     <div class="formulaire">
-                        <?php foreach ($resultat as $logement) { echo "<h2>Réservez <b>{$logement['nom_logement']}</b></h2>"; } ?>
                         <input type="hidden" name="logementID" id="logementID" value="<?php echo $_GET['id']; ?>">
                         <div class="twoinput">
                             <div class="input-form">
-                                <label for="nom">Nom <span style="color:red">*</span> (en majuscules)</label>
-                                <input required type="text" name="nom" id="nom" placeholder="Entrez votre nom">
+                                <label for="nom" id="NomInfo">Nom <span style="color:red">*</span></label>
+                                <input required type="text" name="nom" id="nom" placeholder="Entrez votre nom" aria-describedby="NomInfo">
                             </div>
                             <div class="input-form">
-                                <label for="prenom">Prénom <span style="color:red">*</span> (en majuscules)</label>
-                                <input required type="text" name="prenom" id="prenom" placeholder="Entrez votre prénom">
+                                <label for="prenom" id="PrenomInfo">Prénom <span style="color:red">*</span></label>
+                                <input required type="text" name="prenom" id="prenom" placeholder="Entrez votre prénom" aria-describedby="PrenomInfo">
                             </div>
                         </div>
                         <div class="input-form">
-                            <label for="email">Email <span style="color:red">*</span></label>
-                            <input required type="email" name="email" id="email" placeholder="exemple@mail.fr">
+                            <label for="email" id="EmailInfo">Email <span style="color:red">*</span></label>
+                            <input required type="email" name="email" id="email" placeholder="exemple@mail.fr" aria-describedby="EmailInfo">
                         </div>
                         <div class="input-form">
-                            <label for="tel">Téléphone <span style="color:red">*</span></label>
-                            <input required type="tel" maxlength="10" name="tel" id="tel" placeholder="0011223344" pattern="[0-9]{10}">
+                            <label for="tel" id="TelInfo">Téléphone <span style="color:red">*</span></label>
+                            <input required type="tel" maxlength="10" name="tel" id="tel" placeholder="0011223344" pattern="[0-9]{10}" aria-describedby="TelInfo">
                         </div>
                         <div class="twoinput">
                             <div class="input-form">
-                                <label for="date_debut">Date d'arrivée <span style="color:red">*</span></label>
-                                <input required type="date" name="date_debut" id="date_debut" placeholder="Date d'arrivée" min="<?php echo $current_date; ?>">
+                                <label for="date_debut" id="DateDebutInfo">Date d'arrivée <span style="color:red">*</span></label>
+                                <input required type="date" name="date_debut" id="date_debut" placeholder="Date d'arrivée" min="<?php echo $current_date; ?>" aria-describedby="DateDebutInfo">
                             </div>
                             <div class="input-form">
-                                <label for="date_fin">Date de départ <span style="color:red">*</span></label>
-                                <input required type="date" name="date_fin" id="date_fin" placeholder="Date de départ">
+                                <label for="date_fin" id="DateFinInfo">Date de départ <span style="color:red">*</span></label>
+                                <input required type="date" name="date_fin" id="date_fin" placeholder="Date de départ" aria-describedby="DateFinInfo">
                             </div>
                         </div>
                         <div class="input-form">
-                            <label for="nb_personnes">Nombre de personnes <span style="color:red">*</span></label>
-                            <input required type="number" min="1" max="<?php echo htmlspecialchars($logement['capacite']); ?>" name="nb_personnes" id="nb_personnes" placeholder="Nombre de personnes">
+                            <label for="nb_personnes" id="NbPersonnesInfo">Nombre de personnes <span style="color:red">*</span></label>
+                            <input required type="number" min="1" max="<?php echo htmlspecialchars($logement['capacite']); ?>" name="nb_personnes" id="nb_personnes" placeholder="Nombre de personnes" aria-describedby="NbPersonnesInfo">
                         </div>
                         <div class="warning">
                             <p>Les champs suivis d'un <span style="color:red">*</span> sont obligatoires.</p>
@@ -86,49 +85,49 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                             <div class='loca-options'>
                                 <?php if ($row["animaux"]): ?>
                                     <div class='loca-options-info'>
-                                        <img src='img/paw.svg' alt=''>
+                                        <img src='img/paw.svg' alt='Icone animaux de compagnie'>
                                         <h5>Animaux</h5>
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($row["vue"]): ?>
                                     <div class='loca-options-info'>
-                                        <img src='img/eye.svg' alt=''>
+                                        <img src='img/eye.svg' alt='Icone vue'>
                                         <h5>Vue</h5>
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($row["cuisine"]): ?>
                                     <div class='loca-options-info'>
-                                        <img src='img/kitchen.svg' alt=''>
+                                        <img src='img/kitchen.svg' alt='Icone cuisine'>
                                         <h5>Cuisine</h5>
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($row["wifi"]): ?>
                                     <div class='loca-options-info'>
-                                        <img src='img/wifi.svg' alt=''>
+                                        <img src='img/wifi.svg' alt='Icone wifi'>
                                         <h5>Wifi</h5>
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($row["montagne"]): ?>
                                     <div class='loca-options-info'>
-                                        <img src='img/mountain.svg' alt=''>
+                                        <img src='img/mountain.svg' alt='Icone montagne'>
                                         <h5>Montagne</h5>
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($row["baignoire"]): ?>
                                     <div class='loca-options-info'>
-                                        <img src='img/bath.svg' alt=''>
+                                        <img src='img/bath.svg' alt='Icone baignoire'>
                                         <h5>Baignoire</h5>
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($row["lacs"]): ?>
                                     <div class='loca-options-info'>
-                                        <img src='img/water.svg' alt=''>
+                                        <img src='img/water.svg' alt='Icone lacs et rivières'>
                                         <h5>Lacs et rivières</h5>
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($row["mer"]): ?>
                                     <div class='loca-options-info'>
-                                        <img src='img/mer.svg' alt=''>
+                                        <img src='img/mer.svg' alt='Icone mer'>
                                         <h5>Au bord de la mer</h5>
                                     </div>
                                 <?php endif; ?>
@@ -157,7 +156,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                 <input type="submit" value="Confirmer la réservation">
                             </div>
                         </div>
-                        <?php foreach ($resultat as $row) { $images = explode('+', $row['image']); $image_url = $images[0]; echo "<div class='apercu-img' style='background-image: url(\"./img/logements/{$image_url}\");'></div>"; } ?>
+                        <?php foreach ($resultat as $row) { $images = explode('+', $row['image']); $image_url = $images[0]; echo "<div class='apercu-img' aria-label='Photo du logement' style='background-image: url(\"./img/logements/{$image_url}\");'></div>"; } ?>
                     </div>
                 </div>
             </form>

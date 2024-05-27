@@ -76,6 +76,7 @@ $last = $result->fetchAll(PDO::FETCH_ASSOC);
                         $index++;
                         ?>
                         <a href="location.php?id=<?php echo $row['logementID']; ?>" class="slide"
+                        title="Voir le logement"
                             id="slide<?php echo $index; ?>-review"
                             style="background: linear-gradient(to bottom, transparent, #000000), url('img/logements/<?php echo $image_url; ?>'); background-position: center">
                             <div class="city">
@@ -113,20 +114,20 @@ $last = $result->fetchAll(PDO::FETCH_ASSOC);
             </div>
             <a class="thinbox" href="destinations.php" title="Explorer les destinations">
                 <h4>Voir toutes les destinations</h4>
-                <img src="./img/flechew.svg" alt="Voir toutes les destinations">
+                <img src="./img/flechew.svg" alt="Flèche">
             </a>
             <div class="flexrow">
                 <div class="smallbox smallboxone">
                     <h3>Villas au bord de mer</h3>
                     <a class="button" href="destinations.php?type=villa&mer=on" title="Découvrir les villas">
-                        <img src="./img/fleche.svg" alt="Voir les villas au bord de mer">
+                        <img src="./img/fleche.svg" alt="Flèche">
                     </a>
 
                 </div>
                 <div class="smallbox smallboxtwo">
                     <h3>Châlets en montagne</h3>
                     <a class="button" href="destinations.php?type=chalet&montagne=on" title="Découvrir les villas">
-                        <img src="./img/fleche.svg" alt="Voir les châlets en montagne">
+                        <img src="./img/fleche.svg" alt="Flèche">
                     </a>
 
                 </div>
@@ -185,8 +186,8 @@ $last = $result->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
 
-        <div class="about-right">
-            <span>Image décorative</span>
+        <div class="about-right" aria-label="Photo piscine et transat">
+            <span>Photo piscine et transat</span>
         </div>
     </div>
     <div class="faq" id="faq" data-aos="fade-in">

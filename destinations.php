@@ -118,7 +118,9 @@ $enumValues = $matches[1];
     <h1>Destinations</h1>
         <div class="des-left-column">
             <div class="fil-ariane">
-                <a href="index.php">Accueil</a><span>/</span><span><b>Destinations</b></span>
+                <a href="index.php"
+                title="Retour à l'accueil"
+                >Accueil</a><span>/</span><span><b>Destinations</b></span>
             </div>
             <div class="des-left">
                 <div class="section-filters">
@@ -242,12 +244,12 @@ $enumValues = $matches[1];
                     <?php foreach ($resultat as $row) {
                         $images = explode('+', $row['image']);
                         $image_url = $images[0];
-                        echo "<a href='location.php?id=" . $row['logementID'] . "' class='container-des product' data-price='{$row["prix_par_nuit"]}'>
+                        echo "<a href='location.php?id=" . $row['logementID'] . "' title='" . $row['nom_logement'] . "' class='container-des product' data-price='{$row["prix_par_nuit"]}'>
             <div class='img' style='background-image: url(./img/logements/" . $image_url . ");'></div>
             <div class='text'>
                 <p>{$row['nom_logement']}</p>
                 <div class='location'>
-                  <img src='img/location.svg' alt='location'>
+                  <img src='img/location.svg' alt='location image'>
                     <p class='name-location'>{$row["nom_destination"]}, {$row["pays"]}</p>
                 </div>
                 <h2>{$row["prix_par_nuit"]}€<span>/nuit</span></h2>

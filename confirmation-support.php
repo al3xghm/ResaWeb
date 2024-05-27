@@ -25,7 +25,7 @@
         Nous avons bien reçu votre demande. Nous vous répondrons dans les plus brefs délais.
         <br>Si vous ne recevez pas de réponse dans les 48 heures, veuillez vérifier votre dossier de courrier indésirable.
       </p>
-      <a href="index.php">Retour à la page d'accueil</a>
+      <a href="index.php" title="Retour à la page d'accueil">Retour à la page d'accueil</a>
     </div>
   </div>
   <?php include ('includes/footer.php'); ?>

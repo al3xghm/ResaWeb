@@ -20,6 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $result = $stmt->fetch(PDO::FETCH_ASSOC);
   $nom_logement = $result['nom_logement'];
   $prix_par_nuit = $result['prix_par_nuit'];
+    
+    // Calcul du prix total
+     $dateDebut = new DateTime($date_debut);
+     $dateFin = new DateTime($date_fin);
+     $interval = $dateDebut->diff($dateFin);
+     $nombre_de_nuits = $interval->days;
+     $total = $nombre_de_nuits * $prix_par_nuit * $nb_personnes;
 
 
   $requete = "INSERT INTO reservations (nom, prenom, email, tel, date_debut, date_fin, nb_personnes, logementID) VALUES (:nom, :prenom, :email, :tel, :date_debut, :date_fin, :nb_personnes, :logementID)";
@@ -86,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <div style='text-align: center;'>
     <img src='https://ghmir.butmmi.o2switch.site/resaweb/img/logoconfirm.png' alt='WeRent Logo' style='width: 100px;'>
     <h1>Merci pour votre réservation, " . htmlspecialchars($prenom) . "!</h1>
-    <p>Votre réservation pour le logement <strong>" . htmlspecialchars($nom_logement) . "</strong>, du <strong>" . htmlspecialchars($formattedDateDebut) . "</strong> au <strong>" . htmlspecialchars($formattedDateFin) . "</strong> pour <strong>" . intval($nb_personnes) . " personne(s)</strong> a été confirmée au prix de <strong>" . htmlspecialchars($prix_par_nuit) . " €</strong>.</p>
+    <p>Votre réservation pour le logement <strong>" . htmlspecialchars($nom_logement) . "</strong>, du <strong>" . htmlspecialchars($formattedDateDebut) . "</strong> au <strong>" . htmlspecialchars($formattedDateFin) . "</strong> pour <strong>" . intval($nb_personnes) . " personne(s)</strong> a été confirmée au prix de <strong>" . htmlspecialchars($total) . " €</strong>.</p>
     <p>Nous attendons votre arrivée avec impatience!</p>
     <hr>
     <p>Pour toute question, n'hésitez pas à nous contacter: " . htmlspecialchars($from) . "</p>
@@ -118,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <li>Date de fin: " . htmlspecialchars($formattedDateFin) . "</li>
     <li>Nombre de personnes: " . intval($nb_personnes) . "</li>
     <li>Logement: " . htmlspecialchars($nom_logement) . "</li>
-    <li>Prix par nuit: " . htmlspecialchars($prix_par_nuit) . " €</li>
+    <li>Total: " . htmlspecialchars($total) . " €</li>
   </ul>
   </div>
 </body>
@@ -159,7 +166,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         Votre réservation est confirmée et un e-mail avec tous les détails a été envoyé à votre adresse ;
         <br>veuillez vérifier également votre dossier spam et conserver cet e-mail pour vos dossiers.
       </p>
-      <a href="index.php">Retour à la page d'accueil</a>
+      <a href="index.php"
+      title="Retour à la page d'accueil"
+      >Retour à la page d'accueil</a>
     </div>
   </div>
   <?php include ('includes/footer.php'); ?>

@@ -12,7 +12,7 @@
             <button type="submit"><img src="./img/loupe.svg" alt="Bouton recherche"></button>
             </form>
         </div>
-        <a href="destinations.php">
+        <a href="destinations.php" title="Voir toutes les destinations">
             <h5>Destinations</h5>
         </a>
     </nav>

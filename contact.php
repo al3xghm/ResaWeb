@@ -91,27 +91,38 @@
                             <div class="contact-form">
                                 <div class="twoinput">
                                     <div class="input-form">
-    <label for="nom">Nom <span style="color:red">*</span> (en majuscules)</label>
-    <input required type="text" name="nom" id="nom" placeholder="Entrez votre nom">
-</div>
-<div class="input-form">
-    <label for="prenom">Prénom <span style="color:red">*</span> (en majuscules)</label>
-    <input required type="text" name="prenom" id="prenom" placeholder="Entrez votre prénom">
-</div>
+                                        <label for="nom" id="NomContactInfo">Nom <span
+                                                class="warning">*</span></label>
+                                        <input required type="text" name="nom" id="nom" placeholder="Entrez votre nom"
+                                            aria-describedby="NomContactInfo">
+                                    </div>
+                                    <div class="input-form">
+                                        <label for="prenom" id="PrenomContactInfo">Prénom <span
+                                                style="color:red">*</span></label>
+                                        <input required type="text" name="prenom" id="prenom"
+                                            placeholder="Entrez votre prénom" aria-describedby="PrenomContactInfo">
+                                    </div>
                                 </div>
                                 <div class="input-form">
-                                    <label for="email">Email <span style="color:red">*</span></label>
-                                    <input type="email" name="email" id="email" placeholder="exemple@mail.fr" required>
+                                    <label for="email" id="EmailContactInfo">Email <span
+                                            style="color:red">*</span></label>
+                                    <input type="email" name="email" id="email" placeholder="exemple@mail.fr" required
+                                        aria-describedby="EmailContactInfo">
                                     <!-- Ajout d'une indication sur le format de l'email -->
                                 </div>
                                 <div class="input-form">
-                                    <label for="tel">Téléphone <span style="color:red">*</span></label>
-                                    <input type="tel" maxlength="10" name="tel" id="tel" placeholder="0011223344" required>
+                                    <label for="tel" id="TelContactInfo">Téléphone <span
+                                            style="color:red">*</span></label>
+                                    <input type="tel" maxlength="10" name="tel" id="tel" placeholder="0011223344"
+                                        required aria-describedby="TelContactInfo">
                                     <!-- Ajout d'une indication sur le format du téléphone -->
                                 </div>
                                 <div class="input-form">
-                                    <label for="message">Message <span style="color:red">*</span></label>
-                                    <textarea name="message" id="message" placeholder="Entrez votre message (max. 500 caractères)" maxlength="500" required></textarea>
+                                    <label for="message" id="MessageInfo">Message <span
+                                            style="color:red">*</span></label>
+                                    <textarea name="message" id="message"
+                                        placeholder="Entrez votre message (max. 500 caractères)" maxlength="500"
+                                        required aria-describedby="MessageInfo"></textarea>
                                 </div>
                                 <p><span style="color:red">*</span> Champs obligatoires</p>
                                 <input type="submit" value="Envoyer">

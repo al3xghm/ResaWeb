@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         minZoom: 1,
         maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright" title="Openstreetmap">OpenStreetMap</a>'
     }).addTo(map);
 
     // Définir une icône personnalisée pour les marqueurs
@@ -48,10 +48,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (feature.properties && feature.properties.nom_logement) {
                     var popupContent = `
                     <div class="popup-container">
-                        <a href="location.php?id=${feature.properties.logementID}" class="popup-image-link" style="background-image: url('./img/logements/${feature.properties.image}');"></a>
+                        <a href="location.php?id=${feature.properties.logementID}" class="popup-image-link" style="background-image: url('./img/logements/${feature.properties.image}');" aria-label="${feature.properties.nom_logement}" title="${feature.properties.nom_logement}"></a>
                         <div class="popup-content">
                             <h5 class="popup-title">${feature.properties.nom_logement}</h5>
-                            <a href="location.php?id=${feature.properties.logementID}" class="popup-link">Plus d'infos</a>
+                            <a href="location.php?id=${feature.properties.logementID}" class="popup-link" title="Voir plus de détails">Plus d'infos</a>
                         </div>
                     </div>
                     `;

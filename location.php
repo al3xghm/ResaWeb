@@ -42,7 +42,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             ?>
             <div class='loca-left'>
                 <div class="fil-ariane">
-                    <a href="index.php">Accueil</a><span>/</span><a href="destinations.php">Destinations</a><span>/</span><span><b><?php echo $row["nom_logement"] ?> </b>
+                    <a href="index.php" title="Retour à l'accueil">Accueil</a><span>/</span><a href="destinations.php" title="Voir toutes les destinations">Destinations</a><span>/</span><span><b><?php echo $row["nom_logement"] ?> </b>
                     </span>
                 </div>
                 <h1>
@@ -68,49 +68,49 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                 <div class='loca-options'>
                     <?php if ($row["animaux"]): ?>
                         <div class='loca-options-info'>
-                            <img src='img/paw.svg' alt=''>
+                            <img src='img/paw.svg' alt='Icone animaux de compagnie'>
                             <h5>Animaux</h5>
                         </div>
                     <?php endif; ?>
                     <?php if ($row["vue"]): ?>
                         <div class='loca-options-info'>
-                            <img src='img/eye.svg' alt=''>
+                            <img src='img/eye.svg' alt='Icone vue'>
                             <h5>Vue</h5>
                         </div>
                     <?php endif; ?>
                     <?php if ($row["cuisine"]): ?>
                         <div class='loca-options-info'>
-                            <img src='img/kitchen.svg' alt=''>
+                            <img src='img/kitchen.svg' alt='Icone cuisine'>
                             <h5>Cuisine</h5>
                         </div>
                     <?php endif; ?>
                     <?php if ($row["wifi"]): ?>
                         <div class='loca-options-info'>
-                            <img src='img/wifi.svg' alt=''>
+                            <img src='img/wifi.svg' alt='Icone wifi'>
                             <h5>Wifi</h5>
                         </div>
                     <?php endif; ?>
                     <?php if ($row["montagne"]): ?>
                         <div class='loca-options-info'>
-                            <img src='img/mountain.svg' alt=''>
+                            <img src='img/mountain.svg' alt='Icone montagne'>
                             <h5>Montagne</h5>
                         </div>
                     <?php endif; ?>
                     <?php if ($row["baignoire"]): ?>
                         <div class='loca-options-info'>
-                            <img src='img/bath.svg' alt=''>
+                            <img src='img/bath.svg' alt='Icone baignoire'>
                             <h5>Baignoire</h5>
                         </div>
                     <?php endif; ?>
                     <?php if ($row["lacs"]): ?>
                         <div class='loca-options-info'>
-                            <img src='img/water.svg' alt=''>
+                            <img src='img/water.svg' alt='Icone lacs et rivières'>
                             <h5>Lacs et rivières</h5>
                         </div>
                     <?php endif; ?>
                     <?php if ($row["mer"]): ?>
                         <div class='loca-options-info'>
-                            <img src='img/mer.svg' alt=''>
+                            <img src='img/mer.svg' alt='Icone mer'>
                             <h5>Au bord de la mer</h5>
                         </div>
                     <?php endif; ?>
@@ -120,15 +120,16 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                         <?php echo $row["description"]; ?>
                     </p>
                 </div>
-                <a href='reservation.php?id=<?php echo $_GET['id']; ?>' class='loca-btn'>Réserver une date <img
-                        src='img/calendar.svg' alt=''></a>
+                <a href='reservation.php?id=<?php echo $_GET['id']; ?>' class='loca-btn' title="Réserver une date">Réserver une date <img
+                        src='img/calendar.svg' alt='Icone Calendrier'></a>
             </div>
         <?php } ?>
         <div class='loca-right'>
             <?php
             $counter = 1; // Initialisation du compteur
             foreach ($images as $image) {
-                echo "<div class='loca-img" . $counter . "' style='background-image: url(\"./img/logements/" . $image . "\");' onclick='openModal(\"./img/logements/" . $image . "\")'></div>";
+                echo "<div class='loca-img" . $counter . "' style='background-image: url(\"./img/logements/" . $image . "\");'
+                aria-label='Image du logement' onclick='openModal(\"./img/logements/" . $image . "\")'></div>";
                 $counter++; // Incrémenter le compteur pour la prochaine classe
                 if ($counter > 5)
                     break; // Sortir de la boucle après avoir affiché 5 images
@@ -141,7 +142,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <img id="modal-img" src="" alt="Image">
+            <img id="modal-img" src="" alt="Image du logement">
         </div>
     </div>
 

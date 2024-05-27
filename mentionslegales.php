@@ -33,11 +33,13 @@
             </div>
             <div class="mentionslegales">
                 <h3>Mentions légales</h3><br>
-                <p><b>Hébergeur : <a href="https://o2switch.fr">o2switch.fr</a> - 222-224 Boulevard Gustave Flaubert - 63000 Clermont-Ferrand, France.<p></b><br>
+                <p><b>Hébergeur : <a href="https://o2switch.fr"
+                title="Hébergeur"
+                >o2switch.fr</a> - 222-224 Boulevard Gustave Flaubert - 63000 Clermont-Ferrand, France.<p></b><br>
 <p>Ce site web est édité par <b>l'Université Gustave Eiffel</b> de <i>Champs sur Marne</i>, représentée par son Président.</p><br>
 
 <h5>Collecte des données personnelles :</h5>
-<p>La collecte de données personnelles sur ce site web se fait uniquement lors de la réservation, dans le but de vous envoyer l'email de confirmation. Vos données ne seront jamais transmises à des tiers et ne seront jamais commercialisées. Ces données sont conservées dans la base de données du site, accessibles uniquement par le délégué à la protection des données. Pour toute demande de suppression ou toute question relative à la collecte ou au traitement de vos données personnelles via le site, vous pouvez envoyer un courriel à : <b><a href="mailto:alexandre.ghmir@edu.univ-eiffel.fr">alexandre.ghmir@edu.univ-eiffel.fr</a></b>. Elles seront supprimées dans les plus brefs délais.</p><br>
+<p>La collecte de données personnelles sur ce site web se fait uniquement lors de la réservation, dans le but de vous envoyer l'email de confirmation. Vos données ne seront jamais transmises à des tiers et ne seront jamais commercialisées. Ces données sont conservées dans la base de données du site, accessibles uniquement par le délégué à la protection des données. Pour toute demande de suppression ou toute question relative à la collecte ou au traitement de vos données personnelles via le site, vous pouvez envoyer un courriel à : <b><a href="mailto:alexandre.ghmir@edu.univ-eiffel.fr" title="Adresse mail d'Alexandre Ghmir">alexandre.ghmir@edu.univ-eiffel.fr</a></b>. Elles seront supprimées dans les plus brefs délais.</p><br>
 
 <h5>Utilisation des images :</h5>
 <p>En plus des images sous licence Creative Commons ou équivalent (provenant de Pexels, FontAwesome, ...), ce site utilise également des images provenant de Airbnb. Ces images ont été utilisées exclusivement dans le cadre de ce projet universitaire et ne sont pas destinées à un usage commercial.</p><br>
