@@ -7,9 +7,9 @@
         <div class="searchbar">
             <!-- searchbar input -->
             <form action="destinations.php" method="GET">
-            <input type="text" id="searchInput" name="search_combined" placeholder="Recherchez une villa, une destination...">
+            <input type="text" id="searchInput" name="search_combined" placeholder="Recherchez une villa, une destination..." aria-label="Recherchez une villa, une destination...">
             <!-- loupe svg -->
-            <button type="submit"><img src="./img/loupe.svg" alt="Bouton recherche"></button>
+            <button type="submit"><img src="./img/loupe.svg" alt="Bouton recherche" title="Bouton recherche"></button>
             </form>
         </div>
         <a href="destinations.php" title="Voir toutes les destinations">

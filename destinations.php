@@ -143,8 +143,8 @@ $enumValues = $matches[1];
                         <div class="filters-price">
                             <h6>Prix</h6>
                             <div class="twoinputprice">
-                                <input type="number" name="min_price" placeholder="Minimum" min="0" default="0">
-                                <input type="number" name="max_price" placeholder="Maximum" min="0" default="1000">
+                                <input type="number" name="min_price" placeholder="Minimum" min="0" default="0" aria-label="Prix minimum">
+                                <input type="number" name="max_price" placeholder="Maximum" min="0" default="1000" aria-label="Prix maximum">
                             </div>
                         </div>
                         <div class="type-property">

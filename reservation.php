@@ -11,6 +11,9 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 } else {
     header('Location: 404.php');
 }
+
+$current_date = date('Y-m-d');
+
 ?>
 
 <!DOCTYPE html>

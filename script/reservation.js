@@ -54,6 +54,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+
+// Capitaliser la première lettre de chaque mot
 function capitaliser(texte) {
     return texte.toLowerCase().split(' ').map(function(mot) {
         return mot.charAt(0).toUpperCase() + mot.slice(1);

@@ -4,7 +4,7 @@
         {
             "type": "Feature",
             "properties": {
-                "logementID": "1",
+                "logementID": 1,
                 "nom_logement": "Villa Phenicia",
                 "image": "villaphenicia1.jpg"
             },
@@ -19,7 +19,7 @@
         {
             "type": "Feature",
             "properties": {
-                "logementID": "2",
+                "logementID": 2,
                 "nom_logement": "Chalet Inari",
                 "image": "inari1.jpg"
             },
@@ -34,7 +34,7 @@
         {
             "type": "Feature",
             "properties": {
-                "logementID": "3",
+                "logementID": 3,
                 "nom_logement": "Chalet Front Palafito",
                 "image": "palafito1.jpg"
             },
@@ -49,7 +49,7 @@
         {
             "type": "Feature",
             "properties": {
-                "logementID": "4",
+                "logementID": 4,
                 "nom_logement": "Appartement Sea Esta",
                 "image": "seaesta1.jpg"
             },
@@ -64,7 +64,7 @@
         {
             "type": "Feature",
             "properties": {
-                "logementID": "5",
+                "logementID": 5,
                 "nom_logement": "Appartement Le Donatien",
                 "image": "t2haussmanien1.jpg"
             },
@@ -79,7 +79,7 @@
         {
             "type": "Feature",
             "properties": {
-                "logementID": "6",
+                "logementID": 6,
                 "nom_logement": "Villa Flow House",
                 "image": "flowhouse1.jpg"
             },
@@ -94,7 +94,7 @@
         {
             "type": "Feature",
             "properties": {
-                "logementID": "7",
+                "logementID": 7,
                 "nom_logement": "Appartement Dynasty",
                 "image": "dynasty1.jpg"
             },
@@ -109,7 +109,7 @@
         {
             "type": "Feature",
             "properties": {
-                "logementID": "8",
+                "logementID": 8,
                 "nom_logement": "Chalet Luciano",
                 "image": "stalden1.jpg"
             },
@@ -124,7 +124,7 @@
         {
             "type": "Feature",
             "properties": {
-                "logementID": "9",
+                "logementID": 9,
                 "nom_logement": "Appartement Asakusa",
                 "image": "asakusa1.jpg"
             },
@@ -139,7 +139,7 @@
         {
             "type": "Feature",
             "properties": {
-                "logementID": "10",
+                "logementID": 10,
                 "nom_logement": "Chalet Valley View",
                 "image": "valleyview1.jpg"
             },
@@ -154,7 +154,7 @@
         {
             "type": "Feature",
             "properties": {
-                "logementID": "11",
+                "logementID": 11,
                 "nom_logement": "Appartement Dymos",
                 "image": "dymos1.jpg"
             },
@@ -169,7 +169,7 @@
         {
             "type": "Feature",
             "properties": {
-                "logementID": "12",
+                "logementID": 12,
                 "nom_logement": "Villa Hassan II",
                 "image": "hassan1.jpg"
             },
@@ -184,7 +184,7 @@
         {
             "type": "Feature",
             "properties": {
-                "logementID": "13",
+                "logementID": 13,
                 "nom_logement": "Villa Il Sogno",
                 "image": "sogno1.jpg"
             },
@@ -199,7 +199,7 @@
         {
             "type": "Feature",
             "properties": {
-                "logementID": "14",
+                "logementID": 14,
                 "nom_logement": "Villa Revo",
                 "image": "revo1.jpg"
             },
@@ -214,7 +214,7 @@
         {
             "type": "Feature",
             "properties": {
-                "logementID": "15",
+                "logementID": 15,
                 "nom_logement": "Chalet Les Houches",
                 "image": "leshouches1.jpg"
             },
@@ -229,7 +229,7 @@
         {
             "type": "Feature",
             "properties": {
-                "logementID": "16",
+                "logementID": 16,
                 "nom_logement": "Villa Laranjas",
                 "image": "laranjas1.jpg"
             },
