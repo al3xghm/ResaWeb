@@ -66,7 +66,6 @@ $last = $result->fetchAll(PDO::FETCH_ASSOC);
                 <label for="Slide4-review" id="s4-review"></label>
 
                 <div class="overflow-wrapper">
-
                     <?php
                     $index = 0;
                     foreach ($last as $row) {
@@ -80,14 +79,14 @@ $last = $result->fetchAll(PDO::FETCH_ASSOC);
                             id="slide<?php echo $index; ?>-review"
                             style="background: linear-gradient(to bottom, transparent, #000000), url('img/logements/<?php echo $image_url; ?>'); background-position: center">
                             <div class="city">
-                                <h6>
+                                <p>
                                     <?php echo "{$row['nom_destination']}, {$row['pays']}"; ?>
-                                </h6>
+                                </p>
                             </div>
                             <div class="word">
-                                <h6>
+                                <p>
                                     <?php echo $row['nom_logement']; ?>
-                                </h6>
+                                </p>
                             </div>
                             <div class="review">
                                 <img src="img/star.svg" alt="star">
@@ -106,26 +105,26 @@ $last = $result->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="rightheader">
             <div class="largebox">
-                <h3>Des résidences extraordinaires à des prix exceptionnels</h3>
+                <h2>Des résidences extraordinaires à des prix exceptionnels</h2>
                 <a class="button" href="destinations.php?vue=on" title="Découvrir les résidences">
                     <p>Les résidences avec les plus belles vues</p>
                     <img src="./img/fleche.svg" alt="Découvrir Les résidences avec les plus belles vues">
                 </a>
             </div>
             <a class="thinbox" href="destinations.php" title="Explorer les destinations">
-                <h4>Voir toutes les destinations</h4>
+                <h2>Voir toutes les destinations</h2>
                 <img src="./img/flechew.svg" alt="Flèche">
             </a>
             <div class="flexrow">
                 <div class="smallbox smallboxone">
-                    <h3>Villas au bord de mer</h3>
+                    <h2>Villas au bord de mer</h2>
                     <a class="button" href="destinations.php?type=villa&mer=on" title="Découvrir les villas">
                         <img src="./img/fleche.svg" alt="Flèche">
                     </a>
 
                 </div>
                 <div class="smallbox smallboxtwo">
-                    <h3>Châlets en montagne</h3>
+                    <h2>Châlets en montagne</h2>
                     <a class="button" href="destinations.php?type=chalet&montagne=on" title="Découvrir les villas">
                         <img src="./img/fleche.svg" alt="Flèche">
                     </a>
@@ -141,10 +140,10 @@ $last = $result->fetchAll(PDO::FETCH_ASSOC);
         <div class="about-left">
             <div class="about-head">
                 <h2>Spécialiste de villas et maisons de vacances</h2>
-                <h6>Pour vos prochaines vacances, profitez de votre indépendance !
+                <p>Pour vos prochaines vacances, profitez de votre indépendance !
                     <br>WeRent propose de nombreuses locations de vacances indépendantes : villas privées, maisons
                     individuelles et chalets d'exception pour des séjours uniques.
-                </h6>
+                </p>
             </div>
             <div class="step">
                 <div>
@@ -153,7 +152,7 @@ $last = $result->fetchAll(PDO::FETCH_ASSOC);
                 </div>
 
                 <div>
-                    <h5>Fiabilité et confiance</h5>
+                    <h3>Fiabilité et confiance</h3>
                     <p>WeRent propose exclusivement des hébergements de vacances gérées par des agences. Toutes les
                         offres
                         proposées sur notre site sont totalement fiables et sûres.</p>
@@ -165,7 +164,7 @@ $last = $result->fetchAll(PDO::FETCH_ASSOC);
                     <img src="./img/house.svg" alt="Icone maison">
                 </div>
                 <div>
-                    <h5>Plus de 26000 propriétés</h5>
+                    <h3>Plus de 26000 propriétés</h3>
                     <p>Un grand choix de maisons de vacances à louer, situées principalement en Europe: France, Espagne,
                         Italie, Portugal, Grèce ...</p>
                 </div>
@@ -177,7 +176,7 @@ $last = $result->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 <div>
 
-                    <h5>Recherchez, comparez et réservez !</h5>
+                    <h3>Recherchez, comparez et réservez !</h3>
                     <p>Trouvez en quelques secondes les locations qui correspondent à vos envies de vacances. Réservez
                         en
                         ligne en toute confiance et en toute sécurité.</p>
@@ -191,7 +190,7 @@ $last = $result->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
     <div class="faq" id="faq" data-aos="fade-in">
-        <h2>Questions fréquentes</h2>
+        <h3>Questions fréquentes</h3>
         <div class="faq-item">
             <input type="checkbox" id="faq1">
             <label for="faq1" class="faq-item-title"><span class="icon"></span>Quels types de logements puis-je réserver

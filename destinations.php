@@ -126,7 +126,7 @@ $enumValues = $matches[1];
                 <div class="section-filters">
                     <form method="get" action="destinations.php">
                         <div class="filters-regions">
-                            <h6 id="filters-regions">Région</h6>
+                            <h2 id="filters-regions">Région</h2>
                             <select name="continent" aria-labelledby="filters-regions" id="continent"
                                 alt="Séléction de continent">
                                 <option value="">Choisir une région</option>
@@ -141,14 +141,14 @@ $enumValues = $matches[1];
                             </select>
                         </div>
                         <div class="filters-price">
-                            <h6>Prix</h6>
+                            <h2>Prix</h2>
                             <div class="twoinputprice">
                                 <input type="number" name="min_price" placeholder="Minimum" min="0" default="0" aria-label="Prix minimum">
                                 <input type="number" name="max_price" placeholder="Maximum" min="0" default="1000" aria-label="Prix maximum">
                             </div>
                         </div>
                         <div class="type-property">
-                            <h6>Type de propriété</h6>
+                            <h2>Type de propriété</h2>
                             <ul class="cboxtags">
                                 <?php
                                 $tableauLogement[] = ['icon' => 'img/house.svg', 'name' => 'villa', 'label' => 'Villa'];
@@ -166,7 +166,7 @@ $enumValues = $matches[1];
                             </ul>
                         </div>
                         <div class="options-property">
-                            <h6>Options</h6>
+                            <h2>Options</h2>
                             <ul class="cboxtags">
                                 <?php
                                 $tableauOptions[] = ['icon' => 'img/wifi.svg', 'name' => 'wifi', 'label' => 'Wifi'];
@@ -185,7 +185,7 @@ $enumValues = $matches[1];
                             </ul>
                         </div>
                         <div class="guest-number">
-                            <h6 id="guest-counter">Nombre d'invités</h6>
+                            <h2 id="guest-counter">Nombre d'invités</h2>
                             <div class="guest-counter">
                                 <button id="decrease" aria-label="Moins d'invités"><svg
                                         xmlns="http://www.w3.org/2000/svg" height="14" width="12.25"
@@ -220,7 +220,7 @@ $enumValues = $matches[1];
 
         <div class="des-right">
             <div class="des-right-top">
-                <h4>
+                <h3>
                     <!-- if echo count=1 Résultat au singulier et si count > 1 écrire Résultat au pluriel -->
                     <?php if (count($resultat) <= 1) {
                         echo count($resultat) . " résultat";
@@ -228,9 +228,9 @@ $enumValues = $matches[1];
                         echo count($resultat) . " résultats";
                     }
                     ?>
-                </h4>
+                </h3>
                 <div class="sort">
-                    <h5 id="trier">Trier par</h5>
+                    <h4 id="trier">Trier par</h4>
                     <select name="sort" aria-labelledby="trier" id="sort" alt="Filtrer les prix">
                         <option value="0">Défaut</option>
                         <option value="1">Prix croissant</option>
@@ -252,7 +252,7 @@ $enumValues = $matches[1];
                   <img src='img/location.svg' alt='location image'>
                     <p class='name-location'>{$row["nom_destination"]}, {$row["pays"]}</p>
                 </div>
-                <h2>{$row["prix_par_nuit"]}€<span>/nuit</span></h2>
+                <h4>{$row["prix_par_nuit"]}€<span>/nuit</span></h2>
         </div>
         </a>";
                     }
@@ -261,7 +261,7 @@ $enumValues = $matches[1];
                 <?php
             } else {
                 echo "<div class='errorDes'>
-            <h3 class='msgErreur'>Aucune destination ne correspond à votre recherche. 😥</h3>
+            <h4 class='msgErreur'>Aucune destination ne correspond à votre recherche. 😥</h4>
         </div>";
             }
             ?>

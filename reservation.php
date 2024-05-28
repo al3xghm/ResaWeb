@@ -42,38 +42,38 @@ $current_date = date('Y-m-d');
                         <input type="hidden" name="logementID" id="logementID" value="<?php echo $_GET['id']; ?>">
                         <div class="twoinput">
                             <div class="input-form">
-                                <label for="nom" id="NomInfo">Nom <span style="color:red">*</span></label>
+                                <label for="nom" id="NomInfo">Nom <span class="red">*</span></label>
                                 <input required type="text" name="nom" id="nom" placeholder="Entrez votre nom" aria-describedby="NomInfo">
                             </div>
                             <div class="input-form">
-                                <label for="prenom" id="PrenomInfo">Prénom <span style="color:red">*</span></label>
+                                <label for="prenom" id="PrenomInfo">Prénom <span class="red">*</span></label>
                                 <input required type="text" name="prenom" id="prenom" placeholder="Entrez votre prénom" aria-describedby="PrenomInfo">
                             </div>
                         </div>
                         <div class="input-form">
-                            <label for="email" id="EmailInfo">Email <span style="color:red">*</span></label>
+                            <label for="email" id="EmailInfo">Email <span class="red">*</span></label>
                             <input required type="email" name="email" id="email" placeholder="exemple@mail.fr" aria-describedby="EmailInfo">
                         </div>
                         <div class="input-form">
-                            <label for="tel" id="TelInfo">Téléphone <span style="color:red">*</span></label>
+                            <label for="tel" id="TelInfo">Téléphone <span class="red">*</span></label>
                             <input required type="tel" maxlength="10" name="tel" id="tel" placeholder="0011223344" pattern="[0-9]{10}" aria-describedby="TelInfo">
                         </div>
                         <div class="twoinput">
                             <div class="input-form">
-                                <label for="date_debut" id="DateDebutInfo">Date d'arrivée <span style="color:red">*</span></label>
+                                <label for="date_debut" id="DateDebutInfo">Date d'arrivée <span class="red">*</span></label>
                                 <input required type="date" name="date_debut" id="date_debut" placeholder="Date d'arrivée" min="<?php echo $current_date; ?>" aria-describedby="DateDebutInfo">
                             </div>
                             <div class="input-form">
-                                <label for="date_fin" id="DateFinInfo">Date de départ <span style="color:red">*</span></label>
+                                <label for="date_fin" id="DateFinInfo">Date de départ <span class="red">*</span></label>
                                 <input required type="date" name="date_fin" id="date_fin" placeholder="Date de départ" aria-describedby="DateFinInfo">
                             </div>
                         </div>
                         <div class="input-form">
-                            <label for="nb_personnes" id="NbPersonnesInfo">Nombre de personnes <span style="color:red">*</span></label>
+                            <label for="nb_personnes" id="NbPersonnesInfo">Nombre de personnes <span class="red">*</span></label>
                             <input required type="number" min="1" max="<?php echo htmlspecialchars($logement['capacite']); ?>" name="nb_personnes" id="nb_personnes" placeholder="Nombre de personnes" aria-describedby="NbPersonnesInfo">
                         </div>
                         <div class="warning">
-                            <p>Les champs suivis d'un <span style="color:red">*</span> sont obligatoires.</p>
+                            <p>Les champs suivis d'un <span class="red">*</span> sont obligatoires.</p>
                         </div>
                         <input type="button" id="submitBtn" value="Réserver">
                     </div>
@@ -81,7 +81,7 @@ $current_date = date('Y-m-d');
                         <div class="apercu-reservation">
                             <h2>🧾 Aperçu de votre réservation</h2>
                             <br>
-                            <?php foreach ($resultat as $logement) { echo "<div class='wrapperinfo'><div><h4>{$logement['nom_logement']}</h4>"; echo "<h5>{$logement['nom_destination']}, {$logement['pays']}</h5>"; echo "<h5>Capacité : {$logement['capacite']}</h5></div>"; echo "<h2><strong>{$logement['prix_par_nuit']}€</strong><span>/nuit</span></h2></div>"; } ?>
+                            <?php foreach ($resultat as $logement) { echo "<div class='wrapperinfo'><div class='wrapperstart'><p><strong>{$logement['nom_logement']}</strong></p>"; echo "<p>{$logement['nom_destination']}, {$logement['pays']}</p>"; echo "<p>Capacité : {$logement['capacite']}</p></div>"; echo "<h3>{$logement['prix_par_nuit']}€<span>/nuit</span></h3></div>"; } ?>
                         </div>
                         <div class="imgoptions">
                             <?php foreach ($resultat as $row) { $images = explode('+', $row['image']); $image_url = $images[0]; echo "<div class='apercu-img' style='background-image: url(\"./img/logements/{$image_url}\");'></div>"; } ?>
@@ -89,63 +89,63 @@ $current_date = date('Y-m-d');
                                 <?php if ($row["animaux"]): ?>
                                     <div class='loca-options-info'>
                                         <img src='img/paw.svg' alt='Icone animaux de compagnie'>
-                                        <h5>Animaux</h5>
+                                        <h3>Animaux</h3>
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($row["vue"]): ?>
                                     <div class='loca-options-info'>
                                         <img src='img/eye.svg' alt='Icone vue'>
-                                        <h5>Vue</h5>
+                                        <h3>Vue</h3>
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($row["cuisine"]): ?>
                                     <div class='loca-options-info'>
                                         <img src='img/kitchen.svg' alt='Icone cuisine'>
-                                        <h5>Cuisine</h5>
+                                        <h3>Cuisine</h3>
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($row["wifi"]): ?>
                                     <div class='loca-options-info'>
                                         <img src='img/wifi.svg' alt='Icone wifi'>
-                                        <h5>Wifi</h5>
+                                        <h3>Wifi</h3>
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($row["montagne"]): ?>
                                     <div class='loca-options-info'>
                                         <img src='img/mountain.svg' alt='Icone montagne'>
-                                        <h5>Montagne</h5>
+                                        <h3>Montagne</h3>
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($row["baignoire"]): ?>
                                     <div class='loca-options-info'>
                                         <img src='img/bath.svg' alt='Icone baignoire'>
-                                        <h5>Baignoire</h5>
+                                        <h3>Baignoire</h3>
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($row["lacs"]): ?>
                                     <div class='loca-options-info'>
                                         <img src='img/water.svg' alt='Icone lacs et rivières'>
-                                        <h5>Lacs et rivières</h5>
+                                        <h3>Lacs et rivières</h3>
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($row["mer"]): ?>
                                     <div class='loca-options-info'>
                                         <img src='img/mer.svg' alt='Icone mer'>
-                                        <h5>Au bord de la mer</h5>
+                                        <h3>Au bord de la mer</h3>
                                     </div>
                                 <?php endif; ?>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div id="recapitulatif" style="display:none; margin-top: 2rem;">
+                <div id="recapitulatif">
                     <div class="apercu">
                         <div class="apercu-reservation">
-                            <h2>🧾 Aperçu de votre réservation</h2>
+                            <h3>🧾 Aperçu de votre réservation</h3>
                             <div class="logement-res">
                                 <?php foreach ($resultat as $logement) { echo "<h4>{$logement['nom_logement']}</h4>"; echo "<h5>{$logement['nom_destination']}, {$logement['pays']}</h5>"; } ?>
                             </div>
-                            <h2 id="prixParNuit" style="display:none;"><?php echo $logement['prix_par_nuit']; ?></h2>
+                            <h5 id="prixParNuit"><?php echo $logement['prix_par_nuit']; ?></h5>
                             <p><strong>Nom:</strong> <span id="recapNom"></span></p>
                             <p><strong>Prénom:</strong> <span id="recapPrenom"></span></p>
                             <p><strong>Email:</strong> <span id="recapEmail"></span></p>
@@ -153,7 +153,7 @@ $current_date = date('Y-m-d');
                             <p><strong>Date d'arrivée:</strong> <span id="recapDateDebut"></span></p>
                             <p><strong>Date de départ:</strong> <span id="recapDateFin"></span></p>
                             <p><strong>Pour <span id="recapNbPersonnes"></span> personne(s)</strong></p>
-                            <h2>Prix total: <span id="recapTotal"></span></h2>
+                            <h6>Prix total: <span id="recapTotal"></span></h6>
                             <div class="btn-reservation">
                                 <input type="button" onclick="editReservation()" value="Retour à la réservation">
                                 <input type="submit" value="Confirmer la réservation">

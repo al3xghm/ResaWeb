@@ -21,7 +21,7 @@
         <div class="contact-header">
             <div class="contact-left">
                 <div class="faq">
-                    <h3>Questions fréquentes</h3>
+                    <h2>Questions fréquentes</h2>
                     <div class="faq-item">
                         <input type="checkbox" id="faq1">
                         <label for="faq1" class="faq-item-title"><span class="icon"></span>Quels types de logements
@@ -87,44 +87,42 @@
                 <div class="contact-center">
                     <form action="confirmation-support.php" method="POST">
                         <div class="contact-body">
-                            <h3>Rien trouvé ? Contactez-nous 📩</h3>
+                            <h2>Rien trouvé ? Contactez-nous 📩</h2>
                             <div class="contact-form">
                                 <div class="twoinput">
                                     <div class="input-form">
                                         <label for="nom" id="NomContactInfo">Nom <span
-                                                class="warning">*</span></label>
+                                                class="red">*</span></label>
                                         <input required type="text" name="nom" id="nom" placeholder="Entrez votre nom"
                                             aria-describedby="NomContactInfo">
                                     </div>
                                     <div class="input-form">
                                         <label for="prenom" id="PrenomContactInfo">Prénom <span
-                                                style="color:red">*</span></label>
+                                                class="red">*</span></label>
                                         <input required type="text" name="prenom" id="prenom"
                                             placeholder="Entrez votre prénom" aria-describedby="PrenomContactInfo">
                                     </div>
                                 </div>
                                 <div class="input-form">
                                     <label for="email" id="EmailContactInfo">Email <span
-                                            style="color:red">*</span></label>
+                                            class="red">*</span></label>
                                     <input type="email" name="email" id="email" placeholder="exemple@mail.fr" required
                                         aria-describedby="EmailContactInfo">
-                                    <!-- Ajout d'une indication sur le format de l'email -->
                                 </div>
                                 <div class="input-form">
                                     <label for="tel" id="TelContactInfo">Téléphone <span
-                                            style="color:red">*</span></label>
+                                            class="red">*</span></label>
                                     <input type="tel" maxlength="10" name="tel" id="tel" placeholder="0011223344"
                                         required aria-describedby="TelContactInfo">
-                                    <!-- Ajout d'une indication sur le format du téléphone -->
                                 </div>
                                 <div class="input-form">
                                     <label for="message" id="MessageInfo">Message <span
-                                            style="color:red">*</span></label>
+                                            class="red">*</span></label>
                                     <textarea name="message" id="message"
                                         placeholder="Entrez votre message (max. 500 caractères)" maxlength="500"
                                         required aria-describedby="MessageInfo"></textarea>
                                 </div>
-                                <p><span style="color:red">*</span> Champs obligatoires</p>
+                                <p><span class="red">*</span> Champs obligatoires</p>
                                 <input type="submit" value="Envoyer">
                             </div>
                         </div>

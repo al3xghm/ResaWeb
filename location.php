@@ -36,7 +36,6 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     <?php include ('includes/navigation.php'); ?>
 
     <div class="locationpage">
-
         <?php foreach ($resultat as $row) {
             $images = explode('+', $row["image"]);
             ?>
@@ -50,15 +49,15 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                 </h1>
                 <div class='loca-location'>
                     <img src='img/location.svg' alt='location'>
-                    <h5>
+                    <h2>
                         <?php echo $row["nom_destination"] . ", " . $row["pays"]; ?>
-                    </h5>
+                    </h2>
                 </div>
                 <div class='loca-location'>
                     <img src='img/person.svg' alt='person'>
-                <h5>
+                <h2>
                 <?php echo "Jusqu'à {$row['capacite']} personnes"; ?>
-                            </h5>
+                            </h2>
                             </div>
                 <div class='loca-price'>
                     <h3>
@@ -69,49 +68,49 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                     <?php if ($row["animaux"]): ?>
                         <div class='loca-options-info'>
                             <img src='img/paw.svg' alt='Icone animaux de compagnie'>
-                            <h5>Animaux</h5>
+                            <h4>Animaux</h>
                         </div>
                     <?php endif; ?>
                     <?php if ($row["vue"]): ?>
                         <div class='loca-options-info'>
                             <img src='img/eye.svg' alt='Icone vue'>
-                            <h5>Vue</h5>
+                            <h4>Vue</h4>
                         </div>
                     <?php endif; ?>
                     <?php if ($row["cuisine"]): ?>
                         <div class='loca-options-info'>
                             <img src='img/kitchen.svg' alt='Icone cuisine'>
-                            <h5>Cuisine</h5>
+                            <h4>Cuisine</h4>
                         </div>
                     <?php endif; ?>
                     <?php if ($row["wifi"]): ?>
                         <div class='loca-options-info'>
                             <img src='img/wifi.svg' alt='Icone wifi'>
-                            <h5>Wifi</h5>
+                            <h4>Wifi</h4>
                         </div>
                     <?php endif; ?>
                     <?php if ($row["montagne"]): ?>
                         <div class='loca-options-info'>
                             <img src='img/mountain.svg' alt='Icone montagne'>
-                            <h5>Montagne</h5>
+                            <h4>Montagne</h4>
                         </div>
                     <?php endif; ?>
                     <?php if ($row["baignoire"]): ?>
                         <div class='loca-options-info'>
                             <img src='img/bath.svg' alt='Icone baignoire'>
-                            <h5>Baignoire</h5>
+                            <h4>Baignoire</h4>
                         </div>
                     <?php endif; ?>
                     <?php if ($row["lacs"]): ?>
                         <div class='loca-options-info'>
                             <img src='img/water.svg' alt='Icone lacs et rivières'>
-                            <h5>Lacs et rivières</h5>
+                            <h4>Lacs et rivières</h4>
                         </div>
                     <?php endif; ?>
                     <?php if ($row["mer"]): ?>
                         <div class='loca-options-info'>
                             <img src='img/mer.svg' alt='Icone mer'>
-                            <h5>Au bord de la mer</h5>
+                            <h4>Au bord de la mer</h4>
                         </div>
                     <?php endif; ?>
                 </div>

@@ -2,7 +2,7 @@
     <nav class="navbar">
         <a class="navbarlogo" href="index.php">
             <img src="img/logo.webp" height="25px" alt="Logo" title="Logo">
-            <h5>WeRent</h5>
+            <h1>WeRent</h1>
         </a>
         <div class="searchbar">
             <!-- searchbar input -->
@@ -13,7 +13,7 @@
             </form>
         </div>
         <a href="destinations.php" title="Voir toutes les destinations">
-            <h5>Destinations</h5>
+            <h1>Destinations</h1>
         </a>
     </nav>
     
