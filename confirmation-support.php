@@ -77,25 +77,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
     $headers .= "From: alexandre.ghmir@edu.univ-eiffel.fr" . "\r\n"; // Utiliser une adresse d'expéditeur valide du domaine
 
-    // Envoi de l'email à l'admin
-    if (mail($admin_email, $subject_admin, $message_admin, $headers)) {
-        echo "L'email a été envoyé à l'administrateur.";
-    } else {
-        echo "Échec de l'envoi de l'email à l'administrateur.";
-    }
-
     // En-têtes pour l'email de confirmation à l'utilisateur
     $headers_user = "MIME-Version: 1.0" . "\r\n";
     $headers_user .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers_user .= "From: alexandre.ghmir@edu.univ-eiffel.fr" . "\r\n"; // Utiliser une adresse d'expéditeur valide du domaine
+    $headers_user .= "From: alexandre.ghmir@edu.univ-eiffel.fr" . "\r\n";
+    
+    // Envoi de l'email à l'administrateur
+    mail($admin_email, $subject_admin, $message_admin, $headers);
 
     // Envoi de l'email de confirmation à l'utilisateur
-    if (mail($email, $subject_user, $message_user, $headers_user)) {
-        echo "L'email de confirmation a été envoyé à l'utilisateur.";
-    } else {
-        echo "Échec de l'envoi de l'email de confirmation à l'utilisateur.";
+    mail($email, $subject_user, $message_user, $headers_user);
     }
-}
 ?>
 
   <div class="basic-header">
