@@ -16,11 +16,11 @@
     <?php
     include ('includes/navigation.php');
     ?>
-    <div class="error-header">
-        <div class="error-container">
+    <div class="basic-header">
+        <div class="basic-container">
             <img src="img/404.png" alt="Logo erreur">
             <h1>Oupssss, erreur 404</h1>
-            <p>Tu t'es perdu ? arrête.</p>
+            <p>Désolé, la page que vous cherchez n'existe pas. Elle a peut-être été supprimée ou déplacée.</p>
             <a href="index.php"
             title="Retour à la page d'accueil"
             >Retour à la page d'accueil</a>

@@ -116,17 +116,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <img src='https://ghmir.butmmi.o2switch.site/resaweb/img/logoconfirm.png' alt='WeRent Logo' style='width: 100px;'>
   <h1>Récapitulatif de Réservation</h1>
   <p>Une nouvelle réservation a été effectuée par :</p>
-  <ul>
-    <li>Nom: " . htmlspecialchars($nom) . "</li>
-    <li>Prénom: " . htmlspecialchars($prenom) . "</li>
-    <li>Email: " . htmlspecialchars($email) . "</li>
-    <li>Téléphone: " . htmlspecialchars($tel) . "</li>
-    <li>Date de début: " . htmlspecialchars($formattedDateDebut) . "</li>
-    <li>Date de fin: " . htmlspecialchars($formattedDateFin) . "</li>
-    <li>Nombre de personnes: " . intval($nb_personnes) . "</li>
-    <li>Logement: " . htmlspecialchars($nom_logement) . "</li>
-    <li>Total: " . htmlspecialchars($total) . " €</li>
-  </ul>
+    <p><b>Nom:</b> " . htmlspecialchars($nom) . "</p>
+    <p><b>Prénom:</b> " . htmlspecialchars($prenom) . "</p>
+    <p><b>Email:</b> " . htmlspecialchars($email) . "</p>
+    <p><b>Téléphone:</b> " . htmlspecialchars($tel) . "</p>
+    <p><b>Date de début:</b> " . htmlspecialchars($formattedDateDebut) . "</p>
+    <p><b>Date de fin:</b> " . htmlspecialchars($formattedDateFin) . "</p>
+    <p><b>Nombre de personnes:</b> " . htmlspecialchars($nb_personnes) . "</p>
+    <p><b>Logement:</b> " . htmlspecialchars($nom_logement) . "</p>
+    <p><b>Prix total:</b> " . htmlspecialchars($total) . " €</p>
   </div>
 </body>
 </html>";
@@ -158,8 +156,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <?php
   include ('includes/navigation.php');
   ?>
-  <div class="error-header">
-    <div class="error-container">
+  <div class="basic-header">
+    <div class="basic-container">
       <img src="img/confirmation.png" alt="Logo confirmation">
       <h1>Merci d'avoir passé commande !</h1>
       <p>

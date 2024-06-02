@@ -1277,7 +1277,7 @@ button {
     cursor: pointer;
 }
 
-.error-header {
+.basic-header {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1287,7 +1287,7 @@ button {
     width: 90%;
 }
 
-.error-container {
+.basic-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1298,16 +1298,16 @@ button {
 }
 
 
-.error-container img {
+.basic-container img {
     width: 150px;
     height: 150px;
 }
 
-.error-container p {
+.basic-container p {
     font-size: 1.5rem;
 }
 
-.error-container a {
+.basic-container a {
     color: black;
     font-weight: 700;
 }
@@ -1759,7 +1759,6 @@ button[type="submit"]:hover {
     }
 
     .chiffres {
-        justify-content: space-between;
         gap: 0.5rem;
     }
 
